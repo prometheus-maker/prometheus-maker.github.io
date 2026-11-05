@@ -8,6 +8,8 @@
 
 <p><b>Short version.</b> On 45 pages from 8 sites, converting the whole page (markitdown, html2text) leaves about <b>29%</b> of the text as menus, footers and banners that repeat on every page. Readability removes the boilerplate on most sites but keeps only <b>a third</b> of the main content. Main-content extraction (trafilatura, plus a fallback described below) keeps <b>3%</b> boilerplate and <b>89%</b> of the main content, with 2.4 times less text than a whole-page conversion.</p>
 
+<p><b>Update:</b> the fallback below made news articles worse on a 990-page benchmark; it now skips pages marked as articles. <a href="main-fallback-benchmark.html">Details</a>.</p>
+
 <h2>Results</h2>
 <table>
 <tr><th>Approach</th><th>Boilerplate</th><th>Main-content words kept</th><th>Avg. characters per page</th></tr>
