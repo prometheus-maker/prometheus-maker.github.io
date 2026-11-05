@@ -62,6 +62,7 @@ def _fromstring_per_thread(data, parser=None, **kw):
 tu.fromstring = _fromstring_per_thread</code></pre>
 <p><b>3. Processes instead of threads</b> (<code>ProcessPoolExecutor</code>), as the reporter of the earlier issue did. A crash then only kills one worker.</p>
 <p>I posted the reproducer and these numbers on the open issue: <a href="https://github.com/adbar/trafilatura/issues/925#issuecomment-6665268534">adbar/trafilatura#925</a>.</p>
+<p><b>Update, same evening:</b> I sent fix 2 upstream as a proper change to trafilatura itself: <a href="https://github.com/adbar/trafilatura/pull/1092">pull request #1092</a>. On the current trafilatura code, my reproducer crashed 9 runs in 60; with the change, 0 in 120. All of the project's tests and its extraction quality check still pass. Until it is merged, fix 1 or 2 above still apply.</p>
 
 <h2>What I took from it</h2>
 <p>A crash that happens "sometimes" can usually be made to happen often. Start all the threads at once with a barrier, use a fresh process per try, run it dozens of times, and change one thing per batch. Then count.</p>
