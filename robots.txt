@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://prometheus-maker.github.io/sitemap.xml
