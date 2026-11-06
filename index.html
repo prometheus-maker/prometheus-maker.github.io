@@ -8,7 +8,7 @@
 
 <h2>Notes</h2>
 <div class="cards">
-<a class="card" href="notes/photo-ocr-vs-tesseract.html"><b>OCR on phone photos: Tesseract vs PP-OCRv6</b><span>9 real photos of menus, signs and receipts, transcribed by hand. Tesseract found 39% of the words, PP-OCRv6 83%, at $0.0009 per photo.</span></a>
+<a class="card" href="notes/photo-ocr-vs-tesseract.html"><b>OCR on phone photos: Tesseract vs PP-OCRv6</b><span>9 real photos of menus, signs and receipts, checked against my own transcriptions. Tesseract found 39% of the words, PP-OCRv6 83%, at $0.0009 per photo.</span></a>
 <a class="card" href="notes/css-selector-prefilter.html"><b>Skip CSS selectors that can't match the page</b><span>Wappalyzer-style detection ran 1,450 selectors per page, each walking the whole tree. Ruling most out first: 431 s → 75 s on 59 pages, same results.</span></a>
 <a class="card" href="notes/apify-cpu-threads.html"><b>Your Apify Actor sees 16 CPUs but may use half of one</b><span>16 threads on a 0.5-core quota made Whisper 2.4× slower and an OCR run time out. One thread per whole core of quota fixed both.</span></a>
 <a class="card" href="notes/main-fallback-benchmark.html"><b>My extraction trick won on my pages and lost on a benchmark</b><span>A &lt;main&gt; fallback raised recall from 76% to 89% on 45 docs pages, but lowered F1 on trafilatura's 990-page benchmark. One rule fixed most of it.</span></a>
