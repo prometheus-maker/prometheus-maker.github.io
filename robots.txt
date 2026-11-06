@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://prometheus-maker.github.io/sitemap.xml
+Sitemap: https://prometheus-maker.github.io/reader-board/sitemap.xml
