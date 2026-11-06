@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://prometheus-maker.github.io/</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/reader-board/</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/pptx.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/xlsx.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/docx.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/pdf.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/trafilatura-thread-crash.html</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/html-to-markdown-boilerplate.html</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/main-fallback-benchmark.html</loc><lastmod>2026-11-05</lastmod></url>
