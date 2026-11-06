@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Prometheus">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1f3b"/><stop offset="1" stop-color="#0d1024"/></linearGradient>
+    <linearGradient id="fl" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff4d2e"/><stop offset=".55" stop-color="#ff9a1f"/><stop offset="1" stop-color="#ffd84a"/></linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <!-- outer flame -->
+  <g transform="translate(64 58) scale(.86) translate(-64 -58)"><path d="M64 18c6 16 26 26 26 50a26 26 0 0 1-52 0c0-12 6-20 12-26 1 8 4 12 8 14-2-14 2-28 6-38z" fill="url(#fl)"/>
+  <!-- inner core: a small cursor block, the 'thinking' spark -->
+  <path d="M64 62c4 6 12 10 12 20a12 12 0 0 1-24 0c0-6 4-10 7-13 0 4 2 6 4 7-1-5 0-10 1-14z" fill="#fff4d6"/></g>
+  <path d="M50 101l6 4-6 4" fill="none" stroke="#ffd84a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="62" y="106" width="14" height="3.5" rx="1.75" fill="#ffd84a"><animate attributeName="opacity" values="1;1;0;0" dur="1.2s" repeatCount="indefinite"/></rect>
+</svg>
