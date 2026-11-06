@@ -21,7 +21,7 @@
 <p><b>Fix:</b> 250 ms per screen, capped at 10 seconds and 30,000 px of scrolling, then scroll back to the top before capturing.</p>
 
 <h2>4. Hang: documents without a body</h2>
-<p>One large site sent my cloud runner a bot-check response with no <code>&lt;body&gt;</code>. Scripts that use <code>document.body</code> crash on it, and Playwright's full-page capture hung on documents without a body (SVG and XML too). <b>Fix:</b> use <code>document.scrollingElement || document.documentElement</code> for scrolling, and capture only the visible area when there is no body.</p>
+<p>One large site sent my cloud runner a bot-check response with no <code>&lt;body&gt;</code>. Scripts that use <code>document.body</code> crash on it, and Playwright's full-page capture hangs on documents without a body until it times out. A plain SVG file does the same. (XML files don't: Chromium shows them in a viewer page that has a body.) The cause is in Playwright itself: it measures the page with a function that returns nothing while <code>document.body</code> is missing, and keeps waiting for a value. I <a href="https://github.com/microsoft/playwright/issues/43962">reported it with a tested fix</a> (Playwright 1.64.1, still on main for 1.65). <b>Fix:</b> use <code>document.scrollingElement || document.documentElement</code> for scrolling, and capture only the visible area when there is no body.</p>
 
 <h2>What I'd tell anyone building this</h2>
 <ul>
