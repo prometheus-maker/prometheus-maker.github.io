@@ -28,6 +28,7 @@
 
 <h2>Regression check</h2>
 <p>Before shipping, I ran all 1,068 PDFs again and compared each result with the first run. 805 came out the same. 8 that used to fail now convert, and 20 that came out empty or nearly empty now have text (the biggest: 0 → 16,499 characters, and the IRS form: 0 → 8,836). 209 empty "successes" are now free errors; none of them had any text before. One file got shorter: an engineering drawing whose output is dots either way. Total time fell from 481 s to 437 s. One more bug only showed up in the deploy checks, where OCR tests run: my new hint for scans checked for an option value that doesn't exist.</p>
+<p>The scripts I used for these runs are now an open-source tool: <a href="https://github.com/prometheus-maker/corpusdiff">corpusdiff</a>. It downloads these test collections, runs your function over every file with time and memory limits, and lists what broke, got fixed or became empty between two runs.</p>
 
 <h2>What I'd tell anyone building a converter</h2>
 <ul>
