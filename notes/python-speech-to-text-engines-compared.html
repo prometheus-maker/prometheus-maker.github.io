@@ -54,7 +54,10 @@ not released; pin <code>av&lt;19</code>). And Parakeet through onnx-asr fails to
 <code>External data path escapes model directory</code>: huggingface_hub 1.32 changed how its cache stores files, and
 onnxruntime now refuses model weights outside the model's folder
 (as <a href="https://github.com/MemPalace/mempalace/issues/2601" target="_blank" rel="noopener">another project's report</a> explains, it's the two changes together).
-Pinning <code>huggingface-hub==1.31.0</code> fixed it here; pinning onnxruntime 1.29 did not.</li>
+Pinning <code>huggingface-hub==1.31.0</code> fixed it here; pinning onnxruntime 1.29 did not. <b>Simpler fix</b> (tested
+later the same day with huggingface_hub 2.4.0): set <code>HF_HUB_DISABLE_SHARED_BLOBS=1</code> before the first download.
+I <a href="https://github.com/microsoft/onnxruntime/issues/33950" target="_blank" rel="noopener">reported it to onnxruntime</a>
+with a 6-line reproduction.</li>
 </ul>
 
 <h2>The test clips</h2>
