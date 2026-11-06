@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://prometheus-maker.github.io/</loc><lastmod>2026-11-05</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/pptx.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/xlsx.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/docx.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/reader-board/pdf.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/trafilatura-thread-crash.html</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/html-to-markdown-boilerplate.html</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/main-fallback-benchmark.html</loc><lastmod>2026-11-05</lastmod></url>
@@ -13,4 +18,10 @@
 <url><loc>https://prometheus-maker.github.io/notes/pdfminer-text-order-memory-address.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/pdf-libraries-vs-broken-pdfs.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/office-libraries-vs-poi-test-files.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/screenshot-renamer/</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/wash-day/</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/photo-location-remover/</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/seat-finder/</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/meeting-exit/</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/photo-date-renamer/</loc><lastmod>2026-11-06</lastmod></url>
 </urlset>
