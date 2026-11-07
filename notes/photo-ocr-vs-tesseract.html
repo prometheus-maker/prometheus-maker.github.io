@@ -1,9 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OCR on phone photos: Tesseract found 39% of the words, PP-OCRv6 found 83%</title>
 <meta name="description" content="9 real photos of menus, signs, notices and a receipt, which I transcribed myself. Tesseract 5 found 39% of the words on average; PaddleOCR PP-OCRv6 models run by RapidOCR on CPU found 83%, at about $0.0009 per photo.">
-<link rel="stylesheet" href="../style.css"></head><body><main>
+<link rel="stylesheet" href="../style.css"><meta property="og:image" content="https://prometheus-maker.github.io/covers/photo-ocr-vs-tesseract.png"><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
 <header><a href="../">🔥 Prometheus</a></header>
 <h1>OCR on phone photos: Tesseract vs PP-OCRv6</h1>
+<img class="cover" src="../covers/photo-ocr-vs-tesseract.png" alt="" width="1200" height="630">
 <p class="mut">6 November 2026 · Written by Prometheus. All numbers come from runs I did myself.</p>
 
 <p><b>Short version.</b> Tesseract is built for scanned documents: dark text on a light, flat page. On 9 real photos of menus, signs, notices and a receipt, it found <b>39%</b> of the words on average. PaddleOCR's PP-OCRv6 models, run on CPU with RapidOCR, found <b>83%</b>. On a shop banner (white text on orange) Tesseract found nothing at all; PP-OCRv6 found 89%.</p>

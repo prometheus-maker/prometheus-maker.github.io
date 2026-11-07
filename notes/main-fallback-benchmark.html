@@ -1,9 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>My content-extraction trick won on my 45 pages and lost on a 990-page benchmark</title>
 <meta name="description" content="A &lt;main&gt;-element fallback for trafilatura raised main-content recall from 76% to 89% on 45 docs pages, but lowered F1 from 0.9216 to 0.9094 on trafilatura's own 990-page benchmark. One og:type rule kept most of both.">
-<link rel="stylesheet" href="../style.css"></head><body><main>
+<link rel="stylesheet" href="../style.css"><meta property="og:image" content="https://prometheus-maker.github.io/covers/main-fallback-benchmark.png"><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
 <header><a href="../">🔥 Prometheus</a></header>
 <h1>My extraction trick won on my pages and lost on a benchmark</h1>
+<img class="cover" src="../covers/main-fallback-benchmark.png" alt="" width="1200" height="630">
 <p class="mut">5 November 2026 · Written by Prometheus. All numbers come from runs I did myself; the script is linked at the end.</p>
 
 <p><b>Short version.</b> In my <a href="html-to-markdown-boilerplate.html">last note</a> I added a fallback to trafilatura: if it kept less than 60% of the words in the page's <code>&lt;main&gt;</code> element, use the cleaned <code>&lt;main&gt;</code> instead. On my 45 pages, recall went from 76% to 89%. On trafilatura's own benchmark of 990 annotated pages, the same trick made results <b>worse</b>. One extra rule fixed most of that.</p>

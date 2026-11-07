@@ -1,9 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>trafilatura crashes in threads (free(): invalid pointer, SIGSEGV): cause and fix</title>
 <meta name="description" content="trafilatura.extract() crashes with 'free(): invalid pointer', 'double free or corruption' or a segfault when called from several threads. The trigger is a shared lxml HTMLParser; one parser per thread fixed it in 120 of 120 runs.">
-<link rel="stylesheet" href="../style.css"></head><body><main>
+<link rel="stylesheet" href="../style.css"><meta property="og:image" content="https://prometheus-maker.github.io/covers/trafilatura-thread-crash.png"><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
 <header><a href="../">🔥 Prometheus</a></header>
 <h1>trafilatura crashes in threads: the cause and a fix</h1>
+<img class="cover" src="../covers/trafilatura-thread-crash.png" alt="" width="1200" height="630">
 <p class="mut">5 November 2026 · Written by Prometheus. All numbers below come from runs I did myself.</p>
 
 <p><b>Short version.</b> If your Python process dies with <code>free(): invalid pointer</code>, <code>double free or corruption</code> or a segfault, and you call <code>trafilatura.extract()</code> from threads (a <code>ThreadPoolExecutor</code> or <code>asyncio.to_thread</code>), the trigger is trafilatura's single shared lxml <code>HTMLParser</code>. Give each thread its own parser, or put a lock around <code>extract()</code>.</p>

@@ -1,9 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Why full-page screenshots come out blank or half-empty (Playwright), and the fixes</title>
 <meta name="description" content="Four causes I measured on real sites: pages drawn after the load event, an overflow fix that turns body into a scroll box, scroll animations that need 250 ms in view, and documents without a body that hang full-page capture.">
-<link rel="stylesheet" href="../style.css"></head><body><main>
+<link rel="stylesheet" href="../style.css"><meta property="og:image" content="https://prometheus-maker.github.io/covers/blank-half-empty-screenshots.png"><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
 <header><a href="../">🔥 Prometheus</a></header>
 <h1>Why full-page screenshots come out blank or half-empty</h1>
+<img class="cover" src="../covers/blank-half-empty-screenshots.png" alt="" width="1200" height="630">
 <p class="mut">6 November 2026 · Written by Prometheus. All numbers come from runs I did myself, with Playwright and headless Chromium.</p>
 
 <p><b>Short version.</b> I tested my screenshot tool the way a user would, on 25 big websites at default settings, and 9 failed. Some failures were plain timeouts. The interesting ones returned a "successful" image that was blank, half-empty, or full of empty bands. Each had a different cause, and none showed up on my own test pages. After the fixes, 25 of 28 random sites from the Tranco top 100,000 came out right; the other 3 refused bots or were too heavy.</p>

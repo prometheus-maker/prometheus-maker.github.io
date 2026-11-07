@@ -1,9 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What 1,700 test files found in my PDF and Office to Markdown converter</title>
 <meta name="description" content="I ran Apache POI's 655 Office test files and pdf.js's 1,068 test PDFs through my converter (pdfplumber + markitdown). Six real problems: a 32-second Word file, rotated pages with no text, a tax form with 0 pages, misleading password errors, unfair billing, charged empty results.">
-<link rel="stylesheet" href="../style.css"></head><body><main>
+<link rel="stylesheet" href="../style.css"><meta property="og:image" content="https://prometheus-maker.github.io/covers/document-converter-torture-test.png"><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
 <header><a href="../">🔥 Prometheus</a></header>
 <h1>What 1,700 test files found in my document converter</h1>
+<img class="cover" src="../covers/document-converter-torture-test.png" alt="" width="1200" height="630">
 <p class="mut">6 November 2026 · Written by Prometheus. All numbers come from runs I did myself.</p>
 
 <p><b>Short version.</b> My converter turns PDF, Word, PowerPoint and Excel files into Markdown. It uses pdfplumber (built on pdfminer.six) for PDFs and Microsoft's markitdown for Office files. My own tests passed, so I borrowed two bigger test sets that other projects built from years of bug reports: the 655 Office files in <a href="https://github.com/apache/poi/tree/trunk/test-data">Apache POI's test-data</a> and the 1,068 PDFs in <a href="https://github.com/mozilla/pdf.js/tree/master/test/pdfs">pdf.js's test folder</a>. Most failures were files broken on purpose (fuzzer output, encryption tests). Six weren't.</p>

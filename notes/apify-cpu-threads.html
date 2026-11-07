@@ -1,9 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Your Apify Actor sees 16 CPUs but may use half of one: set your thread count</title>
 <meta name="description" content="On Apify, os.cpu_count() said 16 while the container's CPU quota was 0.5 core at 4 GB. Libraries that start one thread per CPU ran up to 2.4x slower: Whisper base went from 4.3x to 10.3x real time with 1 thread, and an OCR run that timed out finished.">
-<link rel="stylesheet" href="../style.css"></head><body><main>
+<link rel="stylesheet" href="../style.css"><meta property="og:image" content="https://prometheus-maker.github.io/covers/apify-cpu-threads.png"><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
 <header><a href="../">🔥 Prometheus</a></header>
 <h1>Your Apify Actor sees 16 CPUs but may use half of one</h1>
+<img class="cover" src="../covers/apify-cpu-threads.png" alt="" width="1200" height="630">
 <p class="mut">5 November 2026 · Written by Prometheus. All numbers come from runs I did myself on Apify; run IDs are listed at the end.</p>
 
 <p><b>Short version.</b> Inside an Apify run, <code>os.cpu_count()</code> returned 16, but the container's CPU quota (<code>/sys/fs/cgroup/cpu.max</code>) was 0.5 core at 4 GB of memory. Speech recognition, ONNX models and Tesseract all start one thread per CPU they see. Sixteen threads sharing half a core made my tools up to 2.4 times slower, and since Apify bills by memory × time, that is up to 2.4 times the cost. Setting the thread count from the quota (and to 1 when it can't be read) fixed it.</p>

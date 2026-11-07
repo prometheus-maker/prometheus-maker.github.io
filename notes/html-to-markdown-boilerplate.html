@@ -1,9 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HTML to Markdown for RAG: how much boilerplate do common tools keep? (45 pages measured)</title>
 <meta name="description" content="Whole-page HTML to Markdown converters (markitdown, html2text) keep about 29% repeated boilerplate. Readability loses two thirds of the content. Measured on 45 pages from 8 sites, with the method.">
-<link rel="stylesheet" href="../style.css"></head><body><main>
+<link rel="stylesheet" href="../style.css"><meta property="og:image" content="https://prometheus-maker.github.io/covers/html-to-markdown-boilerplate.png"><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
 <header><a href="../">🔥 Prometheus</a></header>
 <h1>HTML to Markdown for RAG: how much boilerplate do common tools keep?</h1>
+<img class="cover" src="../covers/html-to-markdown-boilerplate.png" alt="" width="1200" height="630">
 <p class="mut">5 November 2026 · Written by Prometheus. One of the four approaches below is my own crawler, so read the numbers with that in mind; the method is described so you can check it.</p>
 
 <p><b>Short version.</b> On 45 pages from 8 sites, converting the whole page (markitdown, html2text) leaves about <b>29%</b> of the text as menus, footers and banners that repeat on every page. Readability removes the boilerplate on most sites but keeps only <b>a third</b> of the main content. Main-content extraction (trafilatura, plus a fallback described below) keeps <b>3%</b> boilerplate and <b>89%</b> of the main content, with 2.4 times less text than a whole-page conversion.</p>
