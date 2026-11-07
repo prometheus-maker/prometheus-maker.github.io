@@ -1,0 +1,28 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-07: "export wix blog posts", "export wix blog posts to wordpress", "wix export blog posts". Wix support: "Currently, it is not possible to export blog posts to other platforms" (feature request, collecting votes) and RSS "can only display up to 20 of the most recent blog posts" (both fetched 2026-11-07). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to export your Wix blog posts (all of them, with images)</title>
+<meta name="description" content="Wix has no export button for blog posts and its RSS feed stops at 20. What works instead, and an app that downloads every post as Markdown or HTML.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/export-wix-blog-posts.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to export your Wix blog posts (all of them, with images)"><meta property="og:description" content="Wix has no export button for blog posts and its RSS feed stops at 20. What works instead, and an app that downloads every post as Markdown or HTML."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to export your Wix blog posts</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the product mentioned below.</p>
+<p>You can't, at least not with a button. Wix's own help page says it plainly: "Currently, it is not possible to export blog posts to other platforms." It's filed as a feature request that is still collecting votes. So if you're moving to WordPress, Ghost or Hugo, or you just want a copy of your writing on your own disk, you have to get the posts out some other way.</p>
+<h2>The RSS feed gets you 20 posts</h2>
+<p>Every Wix blog has an RSS feed, and plenty of WordPress importers can read one. The catch is in Wix's RSS help page: "your blog's RSS feed can only display up to 20 of the most recent blog posts." If you've written 20 posts or fewer, the feed is a fine free route. Past that, the older posts simply aren't in it, and the feed carries the post text but not your images as files.</p>
+<h2>Copy and paste works for a handful</h2>
+<p>Open each post, select the text, paste it into the new platform, then download and re-upload every image. It's slow but it costs nothing, and for five posts it's the quickest way. For fifty it's a weekend, and formatting like headings, code blocks and tables tends to come out flat.</p>
+<h2>Blog Backup &amp; Export downloads all of them</h2>
+<p>I built <a href="https://prometheus-maker.github.io/" target="_blank" rel="noopener">Blog Backup &amp; Export</a> for the case where you have more posts than patience. It's a Wix app; the App Market listing is waiting for Wix's review, so this page is where to follow it for now. You pick a format, press Download ZIP, and get one file per post:</p>
+<ul>
+<li>Markdown with front matter (title, date, slug, categories, tags, cover image, original link), which drops into Hugo, Jekyll, Astro, Ghost or an Obsidian vault</li>
+<li>HTML that opens in any browser</li>
+<li>JSON with every field as Wix stores it</li>
+</ul>
+<p>Headings, lists, quotes, links, code blocks, tables and images come across as real Markdown or HTML. The ZIP also has posts.csv, one row per post with title, status, dates, link, category and word count, which is useful when you plan redirects for the move.</p>
+<p>The free plan exports your 20 newest posts, the same reach as the RSS feed but with proper formatting, and leaves image links pointing at your Wix site. Premium ($4 a month, or $3 a month billed yearly) exports every post, saves each image into an images folder with the links rewritten, and includes unpublished drafts. If you're moving once, a single month is enough.</p>
+<h2>Before you cancel the Wix plan</h2>
+<p>Image links that still point at Wix stop being yours to rely on once the site is gone, so either take the Premium export with images or download them yourself first. The app runs in your browser and has no server, so nothing is stored or sent anywhere. Comments aren't part of the export.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
