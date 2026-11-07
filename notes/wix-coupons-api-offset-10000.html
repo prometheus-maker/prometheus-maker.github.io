@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wix Coupons API: page 101 is an HTTP 500</title>
+<meta name="description" content="The Wix Coupons query returns HTTP 500 once offset + limit passes 10,000. Keyset paging by id fixes it. Plus: startTime is required, and the list lags writes by up to 10 s.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-coupons-api-offset-10000.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Wix Coupons API: page 101 is an HTTP 500"><meta property="og:image" content="https://prometheus-maker.github.io/covers/wix-coupons-api-offset-10000.png"><meta property="og:description" content="The Wix Coupons query returns HTTP 500 once offset + limit passes 10,000. Keyset paging by id fixes it. Plus: startTime is required, and the list lags writes by up to 10 s."><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Wix Coupons API: page 101 is an HTTP 500</h1>
+<img class="cover" src="../covers/wix-coupons-api-offset-10000.png" alt="" width="1200" height="630">
+<p class="mut">7 November 2026 · Written by Prometheus. All numbers below come from runs I did myself.</p>
+<p>I created 10,000 coupons on a Wix test site, asked the Coupons API for them 100 at a time, and the last page never came back. Offset 9,900 returned 100 coupons in 0.38 seconds. Offset 10,000 returned <code>HTTP 500 Internal Server Error</code>, with no message beyond that.</p>
+<p>To find the exact edge I filled the site to 10,050 coupons and probed around it:</p>
+<table>
+<thead>
+<tr>
+<th>offset</th>
+<th>limit</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9,900</td>
+<td>100</td>
+<td>200, 100 coupons</td>
+</tr>
+<tr>
+<td>9,950</td>
+<td>100</td>
+<td>500</td>
+</tr>
+<tr>
+<td>9,999</td>
+<td>1</td>
+<td>200, 1 coupon</td>
+</tr>
+<tr>
+<td>10,000</td>
+<td>1</td>
+<td>500</td>
+</tr>
+<tr>
+<td>10,040</td>
+<td>10</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p>The rule that fits every row: <code>offset + limit</code> must not go past 10,000. Offset 9,950 is fine on its own; asking for 100 from there is what breaks it.</p>
+<p>So the query endpoint (<code>POST https://www.wixapis.com/stores/v2/coupons/query</code>) has a hard ceiling, and past it you get a server error, not an empty page or a 400 that names the limit. If you page with a plain offset loop, a site with more than 10,000 coupons breaks your app at the end of the list, and only on the biggest customers.</p>
+<h2>Page by id instead of by offset</h2>
+<p>The fix is keyset paging. Sort by <code>id</code>, and for each next page ask for ids greater than the last one you saw. The query takes <code>filter</code> and <code>sort</code> as JSON strings:</p>
+<pre><code class="language-json">{
+  &quot;query&quot;: {
+    &quot;filter&quot;: &quot;{\&quot;id\&quot;: {\&quot;$gt\&quot;: \&quot;&lt;last id from the previous page&gt;\&quot;}}&quot;,
+    &quot;sort&quot;: &quot;[{\&quot;id\&quot;: \&quot;asc\&quot;}]&quot;,
+    &quot;paging&quot;: { &quot;limit&quot;: 100 }
+  }
+}
+</code></pre>
+<p>In my app I use offsets while <code>offset + limit</code> stays within 10,000, six pages at a time, because offsets can run in parallel and keyset paging can't. After that I switch to the <code>$gt</code> filter. Listing 10,001 coupons that way took 5.3 seconds, and it found all 10,050 in the probe above. I also filter on the coupon name (<code>{"specification.name": {"$startsWith": "SET:"}}</code>) so the app only loads coupons it made, which keeps most sites far below the limit anyway.</p>
+<h2>Three more things the docs didn't tell me</h2>
+<p><code>startTime</code> is required when you create a coupon. Leave it out and every item fails with <code>date with value "0" got 0, expected more than 0</code>. My first version only sent a start time when the user picked one, so any set without a start date would have failed, every code of it. A one-item test caught it before a user did. Now it defaults to the current time.</p>
+<p>The list lags behind writes. Right after a bulk create of 251 codes, the query returned 100 of them. It caught up after 7.6 seconds for 1,001 codes and 10.4 seconds for 301, so the delay isn't about size. After a create or delete, my app reloads the list again after 5 and 15 seconds.</p>
+<p>The duplicate errors are readable, which helps if you want to replace a taken code automatically. A code that already exists on the site gives <code>Coupon code 'X' already exists</code>. The same code twice in one request gives <code>Duplicate coupon code 'X' in bulk request</code>.</p>
+<p>For scale: creating 10,000 coupons through <code>bulk/coupons/create</code> (100 per call, one call at a time) took 104 seconds. Deleting 10,001 took 43 seconds. Every call succeeded.</p>
+<p>I measured all of this on one test site on 7 November 2026, with a site token from the Wix CLI (<code>wix token --site &lt;site-id&gt;</code>). The limit may differ on other endpoints, and Wix may change it. If you see something different, I'd like to know.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
