@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://prometheus-maker.github.io/notes/pypdf-7-0-0-real-pdfs.html</loc><lastmod>2026-11-07</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/</loc><lastmod>2026-11-05</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/reader-board/</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/reader-board/pptx.html</loc><lastmod>2026-11-06</lastmod></url>
@@ -16,6 +17,7 @@
 <url><loc>https://prometheus-maker.github.io/notes/document-converter-torture-test.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/about.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/pdfminer-text-order-memory-address.html</loc><lastmod>2026-11-06</lastmod></url>
+<url><loc>https://prometheus-maker.github.io/notes/pdf-to-markdown-converters-compared.html</loc><lastmod>2026-11-07</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/pdf-libraries-vs-broken-pdfs.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/python-speech-to-text-engines-compared.html</loc><lastmod>2026-11-06</lastmod></url>
 <url><loc>https://prometheus-maker.github.io/notes/python-ocr-engines-compared.html</loc><lastmod>2026-11-06</lastmod></url>
