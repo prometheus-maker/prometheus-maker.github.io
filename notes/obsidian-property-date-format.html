@@ -1,0 +1,30 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-07: 'obsidian change date property format', 'obsidian property date format', 'obsidian date property format'; forum.obsidian.md/t/64139 'Properties: let the user customize the way Dates/Times are displayed (independently from OS)', 156 posts, 662 likes, 30.6k views -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to change the date format of Obsidian properties</title>
+<meta name="description" content="Obsidian shows property dates in your operating system&#x27;s format and has no setting for it. Three ways round that, including a plugin that adds the setting.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/obsidian-property-date-format.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to change the date format of Obsidian properties"><meta property="og:description" content="Obsidian shows property dates in your operating system&#x27;s format and has no setting for it. Three ways round that, including a plugin that adds the setting."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to change the date format of Obsidian properties</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the product mentioned below.</p>
+<p>You can't change it in Obsidian's settings. Date and date-time properties are shown in the format your operating system's language uses, so a machine set to US English shows <code>03/09/2026, 02:05 PM</code> even if you'd like <code>09.03.2026 14:05</code>. The built-in ways round it are to change the system language or to store the date as text. A plugin can add the missing setting, and I wrote one.</p>
+<p>The <a href="https://forum.obsidian.md/t/64139" target="_blank" rel="noopener">forum request</a> for a display setting has been open since 2023. It has 156 replies and 662 likes,</p>
+<h2>Built-in options, and what they cost</h2>
+<p>Change the language of the OS or the Obsidian interface to one whose date style you like. It works, but it changes menus and everything else with it, and</p>
+<p>Use a text property instead of a date property and type the date in whatever format you like. You lose the date picker, and Bases and Dataview can no longer sort or filter it as a date. If you only read the dates and never query them, that's a fair trade.</p>
+<p>In a base, a formula can print a date in a format of your choosing, so the table looks right even though the Properties panel doesn't. That fixes the table and leaves the note untouched.</p>
+<h2>With Property Date Format</h2>
+<p><a href="https://github.com/prometheus-maker/property-date-format" target="_blank" rel="noopener">Property Date Format</a> changes the display and nothing else.</p>
+<ol>
+<li>Settings, Community plugins, Browse, search for "Property Date Format", install and enable.</li>
+<li>Open Settings, Property Date Format. Choose a date format from the presets (<code>YYYY-MM-DD</code>, <code>DD.MM.YYYY</code>, <code>DD/MM/YYYY</code>, <code>MM/DD/YYYY</code>, <code>D MMM YYYY</code> and a few more), or type any <a href="https://momentjs.com/docs/#/displaying/format/" target="_blank" rel="noopener">Moment.js format</a>.</li>
+<li>Pick the time format: <code>HH:mm</code> for 24-hour, <code>h:mm A</code> for 12-hour.</li>
+</ol>
+<img class="cover" src="../img/obsidian-property-date-format.png" alt="Before and after: 03/09/2026, 02:05 PM becomes 09.03.2026 14:05" loading="lazy">
+<p>The note itself still stores the standard value, <code>due: 2026-03-09</code>. Bases, Dataview, search and other apps read it exactly as before, and if you uninstall the plugin nothing in your files needs fixing.</p>
+<p>You can also type dates in your own format. Click a date, type <code>24.12.2026</code>, and it's saved as <code>2026-12-24</code>. If the plugin can't read what you typed, say <code>31.02.2026</code>, the field gets a red underline and the note isn't changed. Escape brings the old value back. The calendar button opens Obsidian's usual picker. It works in the Properties panel and in Bases table cells.</p>
+<h2>The catch</h2>
+<p>Obsidian has no public API for the property editor. The plugin puts its own text field in front of Obsidian's date input and finds those inputs by CSS class, so a future Obsidian update could rename them and the dates would look stock again until I update. I've tested it on Obsidian 1.15 on desktop (Linux), not yet on mobile.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
