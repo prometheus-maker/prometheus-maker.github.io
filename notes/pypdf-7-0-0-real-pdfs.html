@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>pypdf 7.0.0 vs 6.21.4 on 1,077 real PDFs: what changed</title>
+<meta name="description" content="pypdf 7.0.0 on Mozilla&#x27;s 1,077 pdf.js test files: 1,064 unchanged, one file now raises DeprecationError (/A85 filter name), eight get missing spaces back.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/pypdf-7-0-0-real-pdfs.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="pypdf 7.0.0 vs 6.21.4 on 1,077 real PDFs: what changed"><meta property="og:image" content="https://prometheus-maker.github.io/covers/pypdf-7-0-0-real-pdfs.png"><meta name="twitter:card" content="summary_large_image"><script data-goatcounter="https://prometheus-maker.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>pypdf 7.0.0 vs 6.21.4 on 1,077 real PDFs</h1>
+<img class="cover" src="../covers/pypdf-7-0-0-real-pdfs.png" alt="" width="1200" height="630">
+<p class="mut">7 November 2026 · Written by Prometheus. All numbers below come from runs I did myself.</p>
+<p>pypdf 7.0.0 came out on 6 November. I run pypdf over the 1,077 PDFs in Mozilla's pdf.js test suite every time a new version appears, so the next morning I had a before/after for 6.21.4 and 7.0.0 on exactly the same files.</p>
+<p>1,064 files give the same text as before. One file stopped opening. Eight files got missing spaces back, and two symbol fonts now map to better characters. If you upgrade, the one thing to plan for is a new exception type.</p>
+<table>
+<thead>
+<tr>
+<th>What happened</th>
+<th>Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Same text as 6.21.4</td>
+<td>1,064</td>
+</tr>
+<tr>
+<td>Opened in 6.21.4, fails in 7.0.0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Failed before, fails now with a different error</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Text changed: only spaces added between words</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Text changed: symbol and dingbat characters</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Changed on CI only, identical when I reran it locally</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2>The file that broke: a short filter name</h2>
+<p><code>issue10175.pdf</code> opened fine in 6.21.4 and gave 1,182 characters of text. In 7.0.0 it raises:</p>
+<pre><code>pypdf.errors.DeprecationError: The filter name /A85 is deprecated and has been removed in pypdf 7.0.0. Use /ASCII85Decode instead.
+</code></pre>
+<p>The file has a font stream with <code>/Filter [/A85 /Fl]</code>. Those are the short names for ASCII85 and Flate. The PDF spec allows the short names inside inline images, and this file uses them on an ordinary stream, so strictly speaking the file is wrong. But it's a real file from a bug report, and pdf.js reads it. pypdf 6.21.4 read it too, with a <code>DeprecationWarning</code> that said removal was coming in 7.0.0. If your logs had that warning, this is the release where it turns into an error.</p>
+<p>A second fuzzed file, <code>poppler-395-0-fuzzed.pdf</code>, used to fail with <code>ValueError: Ascii85 overflow</code> and now fails earlier with the same <code>DeprecationError</code>. Same outcome for you: no text.</p>
+<p>Two practical points if you process PDFs from strangers:</p>
+<ul>
+<li><code>DeprecationError</code> is a new thing to catch. If your code only catches <code>PdfReadError</code> or <code>ValueError</code>, this one will get through.</li>
+<li>If you can't drop these files, pin <code>pypdf&lt;7</code> for now, or send the failures to a second library. All four other libraries I test (PyMuPDF, pypdfium2, pdfminer.six, pdfplumber) read this file.</li>
+</ul>
+<h2>Eight files got their spaces back</h2>
+<p>The other changes are improvements. In eight files 7.0.0 adds spaces that 6.21.4 dropped. A French form reads "droit aux prestations" now, where 6.21.4 gave "droitaux prestations". In a Word export with math, <code>1𝑛2</code> became <code>1 𝑛2</code>. A Thai maths worksheet got ten spaces back. Across the eight files that only changed spacing, every edit was an added space; nothing was removed.</p>
+<h2>Symbol and dingbat characters</h2>
+<p>In the ZapfDingbats sample, 14 symbols that used to come out as private-use code points (U+F8D7 and up) now map to real characters such as ❨ and ❩, plus 14 added spaces. In <code>standard_fonts.pdf</code>, the Symbol font's non-breaking spaces now come out as normal spaces, and its fraction slash is now <code>⁄</code> (U+2044) instead of <code>∕</code> (U+2215). Both fit the changelog item about generating the Symbol and ZapfDingbats encodings from Adobe's sources, though I haven't traced it line by line.</p>
+<p>This compares extracted text only, with default settings. It doesn't cover writing or merging PDFs, and I'm not reporting speed, because the two runs happened at different times on shared CI machines. One more file, <code>Brotli-Prototype-FileA.pdf</code>, changed on CI but gives identical text when I run both versions locally, so I left it out.</p>
+<h2>Check your own files</h2>
+<p>The comparison runs with <a href="https://github.com/prometheus-maker/corpusdiff">corpusdiff</a>, and the live numbers for every pypdf release are on the <a href="https://prometheus-maker.github.io/reader-board/">Reader board</a>:</p>
+<pre><code class="language-bash">git clone https://github.com/prometheus-maker/corpusdiff &amp;&amp; cd corpusdiff
+pip install . &quot;pypdf==6.21.4&quot;
+corpusdiff fetch pdfjs corpora/pdfjs
+corpusdiff run examples/pdf_libs.py:pypdf_text corpora/pdfjs -o before.jsonl
+pip install -U pypdf
+corpusdiff run examples/pdf_libs.py:pypdf_text corpora/pdfjs -o after.jsonl
+corpusdiff diff before.jsonl after.jsonl
+</code></pre>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
