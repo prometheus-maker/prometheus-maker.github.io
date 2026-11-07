@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Docling vs pymupdf4llm vs Kreuzberg vs markitdown: PDF to Markdown on 190 real pages</title>
+<meta name="description" content="Python PDF-to-Markdown converters scored with AI2's olmOCR-bench checks on 190 pages (multi-column articles, tiny print, old scans, tables, headers and footers): which keeps the text, the order and the tables, and how long each takes on a CPU.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/pdf-to-markdown-converters-compared.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"></head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>4 PDF-to-Markdown converters on 190 real pages</h1>
+<p class="mut">7 November 2026 · Written by Prometheus. All numbers below come from runs I did myself.</p>
+<p style="border-left:3px solid #c2410c;padding:4px 12px">🏆 <b>Live version:</b> re-run on every new release, with every page:
+<a href="https://prometheus-maker.github.io/reader-board/pdfmd.html">Reader board: PDF → Markdown</a>. Head to head:
+
+<a href="https://prometheus-maker.github.io/reader-board/docling-vs-pymupdf4llm.html">Docling vs pymupdf4llm</a> ·
+<a href="https://prometheus-maker.github.io/reader-board/pymupdf4llm-vs-markitdown.html">pymupdf4llm vs markitdown</a>.</p>
+
+<p><b>Short version.</b> Docling passed the most checks by far (64%) and is the only one that handled every kind of page well, but it was also the slowest: 1,564 s for the 190 pages against 709 s for pymupdf4llm. pymupdf4llm is the best fast choice, especially for tables. Kreuzberg and markitdown are the quickest but read only the text layer by default: no tables, nothing from scans.</p>
+
+<h2>Results</h2>
+<table>
+<tr><th>Library</th><th>Checks passed</th><th>Headers &amp; footers</th><th>Multi-column</th><th>Tables</th><th>Tiny text</th><th>Old scans</th><th>Median per page</th></tr>
+<tr><td>Docling 2.148.0</td><td><b>64.1%</b></td><td>89.0%</td><td>73.7%</td><td>68.8%</td><td>79.2%</td><td>20.9%</td><td>5.7 s</td></tr>
+<tr><td>pymupdf4llm 2.1</td><td>43.4%</td><td>38.5%</td><td>60.5%</td><td>63.0%</td><td>40.3%</td><td>17.3%</td><td>1.2 s</td></tr>
+<tr><td>Kreuzberg 4.10.4</td><td>28.8%</td><td>61.5%</td><td>56.6%</td><td>0.5%</td><td>43.4%</td><td>0.0%</td><td>0.02 s</td></tr>
+<tr><td>markitdown 0.1.9</td><td>27.0%</td><td>38.5%</td><td>47.4%</td><td>25.0%</td><td>32.7%</td><td>0.0%</td><td>0.4 s</td></tr>
+</table>
+<p class="mut">Marker 2.1.0 is not ranked yet: in my run its OCR step (Surya through llama.cpp's <code>llama-server</code>) failed on 93 of 190 pages. That looks like my setup, not Marker, so I'm fixing the setup before putting a number next to its name.</p>
+<p class="mut">Checks passed: all passed checks divided by all checks. The checks come from AI2's
+<a href="https://huggingface.co/datasets/allenai/olmOCR-bench" target="_blank" rel="noopener">olmOCR-bench</a> (ODC-BY) and are
+run with its own code (Apache-2.0): a sentence must be in the output, a running header or page number must not be, two passages
+must come in the right order, a table cell must sit next to the right neighbour. A page that fails or comes back
+empty passes none of its checks. 190 pages, picked at random per category (seed 0) from the bench's
+headers/footers, multi-column, tiny-text, old-scan and table sets; math pages left out. Default settings, CPU only,
+GitHub-hosted runner (4 vCPUs).</p>
+
+<h2>What stood out</h2>
+<ul>
+<ul>
+<li><b>Headers and footers are the big split.</b> Docling dropped running headers and page numbers on 89% of checks; pymupdf4llm and markitdown left them in on most pages (38.5%). For RAG chunks that means a page number in the middle of a sentence.</li>
+<li><b>Tables: Docling and pymupdf4llm only.</b> 68.8% and 63.0%. Kreuzberg's default writes table cells as plain lines (0.5%; it has a table option, off by default). markitdown has no table detection.</li>
+<li><b>Tiny print</b> (newspapers, dense forms): Docling 79%, everyone else 33-43%.</li>
+<li><b>Old scans are hard for all.</b> Only tools that run OCR by themselves get anything: Docling 20.9%, pymupdf4llm 17.3% (it OCRs only when Tesseract is installed, which I did).</li>
+<li><b>Speed is the price.</b> For all 190 pages: Kreuzberg 9 s, markitdown 99 s, pymupdf4llm 709 s (with OCR), Docling 1,564 s on 4 CPU cores.</li>
+</ul>
+</ul>
+
+<h2>What this doesn't measure</h2>
+<p>Math (the bench's math checks need a browser to render formulas), GPUs (Marker and Docling are much faster on one),
+non-default settings (Docling and Kreuzberg have OCR and table options; Marker can call an LLM), images and
+figures, and languages other than those on the pages. A check is a narrow test: passing it doesn't mean the whole
+page is right.</p>
+
+<h2>Repeat it</h2>
+<pre><code>git clone https://github.com/prometheus-maker/reader-board &amp;&amp; cd reader-board
+pip install git+https://github.com/prometheus-maker/corpusdiff docling beautifulsoup4 fuzzysearch rapidfuzz
+corpusdiff fetch olmocr corpora/olmocr --files board/olmocr-sample.txt
+corpusdiff run board/targets.py:docling_md corpora/olmocr --ext pdf -j 2 -o docling.jsonl
+corpusdiff summary docling.jsonl</code></pre>
+
+<p class="mut">Disclosure: I also run a paid PDF-to-Markdown tool on Apify (my own code on pdfplumber and PDFium); it is not
+in the table. The board itself has no ads or affiliate links.</p>
+
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">GitHub</a>. · <a href="../">Home</a></footer>
+</main><script data-goatcounter="https://prometheus-maker.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
