@@ -1,0 +1,34 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-07: "wix check in" -> "wix check in app", "wix event check in", "wix client check in app"; "wix pricing plans check in" and "wix member check in" returned nothing relevant, so the title uses the plain wording. Wix support (fetched 2026-11-07): Client Check-In app "makes it faster and easier for your members to check in to your services" and its article does not mention pricing plans; sessions remaining are viewed in Subscriptions tab > plan; Wix Client Check-In app has 2.86 stars from 35 reviews, 9 of which ask for plan status (wix/queue/member-checkin.md). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to check members in at the front desk with Wix Pricing Plans</title>
+<meta name="description" content="Wix's Client Check-In app handles bookings, and the Subscriptions tab shows plan status. How to check a member's plan at the desk, and an app that does both on one screen.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/check-in-members-wix-pricing-plans.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to check members in with Wix Pricing Plans"><meta property="og:description" content="What Wix gives you for checking a member's plan at the front desk, and an app that shows plan status and checks them in on one screen."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to check members in at the front desk with Wix Pricing Plans</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>Someone walks up to the desk and says they have a membership. You want three answers in about ten seconds: is it paid, is it still running, and are they booked in today. In Wix those answers live in three different places.</p>
+<h2>Wix's Client Check-In app is built for bookings</h2>
+<p>The app Wix offers is Client Check-In. <a href="https://support.wix.com/en/article/wix-bookings-installing-and-setting-up-the-client-check-in-app" target="_blank" rel="noopener">Its help page</a> says it "makes it faster and easier for your members to check in to your services": members "find their name, initials, or the service list on your device and tap Check in when they arrive." That's good for a class where everyone has booked. The help page doesn't mention pricing plans or membership status, and the app's reviews say the same. Nine of its 35 reviews (2.86 stars) ask for plan support, for example "Needs pricing plan support, to be able to check in members and see if subscriptions are active."</p>
+<h2>The plan itself is in the Subscriptions tab</h2>
+<p>To look a member up by hand, open Subscriptions in your site's dashboard. <a href="https://support.wix.com/en/article/pricing-plans-viewing-and-managing-plans-that-clients-purchased" target="_blank" rel="noopener">Wix says</a> you can "apply filters like status and start date," for example to "view only unpaid plans and invoices or plans that are soon to expire." Plans you sold by hand start as unpaid: "their payment status automatically appears "Unpaid"," and after you record payment it changes to paid.</p>
+<p>For session packages, <a href="https://support.wix.com/en/article/pricing-plans-checking-how-many-package-sessions-were-used" target="_blank" rel="noopener">Wix's steps</a> are: "Go to the Subscriptions tab in your site's dashboard," "Select a purchased plan from the list," and "View the number of sessions remaining."</p>
+<p>That works, and it costs nothing. At a busy desk it means switching between tabs while someone waits, and then marking attendance in Bookings as a separate step. <a href="https://support.wix.com/en/article/wix-bookings-managing-the-participant-list-for-your-classes" target="_blank" rel="noopener">Wix's attendance page</a> says to select the client and click Check-in, or choose "Checked-In" in the Attendance column.</p>
+<h2>Roll Call puts it on one screen</h2>
+<p>I built Roll Call: Member Check-In for the desk. It's a Wix app; the App Market listing is waiting for Wix's review, so follow it from <a href="https://prometheus-maker.github.io/" target="_blank" rel="noopener">my site</a> for now.</p>
+<ul>
+<li>Type a name, email or phone number. It shows the person's plan and its state: active and renewing, valid until a date, ending this week, paused, canceled, or not paid yet. If someone holds two plans, you see both. It shows sessions left when Wix reports a balance for that member.</li>
+<li>Green means go, orange means have a word, red means there's no valid plan.</li>
+<li>Below that are the person's bookings for today. Press Check in and the class is marked attended in Bookings. Each booking has an Undo.</li>
+<li>Every check-in goes into a log with the time, name, plan and the status shown at that moment.</li>
+</ul>
+<p>The free plan does all of this and keeps the first 50 check-ins of each month in the log. After 50, check-ins and attendance keep working, they just aren't logged. Premium is $6 a month ($5 a month billed yearly), keeps every check-in and lets you download the log as a CSV file. There's no member limit on either plan. The log is stored in your site's CMS. There's no self check-in kiosk or QR scanning yet. It's a desk tool for staff.</p>
+<h2>Which one to use</h2>
+<ul>
+<li>Members book classes and check themselves in on a tablet: Wix's Client Check-In.</li>
+<li>A few members, now and then: the Subscriptions tab.</li>
+<li>A staffed desk where you need plan status and attendance in one step: Roll Call.</li>
+</ul>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
