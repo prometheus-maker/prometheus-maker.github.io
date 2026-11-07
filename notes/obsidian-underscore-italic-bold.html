@@ -1,0 +1,28 @@
+<!-- TARGET QUERY / EVIDENCE: 'obsidian bold color' / 'obsidian italic' family from Google autocomplete 2026-11-07 returned no direct match; the request itself is forum.obsidian.md/t/13644 'Add option to use underscores with bold & italic hotkeys', 45 posts, 93 likes, 9.1k views, open since 2021 -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to make Ctrl+I write _italic_ instead of *italic* in Obsidian</title>
+<meta name="description" content="Obsidian&#x27;s italic and bold hotkeys always write asterisks. How to get _italic_ from Ctrl+I, and what to do by hand if you&#x27;d rather not use a plugin.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/obsidian-underscore-italic-bold.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to make Ctrl+I write _italic_ instead of *italic* in Obsidian"><meta property="og:description" content="Obsidian&#x27;s italic and bold hotkeys always write asterisks. How to get _italic_ from Ctrl+I, and what to do by hand if you&#x27;d rather not use a plugin."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to make Ctrl+I write _italic_ instead of *italic* in Obsidian</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the product mentioned below.</p>
+<p>Obsidian has no setting for this. Ctrl+I (Cmd+I on a Mac) always wraps text in asterisks, <code>*italic*</code>, and Ctrl+B always writes <code>**bold**</code>. If you write <code>_italic_</code> everywhere, each press of the hotkey adds the other style to your notes. The shortest fix is a plugin that swaps the markers and keeps the keys.</p>
+<p>This is one of the oldest requests on the forum: <a href="https://forum.obsidian.md/t/13644" target="_blank" rel="noopener">"Add option to use <code>_</code> with bold and italic hotkeys"</a>, opened in 2021 with 45 replies. Both styles render identically in Obsidian, so it only matters if you care about the Markdown itself: a linter that insists on underscores, a style guide, or a file you'll publish with another tool.</p>
+<h2>Without a plugin</h2>
+<p>Type the markers yourself. Type <code>_</code> before and after the word. That's two keystrokes where Ctrl+I was one, and bold needs <code>__</code> on each side. If you already have a vault full of mixed styles, a find-and-replace with a regex or a Markdown linter can normalise them, but it won't change what the hotkey writes next week.</p>
+<h2>With Emphasis Style</h2>
+<p><a href="https://github.com/prometheus-maker/emphasis-style" target="_blank" rel="noopener">Emphasis Style</a> is a small plugin I wrote for this. It leaves the keys alone and changes only the markers.</p>
+<ol>
+<li>Settings, Community plugins, Browse, search for "Emphasis Style", install and enable.</li>
+<li>Open the plugin's settings. Italic marker: <code>_</code> or <code>*</code>. Bold marker: <code>**</code> or <code>__</code>. The default is <code>_italic_</code> with <code>**bold**</code>.</li>
+<li>Press Ctrl+I as before.</li>
+</ol>
+<img class="cover" src="../img/obsidian-underscore-italic.png" alt="Source mode: built-in Ctrl+I writes *new*; with Emphasis Style the same key writes _new_" loading="lazy">
+<p>It behaves like the built-in toggle. With no selection it uses the word under the cursor, several cursors and multi-line selections work, and one press is one undo step. Pressing Ctrl+I inside either <code>*old*</code> or <code>_new_</code> removes the italic, so notes with both styles are fine. Bold inside italic toggles one layer at a time. The command palette, the right-click Format menu and the mobile toolbar all go through the same commands, so they use your markers too. Markers inside words are left alone: Ctrl+I in <code>snake_case_name</code> gives <code>_snake_case_name_</code>.</p>
+<p>If you'd rather keep Obsidian's own commands on asterisks, turn off "Use for the built-in bold and italic" and bind the plugin's two commands to any keys. Disabling the plugin restores Obsidian's behaviour at once.</p>
+<h2>How far to trust it</h2>
+<p>I compared it with Obsidian 1.15's own toggles on 58 cases (cursor in a word, selections, several cursors, nested styles, empty pairs). With asterisk markers the result matches except in a few documented cases, mostly where Obsidian's result looks wrong: pressing Ctrl+B twice on an empty line leaves <code>****</code> in Obsidian and nothing in the plugin. The list is in the repo's <code>test/logic.test.mjs</code>.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>

@@ -1,0 +1,36 @@
+<!-- TARGET QUERY / EVIDENCE: forum.obsidian.md/t/108976 'Bases: Update Filter when Target Entity is renamed (Link, Filename, Folder)', 6 posts, 16 likes (the same breakage reported for bases made by the Notion importer); Google autocomplete for 'obsidian bases' (formula, syntax, examples, plugin) 2026-11-07 shows the topic's volume but no direct long-tail match -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why an Obsidian base goes empty after you rename a note</title>
+<meta name="description" content="Obsidian updates [[links]] when you rename a note, but not the link() filters inside Bases. How to find the broken filter and keep it in sync.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/obsidian-base-filter-broken-after-rename.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Why an Obsidian base goes empty after you rename a note"><meta property="og:description" content="Obsidian updates [[links]] when you rename a note, but not the link() filters inside Bases. How to find the broken filter and keep it in sync."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Why an Obsidian base goes empty after you rename a note</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the product mentioned below.</p>
+<p>A base goes empty after a rename because Obsidian rewrites <code>[[links]]</code> in notes and properties when you rename or move a file, but it doesn't look inside Bases. A filter such as <code>file.hasLink(link("Project X"))</code> or <code>project == link("Project X")</code> keeps pointing at the old name and matches nothing. To fix one, edit the filter to the new name. To stop it happening again, use a plugin that updates bases on rename.</p>
+<p>This is the subject of the forum request <a href="https://forum.obsidian.md/t/108976" target="_blank" rel="noopener">"Bases: Update Filter when Target Entity is renamed"</a>. The same thing happens to bases created by the Notion importer.</p>
+<h2>Fix a broken base by hand</h2>
+<ol>
+<li>Open the base and look at its filters. If a view that used to show rows now shows none, a renamed note is the first thing to check.</li>
+<li>Open the filter editor, or the <code>.base</code> file as text, and find the <code>link("...")</code>, <code>[[...]]</code> or <code>file.basename == "..."</code> that names the old note.</li>
+<li>Change it to the new name and the rows come back.</li>
+</ol>
+<p>Search for the old name across your vault so you catch every base. Bases can also live inside notes as <code>```base</code> blocks, and those are easy to miss. One rename of a note that's referenced from a dozen bases is a lot of editing.</p>
+<h2>Keep bases in sync with Bases Rename Sync</h2>
+<p><a href="https://github.com/prometheus-maker/bases-rename-sync" target="_blank" rel="noopener">Bases Rename Sync</a> watches renames and moves and rewrites the references in every <code>.base</code> file and in <code>base</code> blocks inside notes. There are no settings.</p>
+<img class="cover" src="../img/obsidian-bases-rename.png" alt="A base filtered on link(&quot;Apollo&quot;) shows 3 results; after renaming the note to Apollo 2027 it shows 0; with Bases Rename Sync it still shows 3" loading="lazy">
+<p>Rename <code>Projects/Apollo.md</code> to <code>Projects/Apollo 2027.md</code> and these change:</p>
+<ul>
+<li><code>link("Apollo")</code> and <code>link("Apollo#Goals", "goals")</code> become <code>link("Apollo 2027")</code> and <code>link("Apollo 2027#Goals", "goals")</code></li>
+<li><code>link("Projects/Apollo")</code> becomes <code>link("Projects/Apollo 2027")</code></li>
+<li><code>"[[Apollo]]"</code> and <code>"[[Apollo|alias]]"</code> keep their shape with the new name</li>
+<li><code>file.basename == "Apollo"</code> and <code>file.name != 'Apollo.md'</code> follow the rename</li>
+<li><code>"Projects/Apollo.md" == file.path</code> gets the new path</li>
+</ul>
+<p>Moving a folder updates the full paths of every note inside it, and a notice tells you what changed. It writes only files whose text actually changed, each in one atomic edit.</p>
+<h2>What it leaves alone</h2>
+<p>Other notes with similar names (<code>link("Apollonia")</code> stays), folder filters like <code>file.inFolder(...)</code>, view names, and any text outside base blocks. For folder filters, <a href="https://github.com/xeric7/obsidian-base-path-updater" target="_blank" rel="noopener">Base Path Updater</a> does that job. If another file still carries the old name, a reference by bare name could mean either file, so it's left as is and a notice says so. Full-path references are always updated.</p>
+<p>Install from Settings, Community plugins, Browse, search for "Bases Rename Sync". It works on desktop and mobile.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>

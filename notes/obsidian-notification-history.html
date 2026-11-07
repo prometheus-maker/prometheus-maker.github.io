@@ -1,0 +1,30 @@
+<!-- TARGET QUERY / EVIDENCE: obsidian notification history (Google autocomplete, 2026-11-07, also 'obsidian notification plugin'); forum.obsidian.md/t/67938 'Keep a log of notification bubbles (toast)', 8 posts, 56 likes, 1.1k views -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to see past notifications in Obsidian</title>
+<meta name="description" content="Obsidian&#x27;s pop-up notices vanish after a few seconds and there is no log. What the console can show you, and a plugin that keeps a list.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/obsidian-notification-history.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to see past notifications in Obsidian"><meta property="og:description" content="Obsidian&#x27;s pop-up notices vanish after a few seconds and there is no log. What the console can show you, and a plugin that keeps a list."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to see past notifications in Obsidian</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the product mentioned below.</p>
+<p>Obsidian has no list of past notifications. The pop-up in the corner disappears after a few seconds and nothing records it. On desktop you can recover some of them from the developer console, and on mobile there is nothing built in, so the practical answer is a plugin that saves them as they appear.</p>
+<p>It matters more than it sounds. A sync finishes with an error, a plugin says it couldn't parse a file, and you were looking at the other monitor. By the time you turn around the message is gone and you can't copy its text into a bug report. People have asked for a log since the <a href="https://forum.obsidian.md/t/67938" target="_blank" rel="noopener">forum request "Keep a log of notification bubbles"</a>.</p>
+<h2>The free way on desktop: the developer console</h2>
+<p>Press Ctrl+Shift+I (Cmd+Option+I on a Mac) to open the developer tools and look at the Console tab. Errors thrown by plugins land there with a stack trace, which is more detail than the pop-up gave you. The catch is that many notices aren't console messages at all. "Sync complete" or "Copied to clipboard" is only a pop-up, so the console never sees it. And you have to have the console open before the thing happens.</p>
+<p>If you're debugging one plugin, keep the console open and use it. It's the right tool for stack traces.</p>
+<h2>The plugin way: Notification History</h2>
+<p>I wrote <a href="https://github.com/prometheus-maker/notice-history" target="_blank" rel="noopener">Notification History</a> for this. Once it's enabled it saves every notice that Obsidian or any plugin shows, with the time.</p>
+<ol>
+<li>In Obsidian open Settings, Community plugins, Browse, and search for "Notification History". Install and enable it.</li>
+<li>Click the bell in the status bar, or the bell in the ribbon (that one is the only entry point on mobile), or run the command "Notification History: Show history".</li>
+<li>Use the filter box to find a message, the copy button to copy one, or Copy all to paste the lot into an issue.</li>
+</ol>
+<img class="cover" src="../img/obsidian-notification-history.png" alt="The Notification History window: newest first, with time, repeat count and a copy button" loading="lazy">
+<p>The newest is on top. If the same message appears again within 10 seconds it becomes a "×2" on one row instead of ten rows. Progress messages that change while on screen are saved with their final text. The bell in the status bar shows how many came in since you last looked.</p>
+<p>By default it keeps the last 200 and remembers them after a restart; you can set 50 to 1000, or keep the list in memory only. It's stored in the plugin's own data.json inside your vault's .obsidian folder, and nothing leaves your device.</p>
+<h2>What it can't do</h2>
+<p>It starts recording when the plugin loads, so notices shown before community plugins load are missed. It reads them from the screen, so the text is saved but buttons inside a notice are not. I've tested it on Obsidian 1.15 on desktop (Linux), not yet on mobile, so if the ribbon bell misbehaves on your phone, tell me in an issue.</p>
+<p>If you use SiYuan or Logseq, the same plugin exists for both: <a href="https://github.com/prometheus-maker/siyuan-notification-history" target="_blank" rel="noopener">SiYuan</a>, <a href="https://github.com/prometheus-maker/logseq-notification-history" target="_blank" rel="noopener">Logseq</a>.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
