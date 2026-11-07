@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to make 10,000 unique coupon codes on a Wix store</title>
+<meta name="description" content="Three ways to bulk-create unique Wix coupon codes: by hand, with the Coupons API, or with an app. Limits, timings and the traps I hit.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-bulk-coupon-codes.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to make 10,000 unique coupon codes on a Wix store"><meta property="og:image" content="https://prometheus-maker.github.io/covers/wix-bulk-coupon-codes.png"><meta property="og:description" content="Three ways to bulk-create unique Wix coupon codes: by hand, with the Coupons API, or with an app. Limits, timings and the traps I hit."><meta name="twitter:card" content="summary_large_image">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to make 10,000 unique coupon codes on a Wix store</h1>
+<img class="cover" src="../covers/wix-bulk-coupon-codes.png" alt="" width="1200" height="630">
+<p class="mut">7 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>One review of a popular Wix coupon app puts the problem in one line: "I need to generate 10,000 coupon codes for Student Discount and this will only let me create 1000 even after paying £80 per year." One code per customer is how you stop a discount from ending up on a coupon site, and Wix's own Coupons page is built for making codes one at a time.</p>
+<p>So there are three ways to get a few thousand codes onto a Wix store. Here they are, from the most work to the least.</p>
+<h2>By hand in Marketing &gt; Coupons</h2>
+<p>Fine for ten codes. Every code is a separate form: name, code, discount, dates, limits. At thirty seconds a code, 1,000 codes is a full working day, and one typo in a date means a code that doesn't work at checkout.</p>
+<h2>With the Coupons API, if you write code</h2>
+<p>Wix has a bulk create endpoint that takes 100 coupons per call. On my test site, 10,000 coupons took 104 seconds, one call after another. Three things will catch you out: <code>startTime</code> is required even though the dashboard doesn't ask for it, the coupon list lags new writes by up to 10 seconds, and listing more than 10,000 coupons with offsets returns an HTTP 500. I wrote the details up in <a href="wix-coupons-api-offset-10000.html">a separate note</a>.</p>
+<h2>With an app from the App Market</h2>
+<p>Several apps do this. They differ mostly in the limit. The best-known one allows 1,000 codes a month on its top plan (€10.34 a month, checked 7 November 2026). I built <a href="https://www.wix.com/app-market/prometheusmaker-bulk-coupon-manager" target="_blank" rel="noopener">Coupon Forge</a> because of that limit, so take my comparison with the right amount of salt.</p>
+<p>In Coupon Forge you name a set, pick a prefix and code length, choose the discount (percent, fixed amount or free shipping), set dates and limits, and create the whole set in one go. A set of 1,000 codes took 10.5 seconds in my test. Codes leave out look-alike characters (0, O, 1 and I), so customers can type them from a printed card. Afterwards the set shows how many codes were used, and you can export it as CSV for your email tool or delete the whole set at once. If you already have codes from another system, import a CSV and they become normal Wix coupons.</p>
+<p>The free plan makes sets of up to 200 codes. Premium costs $6 a month and goes up to 10,000 codes per set. Either way the coupons live in your site's own coupon list, as normal Wix coupons, and they show up in Marketing &gt; Coupons like any other.</p>
+<h2>Before you send 10,000 codes</h2>
+<p>Set a usage limit of one per code and one per customer, or a single forwarded code can be used many times. Put an end date on the set. And test one code in your own checkout first: percent and fixed-amount coupons need Wix Stores set up, while free-shipping codes don't.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
