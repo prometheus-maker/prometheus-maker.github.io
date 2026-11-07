@@ -1,0 +1,31 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-07: 'obsidian move line up or down', 'obsidian move line up shortcut', 'obsidian keyboard shortcut move line up'; forum.obsidian.md/t/121647 'Separate commands for moving/indenting a single list item vs. all of its children', 9 posts, and t/121617 -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Obsidian move line up/down also moves list children: how to move one line</title>
+<meta name="description" content="Since Obsidian 1.15 &#x27;Move line up/down&#x27; drags list children along and jumps over blank lines. How to turn that off or get plain single-line moves back.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/obsidian-move-line-up-down-list.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Obsidian move line up/down also moves list children: how to move one line"><meta property="og:description" content="Since Obsidian 1.15 &#x27;Move line up/down&#x27; drags list children along and jumps over blank lines. How to turn that off or get plain single-line moves back."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Obsidian move line up/down also moves list children: how to move one line</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the product mentioned below.</p>
+<p>If Move line up and Move line down started doing odd things in Obsidian 1.15, the cause is the Smart lists setting. With it on, the commands move a list item together with all its children, jump over blank lines into the neighbouring list, and indent whole sub-trees. The quick fix is to turn Smart lists off. If you want it on for everything else, add commands that move only the line you're on.</p>
+<p>The behaviour change is described in forum threads <a href="https://forum.obsidian.md/t/121647" target="_blank" rel="noopener">121647</a> and <a href="https://forum.obsidian.md/t/121617" target="_blank" rel="noopener">121617</a>. The first asks for "separate commands for moving/indenting a single list item vs. all of its children", which is what most people mean when they search for this.</p>
+<h2>Option 1: turn off Smart lists</h2>
+<p>Open Settings, Editor, and switch off Smart lists. Move line goes back to swapping a single line. The cost is that you lose the rest of what Smart lists does for you, such as continuing a list when you press Enter, so judge whether you use those.</p>
+<h2>Option 2: add plain commands with Classic Line Moves</h2>
+<p><a href="https://github.com/prometheus-maker/classic-line-moves" target="_blank" rel="noopener">Classic Line Moves</a> adds four commands and leaves Smart lists on for everything else.</p>
+<ul>
+<li>Move line up (plain, ignores list structure)</li>
+<li>Move line down (plain, ignores list structure)</li>
+<li>Indent this line only (children stay)</li>
+<li>Outdent this line only (children stay)</li>
+</ul>
+<p>Install it from Settings, Community plugins, Browse, search for "Classic Line Moves". It sets no hotkeys, so you assign them: open Settings, Hotkeys, search for "Classic Line Moves", and give the move commands Alt+Up and Alt+Down. Remove those keys from the built-in Move line up/down first, or the two commands fight over the shortcut. Tab and Shift+Tab, or Ctrl+] and Ctrl+[, work well for indent and outdent.</p>
+<p>With several lines selected, the selection moves or indents as a block. Each command is one undo step and the cursor stays on the same character.</p>
+<h2>What the difference looks like</h2>
+<p>Two task groups separated by a blank line, cursor on <code>Work</code>. One press of "Move line down (plain)" swaps it with the blank line below, and a second press puts it under <code>Study</code>. The built-in 1.15 command, on the first press, pulls <code>Study</code> up into the first group instead.</p>
+<img class="cover" src="../img/obsidian-move-line-list.png" alt="Move line down with the cursor on Work: the built-in command pulls Study up into the first group; Classic Line Moves only moves Work down one line" loading="lazy">
+<p>If you like the new behaviour, where a list item carries its children, keep the built-in commands. They're better for reordering outlines. I wrote this for people whose muscle memory is "one line, one swap".</p>
+<p>It works on desktop and mobile, has no settings, makes no network requests and stores nothing.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
