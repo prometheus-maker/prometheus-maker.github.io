@@ -1,0 +1,33 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-07: "wix payroll" -> "wix payroll calculator", "wix paystub generator"; "wix bookings staff pay/commission/payroll/report" returned nothing. Wix support (fetched 2026-11-07): Booking Calendar > Manage > Export booking data has Booking List and Staff Hours reports, "you cannot customize the fields"; Payroll Calculator: "Choose from a flat rate per service, per participant, or a percentage rate based on total session price", coupon pay is "based on the original session price". Wix Payroll Calculator app has 1.94 stars from 18 reviews (research/data/wix-market-2026-11-07.json). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to work out staff pay from Wix Bookings (commission, per class, hourly)</title>
+<meta name="description" content="What Wix Bookings exports for staff, what Wix's Payroll Calculator can and can't do, and an app that adds hourly pay, class-size rates and a line-by-line breakdown.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/staff-pay-report-wix-bookings.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to work out staff pay from Wix Bookings"><meta property="og:description" content="What Wix Bookings exports for staff, what the Payroll Calculator covers, and an app for hourly, class-size and commission pay."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to work out staff pay from Wix Bookings</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>It's month end, the Bookings calendar is full of sessions, and pay doesn't fit one formula: a flat fee for private sessions, a cut of class tickets, a bonus for a full room. Wix gives you two things to start from. Neither one does all of that.</p>
+<h2>The built-in export shows hours, not pay</h2>
+<p>In the Booking Calendar, click Manage, then Export booking data, pick a report and a date range, and click Export. <a href="https://support.wix.com/en/article/exporting-reports-on-bookings-and-staff-in-wix-bookings" target="_blank" rel="noopener">Wix's help page</a> lists two reports. The Staff Hours report covers "staff members and the sessions they are running within a selected time period": staff name, service, session date, start time, minutes, spots filled, confirmed bookings and check-ins. The Booking List report has the same session fields plus client details and booking, attendance and payment status.</p>
+<p>Neither has a pay column. You export, then multiply in a spreadsheet. Wix also says "No, you cannot customize the fields included in the export," so what you get is what you get. With one rate that is quick; it gets slow once rates differ by service.</p>
+<h2>Wix's Payroll Calculator covers three rates</h2>
+<p>Wix has its own app for this. <a href="https://support.wix.com/en/article/wix-bookings-adding-and-setting-up-the-payroll-calculator" target="_blank" rel="noopener">The help page</a> says you can "Choose from a flat rate per service, per participant, or a percentage rate based on total session price," and that its Detailed Staff Report can be saved and exported "which is useful if you need to share them with your accountant." If those three rates match how you pay people, use it. It's free and it's Wix's.</p>
+<p>Its limits: "If a customer uses a coupon, the staff pay is still based on the original session price, not the discounted price." The participant rate for courses is always based on booked participants, not checked-in ones. The page doesn't mention hourly pay, a bonus, or a different rate for a bigger class. Those are what its reviewers ask for. Of the app's 18 reviews (1.94 stars), eight ask for a pay rule it doesn't have, such as hourly rates, rates by class size, or a daily base plus commission.</p>
+<h2>Payday: Staff Pay adds the missing rules</h2>
+<p>I built Payday: Staff Pay for those cases. It reads your bookings and applies pay rules you set per staff member and per service. The App Market listing is waiting for Wix's review, so follow it from <a href="https://prometheus-maker.github.io/" target="_blank" rel="noopener">my site</a> for now.</p>
+<ul>
+<li>Rules, set per staff member and service: a flat amount per session, per hour of session length, per person, per person by class-size tier (for example nothing for 1 to 10 people, 2.00 each from 11), a percentage of the booking price, a bonus when a class reaches a set size, and base pay per day worked.</li>
+<li>Pick a date range and press Work out pay. Each person gets a total, and "Show lines" lists every session and how its pay adds up, so you can check any number against your calendar.</li>
+</ul>
+<p>The free plan has every pay rule and a report for up to 2 staff members at a time, with the line-by-line breakdown. Premium is $8 a month, or $80 a year ($6.67 a month), and covers the whole team in one report and a CSV download. It needs Wix Bookings.</p>
+<h2>Which one to use</h2>
+<ul>
+<li>You only need hours and attendance per person: the Staff Hours export.</li>
+<li>Flat, per-participant or percentage pay: Wix's Payroll Calculator.</li>
+<li>Hourly pay, class-size tiers, bonuses, or a different mix per instructor: Payday.</li>
+</ul>
+<p>Whatever you use, check one person's total by hand the first month.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
