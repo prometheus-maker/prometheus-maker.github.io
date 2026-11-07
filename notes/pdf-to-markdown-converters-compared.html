@@ -12,7 +12,7 @@
 <a href="https://prometheus-maker.github.io/reader-board/docling-vs-pymupdf4llm.html">Docling vs pymupdf4llm</a> ·
 <a href="https://prometheus-maker.github.io/reader-board/pymupdf4llm-vs-markitdown.html">pymupdf4llm vs markitdown</a>.</p>
 
-<p><b>Short version.</b> Docling passed the most checks by far (64%) and is the only one that handled every kind of page well, but it was also the slowest: 1,564 s for the 190 pages against 709 s for pymupdf4llm. pymupdf4llm is the best fast choice, especially for tables. Kreuzberg and markitdown are the quickest but read only the text layer by default: no tables, nothing from scans.</p>
+<p>Docling passed the most checks by far (64%) and is the only one that handled every kind of page well. It was also the slowest: 1,564 s for the 190 pages against 709 s for pymupdf4llm. pymupdf4llm is the best fast choice, especially for tables. Kreuzberg and markitdown are the quickest but read only the text layer by default, so you get no tables and nothing from scans.</p>
 
 <h2>Results</h2>
 <table>
@@ -31,19 +31,19 @@ empty passes none of its checks. 190 pages, picked at random per category (seed 
 headers/footers, multi-column, tiny-text, old-scan and table sets; math pages left out. Default settings, CPU only,
 GitHub-hosted runner (4 vCPUs).</p>
 
-<h2>What stood out</h2>
-<ul>
-<ul>
-<li><b>Headers and footers are the big split.</b> Docling dropped running headers and page numbers on 89% of checks; pymupdf4llm and markitdown left them in on most pages (38.5%). For RAG chunks that means a page number in the middle of a sentence.</li>
-<li><b>Tables: Docling and pymupdf4llm only.</b> 68.8% and 63.0%. Kreuzberg's default writes table cells as plain lines (0.5%; it has a table option, off by default). markitdown has no table detection.</li>
-<li><b>Tiny print</b> (newspapers, dense forms): Docling 79%, everyone else 33-43%.</li>
-<li><b>Old scans are hard for all.</b> Only tools that run OCR by themselves get anything: Docling 20.9%, pymupdf4llm 17.3% (it OCRs only when Tesseract is installed, which I did).</li>
-<li><b>Speed is the price.</b> For all 190 pages: Kreuzberg 9 s, markitdown 99 s, pymupdf4llm 709 s (with OCR), Docling 1,564 s on 4 CPU cores.</li>
-</ul>
-</ul>
+<h2>Headers and footers are the big split</h2>
+<p>Docling dropped running headers and page numbers on 89% of checks. pymupdf4llm and markitdown left them in on most pages (38.5%). For RAG chunks that means a page number in the middle of a sentence.</p>
 
-<h2>What this doesn't measure</h2>
-<p>Math (the bench's math checks need a browser to render formulas), GPUs (Marker and Docling are much faster on one),
+<h2>Only Docling and pymupdf4llm find tables</h2>
+<p>They scored 68.8% and 63.0%. Kreuzberg's default writes table cells as plain lines (0.5%). It has a table option, but it's off by default. markitdown has no table detection.</p>
+<p>Tiny print (newspapers, dense forms) is Docling's too: 79%, against 33-43% for everyone else.</p>
+
+<h2>Old scans are hard for all of them</h2>
+<p>Only tools that run OCR by themselves get anything: Docling 20.9%, and pymupdf4llm 17.3%. It OCRs only when Tesseract is installed, which I did.</p>
+<p>Speed is the price. For all 190 pages Kreuzberg took 9 s, markitdown 99 s, pymupdf4llm 709 s (with OCR) and Docling 1,564 s on 4 CPU cores.</p>
+
+<h2>Default settings on a CPU only</h2>
+<p>This only measures default settings on a CPU. It leaves out math (the bench's math checks need a browser to render formulas), GPUs (Marker and Docling are much faster on one),
 non-default settings (Docling and Kreuzberg have OCR and table options; Marker can call an LLM), images and
 figures, and languages other than those on the pages. A check is a narrow test: passing it doesn't mean the whole
 page is right.</p>

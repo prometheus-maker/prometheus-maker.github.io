@@ -12,7 +12,7 @@
 <a href="https://prometheus-maker.github.io/reader-board/faster-whisper-vs-whisper-cpp.html">faster-whisper vs whisper.cpp</a> ·
 <a href="https://prometheus-maker.github.io/reader-board/vosk-vs-whisper.html">Vosk vs Whisper</a>.</p>
 
-<p><b>Short version.</b> With the same Whisper base model, faster-whisper, whisper.cpp and OpenAI's own package make
+<p>With the same Whisper base model, faster-whisper, whisper.cpp and OpenAI's own package make
 almost the same number of mistakes (17-18% of words), but faster-whisper does it in half the time. NVIDIA's Parakeet
 (via onnx-asr) made a third fewer errors than all of them (11%), at about 1.6 times faster-whisper's time. Vosk's
 small model made twice as many errors as Whisper base. And two of these don't work with a plain <code>pip install</code>
@@ -33,32 +33,38 @@ text normalizer (so "Twenty," and "20" match). Lower is better. Audiobooks = Lib
 130 clips, 14.9 minutes of audio, 1-30 s each. CPU only, one clip at a time, on a GitHub-hosted runner (4 vCPUs);
 total time includes loading the model once. The live table also has LibriSpeech test-other and FLEURS.</p>
 
-<h2>What stood out</h2>
-<ul>
-<li><b>Same model, same mistakes, different speed.</b> The three Whisper implementations ran the same base.en model
-and landed within one point of each other. faster-whisper (CTranslate2, int8) needed 80 s for all clips, the other
-two about 165 s. If you already use Whisper, switching implementation buys speed, not accuracy.</li>
-<li><b>Model size matters more than the engine.</b> Parakeet's model has about 600 million parameters against Whisper
-base's 74 million, and it made fewer errors on every kind of audio: from a fifth fewer on earnings calls to
+<h2>faster-whisper makes the same mistakes in half the time</h2>
+<p>The three Whisper implementations ran the same base.en model
+and landed within one point of each other. faster-whisper (CTranslate2, int8) needed 80 s for all clips. The other
+two took about 165 s. If you already use Whisper, switching implementation buys speed, not accuracy.</p>
+
+<h2>Model size matters more than the engine</h2>
+<p>Parakeet's model has about 600 million parameters against Whisper
+base's 74 million, and it made fewer errors on every kind of audio. That goes from a fifth fewer on earnings calls to
 three fifths fewer on clean audiobooks. On a CPU it still took only 124 s for the
-15 minutes of audio.</li>
-<li><b>A table microphone hurts more than an accent.</b> On meetings recorded by one microphone on the table, every
-engine got 29-80% of the words wrong, two to three times its error rate on the same kind of meetings with headsets.
-Earnings calls (many accents, phone and web-call audio) were easier than that.</li>
-<li><b>Moonshine is uneven.</b> It was the second best on headset meetings (18.3%) but much worse than Whisper on
-earnings calls (37.5% against 24-27%).</li>
-<li><b>Two broken default installs.</b> <code>pip install faster-whisper</code> brings PyAV 19, and faster-whisper 1.2.1
-(the latest release) then fails on every file with <code>TypeError: open() got an unexpected keyword argument 'metadata_errors'</code>
-(<a href="https://github.com/SYSTRAN/faster-whisper/issues/1589" target="_blank" rel="noopener">fixed on its main branch</a>,
-not released; pin <code>av&lt;19</code>). And Parakeet through onnx-asr fails to load with
-<code>External data path escapes model directory</code>: huggingface_hub 1.32 changed how its cache stores files, and
-onnxruntime now refuses model weights outside the model's folder
-(as <a href="https://github.com/MemPalace/mempalace/issues/2601" target="_blank" rel="noopener">another project's report</a> explains, it's the two changes together).
-Pinning <code>huggingface-hub==1.31.0</code> fixed it here; pinning onnxruntime 1.29 did not. <b>Simpler fix</b> (tested
-later the same day with huggingface_hub 2.4.0): set <code>HF_HUB_DISABLE_SHARED_BLOBS=1</code> before the first download.
+15 minutes of audio.</p>
+
+<h2>A table microphone hurts more than an accent</h2>
+<p>On meetings recorded by one microphone on the table, every
+engine got 29-80% of the words wrong. That's two to three times its error rate on the same kind of meetings with headsets.
+Earnings calls, with many accents and phone and web-call audio, were easier than that.</p>
+<p>Moonshine is uneven. It was second best on headset meetings (18.3%) but much worse than Whisper on
+earnings calls (37.5% against 24-27%).</p>
+
+<h2>Two default installs are broken</h2>
+<p><code>pip install faster-whisper</code> brings PyAV 19, and faster-whisper 1.2.1
+(the latest release) then fails on every file with <code>TypeError: open() got an unexpected keyword argument 'metadata_errors'</code>.
+It's <a href="https://github.com/SYSTRAN/faster-whisper/issues/1589" target="_blank" rel="noopener">fixed on its main branch</a>
+but not released, so pin <code>av&lt;19</code>.</p>
+<p>Parakeet through onnx-asr fails to load with
+<code>External data path escapes model directory</code>. huggingface_hub 1.32 changed how its cache stores files, and
+onnxruntime now refuses model weights outside the model's folder.
+As <a href="https://github.com/MemPalace/mempalace/issues/2601" target="_blank" rel="noopener">another project's report</a> explains, it takes the two changes together.
+Pinning <code>huggingface-hub==1.31.0</code> fixed it here. Pinning onnxruntime 1.29 didn't.</p>
+<p>There's a simpler fix, which I tested
+later the same day with huggingface_hub 2.4.0: set <code>HF_HUB_DISABLE_SHARED_BLOBS=1</code> before the first download.
 I <a href="https://github.com/microsoft/onnxruntime/issues/33950" target="_blank" rel="noopener">reported it to onnxruntime</a>
-with a 6-line reproduction.</li>
-</ul>
+with a 6-line reproduction.</p>
 
 <h2>The test clips</h2>
 <p>130 English clips with reference transcripts, pinned in <a href="https://github.com/prometheus-maker/speech-testset" target="_blank" rel="noopener">prometheus-maker/speech-testset</a>:
@@ -66,9 +72,9 @@ audiobooks from LibriSpeech (clean and harder speakers), read Wikipedia sentence
 corpus (headset and table microphone), all CC BY 4.0, and company earnings calls from Earnings-22 (CC BY-SA 4.0).
 The script that picks and converts them is in the repo.</p>
 
-<h2>What this doesn't measure</h2>
-<p>Bigger Whisper models (small, medium, large-v3, turbo), GPUs, long recordings (all clips are under 30 s, because
-Moonshine reads at most about that much at once), languages other than English, timestamps and live streaming.
+<h2>Short English clips on a CPU, nothing else</h2>
+<p>This only measures short English clips on a CPU. It leaves out bigger Whisper models (small, medium, large-v3, turbo), GPUs, long recordings (all clips are under 30 s, because
+Moonshine reads at most about that much at once), other languages, timestamps and live streaming.
 The clips are short, so a model's start-up cost per call is part of its time.</p>
 
 <h2>Repeat it</h2>

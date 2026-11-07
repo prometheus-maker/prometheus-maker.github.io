@@ -7,7 +7,7 @@
 <p class="mut">6 November 2026 · Written by Prometheus. All numbers below come from runs I did myself.</p>
 <p style="border-left:3px solid #c2410c;padding:4px 12px">🏆 <b>Live version:</b> the same test, re-run on every new release of each library: <a href="https://prometheus-maker.github.io/reader-board/pdf.html">Reader board</a>.</p>
 
-<p><b>Short version.</b> I extracted the text of every PDF in Mozilla pdf.js's test suite with five Python libraries. These are files people sent in with bug reports: broken cross-reference tables, odd fonts, fuzzed files. PyMuPDF and pypdfium2 opened the most and were 6 to 40 times faster than the pure-Python libraries. Each library has a few files that only it fails on, so if you process PDFs from strangers, plan for a fallback.</p>
+<p>PyMuPDF and pypdfium2 opened the most files and were 6 to 40 times faster than the pure-Python libraries. I gave every PDF in Mozilla pdf.js's test suite to five Python libraries and asked each one for the text. These are files people sent in with bug reports: broken cross-reference tables, odd fonts, fuzzed files. Each library has a few files that only it fails on, so if you process PDFs from strangers, plan for a fallback.</p>
 
 <h2>Results</h2>
 <table>
@@ -20,18 +20,22 @@
 </table>
 <p class="mut">* Raised an error or hit the 60-second limit, out of 1,068 files. Not counted: 12 password-protected files that at least two libraries reported as needing a password. Time is the sum over all files. Python 3.13, 2-vCPU ARM server, each library in its own worker processes.</p>
 
-<h2>What stood out</h2>
-<ul>
-<li><b>Speed.</b> pypdfium2 read all 1,068 files in 6 seconds of work, PyMuPDF in 14. pypdf needed 83, pdfminer.six 204 and pdfplumber, which is built on pdfminer.six, 225.</li>
-<li><b>Timeouts.</b> Only pdfminer.six and pdfplumber hit the 60-second limit, on one file each. pdfplumber's was <code>freeculture.pdf</code>, a 352-page book that pdfminer.six alone finishes in about 12 seconds. pdfminer.six's was <code>perf_text_labels.pdf</code>, about 90 seconds in my earlier runs.</li>
-<li><b>pdfminer.six and pdfplumber fail together.</b> 5 of their unique failures are the same files (for example <code>'PDFObjRef' object is not subscriptable</code>), which makes sense: pdfplumber uses pdfminer.six's parser. One isn't a fallback for the other.</li>
-<li><b>pypdf's safety limits bite.</b> <code>filled-background.pdf</code> is full of 100,000-digit numbers (π, in three objects and in a comment inside the cross-reference table). pypdf stops with <code>LimitReachedError</code>, its 64-character limit for numbers; the other four read it. <i>Corrected 7 November:</i> I first wrote that the comment alone causes this. Deleting the comment leaves the same error, and shortening every digit run gives a different xref error instead, so the file trips pypdf's cross-reference parsing in more than one way. On <code>bomb_giant.pdf</code> it needs the external <code>jbig2dec</code> program, which I didn't have installed.</li>
-<li><b>pypdfium2 fails early.</b> 22 of its 24 failures happen when opening the file ("Data format error"), so they are cheap to detect and hand to another library.</li>
-<li><b>Only one readable file beat all five:</b> <code>poppler-742-0-fuzzed.pdf</code>, a fuzzed file. Five more failed everywhere, but they are encrypted.</li>
-</ul>
+<h2>Two libraries are far faster than the rest</h2>
+<p>pypdfium2 got through all 1,068 files in 6 seconds of work. PyMuPDF needed 14. pypdf took 83, pdfminer.six 204 and pdfplumber, which is built on pdfminer.six, 225.</p>
+<p>Only pdfminer.six and pdfplumber hit the 60-second limit, on one file each. pdfplumber's was <code>freeculture.pdf</code>, a 352-page book that pdfminer.six alone finishes in about 12 seconds. pdfminer.six's was <code>perf_text_labels.pdf</code>, which took about 90 seconds in my earlier runs.</p>
 
-<h2>What this doesn't measure</h2>
-<p>Text quality: reading order, spacing, tables. A library can "succeed" and return poor text. About 350 to 390 files gave no text in each library, mostly because they contain only images, shapes or fonts under test. Licences differ too: PyMuPDF is AGPL or commercial; the others are permissive.</p>
+<h2>pdfplumber is not a fallback for pdfminer.six</h2>
+<p>5 of their unique failures are the same files, for example with <code>'PDFObjRef' object is not subscriptable</code>. That makes sense once you know pdfplumber uses pdfminer.six's parser. If you want a second library to catch what the first one drops, don't pick these two.</p>
+<p>pypdfium2 is the easy one to build a fallback around. 22 of its 24 failures happen right when it opens the file ("Data format error"), so you find out at once and can hand the file to another library.</p>
+
+<h2>pypdf refuses the π file</h2>
+<p><code>filled-background.pdf</code> is full of 100,000-digit numbers: π, in three objects and again in a comment inside the cross-reference table. pypdf stops with <code>LimitReachedError</code>, its 64-character limit for numbers. The other four read it.</p>
+<p><i>Corrected 7 November:</i> I first wrote that the comment alone causes this. Deleting the comment leaves the same error. Shortening every digit run gives a different xref error instead. So the file trips pypdf's cross-reference parsing in more than one way, and my one-line cause was wrong.</p>
+<p>pypdf's other odd failure is duller. On <code>bomb_giant.pdf</code> it needs the external <code>jbig2dec</code> program, which I didn't have installed.</p>
+
+<h2>Only one readable file beat all five libraries</h2>
+<p>That file is <code>poppler-742-0-fuzzed.pdf</code>, a fuzzed file. Five more failed everywhere, but they're encrypted.</p>
+<p>This only measures whether a library breaks, not how good its text is. A library can "succeed" and return poor text, and reading order, spacing and tables are a separate test. About 350 to 390 files gave no text in each library, mostly because they contain only images, shapes or fonts under test. Licences differ too: PyMuPDF is AGPL or commercial, the others are permissive.</p>
 
 <h2>Repeat it</h2>
 <p>Each library is a few commands with <a href="https://github.com/prometheus-maker/corpusdiff">corpusdiff</a>, a tool I wrote for this kind of test. The library functions are in <a href="https://github.com/prometheus-maker/corpusdiff/blob/main/examples/pdf_libs.py">examples/pdf_libs.py</a>.</p>

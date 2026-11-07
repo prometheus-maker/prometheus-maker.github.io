@@ -12,10 +12,9 @@
 <a href="https://prometheus-maker.github.io/reader-board/paddleocr-vs-tesseract.html">PaddleOCR vs Tesseract</a> ·
 <a href="https://prometheus-maker.github.io/reader-board/rapidocr-vs-paddleocr.html">RapidOCR vs PaddleOCR</a>.</p>
 
-<p><b>Short version.</b> On 190 images with known text, PaddleOCR and docTR found the most words (95%), and RapidOCR
-came close (92%) in a sixth of docTR's time and a tenth of PaddleOCR's. Tesseract was the fastest but found only 38% of
-the words on photos of receipts, while doing fine on document pages and screenshots (88-90%). One catch: PaddleOCR's
-default install currently fails on every image on CPU; the numbers here use the older paddlepaddle its maintainers
+<p>On 190 images with known text, PaddleOCR and docTR found the most words (95%). RapidOCR came close (92%) in a sixth of docTR's time and a tenth of PaddleOCR's. Tesseract was the fastest but found only 38% of
+the words on photos of receipts, while it did fine on document pages and screenshots (88-90%). One catch: PaddleOCR's
+default install currently fails on every image on CPU, so the numbers here use the older paddlepaddle its maintainers
 recommend.</p>
 
 <h2>Results</h2>
@@ -31,24 +30,26 @@ recommend.</p>
 doesn't matter; an image that fails or comes back empty counts as 0. Default settings and English models, CPU only,
 one image at a time on a GitHub-hosted runner (4 vCPUs). Total time includes loading models once.</p>
 
-<h2>What stood out</h2>
-<ul>
-<li><b>Tesseract and photos don't mix.</b> On 24 of the 80 receipt photos Tesseract's default settings returned
-<i>nothing</i>, not even wrong text. On document pages and screenshots it is close to the deep-learning engines and
-about 2.5 to 20 times faster (median per image). For the first empty one (<code>cord-004.jpg</code>, a crumpled, faded thermal receipt on a
-notebook) I tried a tighter crop, a contrast boost and 2× upscaling: still no usable text. So it's not just the
-background around the receipt.</li>
-<li><b>RapidOCR is the practical pick.</b> It runs PaddleOCR's models through ONNX Runtime: 92% of the words, no
-PyTorch, no PaddlePaddle, and a median of 0.3 s per receipt or screenshot. It tied with PaddleOCR for the best result on screenshots (98.4%).</li>
-<li><b>The most accurate are the slowest:</b> per document page (median) PaddleOCR took 20.8 s and docTR 9.7 s,
-against 1.6 s for RapidOCR and 0.6 s for Tesseract.</li>
-<li><b>PaddleOCR's default install is broken on CPU.</b> <code>pip install paddleocr</code> brings paddlepaddle
+<h2>Tesseract gives up on receipt photos</h2>
+<p>On 24 of the 80 receipt photos Tesseract's default settings returned <i>nothing</i>, not even wrong text. For the first empty one (<code>cord-004.jpg</code>, a crumpled, faded thermal receipt on a
+notebook) I tried a tighter crop, a contrast boost and 2× upscaling. Still no usable text, so the background around the receipt isn't the whole problem.</p>
+<p>Documents are a different story. On document pages and screenshots Tesseract is close to the deep-learning engines and
+about 2.5 to 20 times faster (median per image).</p>
+
+<h2>RapidOCR is the one I'd pick</h2>
+<p>It runs PaddleOCR's models through ONNX Runtime. You get 92% of the words without PyTorch or PaddlePaddle, and a median of 0.3 s per receipt or screenshot. On screenshots it tied with PaddleOCR for the best result (98.4%).</p>
+<p>The most accurate engines are also the slowest. Per document page (median) PaddleOCR took 20.8 s and docTR 9.7 s.
+RapidOCR took 1.6 s and Tesseract 0.6 s.</p>
+
+<h2>PaddleOCR's default install is broken on CPU</h2>
+<p><code>pip install paddleocr</code> brings paddlepaddle
 3.3.1, and with it every image fails with <code>NotImplementedError: ConvertPirAttribute2RuntimeAttribute</code>.
-It's a known framework bug (<a href="https://github.com/PaddlePaddle/PaddleOCR/issues/18162" target="_blank" rel="noopener">PaddleOCR #18162</a>);
-the maintainers advise paddlepaddle 3.2.2 or <code>enable_mkldnn=False</code>. The board measures it with 3.2.2 and says so.</li>
-<li><b>Dark mode didn't hurt.</b> On the 27 dark screenshots EasyOCR and docTR lost less than 2 points against the 33
-light ones; RapidOCR, PaddleOCR and Tesseract did better on dark (Tesseract: 92.5% dark, 87.9% light).</li>
-</ul>
+It's a known framework bug (<a href="https://github.com/PaddlePaddle/PaddleOCR/issues/18162" target="_blank" rel="noopener">PaddleOCR #18162</a>).
+The maintainers advise paddlepaddle 3.2.2 or <code>enable_mkldnn=False</code>. The board measures it with 3.2.2 and says so.</p>
+
+<h2>Dark mode didn't hurt</h2>
+<p>On the 27 dark screenshots EasyOCR and docTR lost less than 2 points against the 33
+light ones. RapidOCR, PaddleOCR and Tesseract did better on dark (Tesseract: 92.5% dark, 87.9% light).</p>
 
 <h2>The test images</h2>
 <p>190 images with ground-truth text, pinned in <a href="https://github.com/prometheus-maker/ocr-testset" target="_blank" rel="noopener">prometheus-maker/ocr-testset</a>:
@@ -58,8 +59,8 @@ personal details already blurred), 50 English pages of laws, manuals and patents
 and 60 app screenshots (chat, settings, inbox, tables, terminal, code, dialogs, light and dark) that I rendered from
 known text. The scripts that build the set are in the repo.</p>
 
-<h2>What this doesn't measure</h2>
-<p>Layout and reading order, tables, handwriting, other languages, GPU speed, and the many tuning options each engine
+<h2>Words found, not layout</h2>
+<p>This only measures which words come out. It doesn't cover layout and reading order, tables, handwriting, other languages, GPU speed, or the many tuning options each engine
 has (Tesseract page-segmentation modes, image pre-processing, bigger models). The ground truth of receipts and
 documents covers only their annotated text, which is why I rank by words found rather than character error rate.</p>
 
