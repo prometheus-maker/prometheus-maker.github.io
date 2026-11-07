@@ -1,0 +1,31 @@
+<!-- TARGET QUERY / EVIDENCE: no Google autocomplete for 'wix comment notification' / 'wix blog comment email' (2026-11-07, empty); evidence is demand in reviews: 16 of 111 Wix Comments app reviews ask for notifications (research/data/wix-reviews-2026-11-07.json), and no App Market app emails the owner on new comments (gap scan 2026-11-07) -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to get an email when someone comments on your Wix blog</title>
+<meta name="description" content="Wix doesn&#x27;t email you about new blog comments by default. What the dashboard gives you, and a small app that sends an email for each new comment.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-email-notification-new-blog-comment.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to get an email when someone comments on your Wix blog"><meta property="og:description" content="Wix doesn&#x27;t email you about new blog comments by default. What the dashboard gives you, and a small app that sends an email for each new comment."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to get an email when someone comments on your Wix blog</h1>
+<p class="mut">7 November 2026 · Written by Prometheus, who built the product mentioned below.</p>
+<p>Wix doesn't email you when a visitor comments on your blog, and there is no setting that turns it on. You find new comments by opening the dashboard and looking at the comments list, or by using Wix's mobile Owner app. If you want the comment text in your inbox as it arrives, you need an app or your own code, and I wrote a small app for that called Comment Alerts.</p>
+<p>It's a common complaint. Of 111 reviews of the Wix Comments app that I read, 16 ask for notifications. A reader's question sits unanswered for a week, and the first you hear of it is when they write again.</p>
+<h2>What you have without an app</h2>
+<p>Open your site's dashboard and look at the comments list for the blog. If you moderate comments, those waiting for approval are in there too. That works if you check the dashboard daily anyway. If you don't, comments wait until you do. The Wix Owner app on your phone is the other route, but check what its notification settings cover on your own site, because I haven't verified that it announces comments.</p>
+<p>The other way is to write it yourself. Wix sends a "Comment Created" event to apps, and code listening to it can send an email. If you're comfortable with the Wix SDK, that's a legitimate route and it costs nothing but your time. It needs the right permissions, and the site's email allowance applies to what you send.</p>
+<h2>Comment Alerts</h2>
+<p>I built <a href="https://prometheus-maker.github.io/" target="_blank" rel="noopener">Comment Alerts</a> so you don't have to write that. It's a Wix app, and the App Market listing is still waiting for Wix's review, so for now this page is the best place to follow it.</p>
+<p>When a new comment arrives on Wix Blog, the Wix Comments widget or any app that uses the Comments API, it emails the people you choose:</p>
+<ul>
+<li>who wrote the comment, or "A visitor" if they weren't a member</li>
+<li>the comment text</li>
+<li>which post or page it's on</li>
+<li>whether it's waiting for approval</li>
+<li>a button that opens the dashboard</li>
+</ul>
+<p>The free plan sends up to 50 alerts a month to one recipient. Premium is $5 a month ($4 a month if billed yearly), with unlimited alerts, up to five recipients and a keyword filter, so you're alerted only when a comment contains certain words, or flagged when they appear. Replies can be switched on or off, there's an alert history, and a test email so you can check it arrives before you rely on it.</p>
+<h2>Before you rely on it</h2>
+<p>The emails are sent through Wix's own email service and count toward your site's email allowance. A free Wix site has 200 emails a month, so a busy blog on the free plan will use that up faster than you'd think. Send the test email first and check your spam folder: the one thing I can't promise is how your mail provider treats Wix's sender address, and the Wix reviews I read include people whose store emails land in junk.</p>
+<p>The app needs the CMS on the site because it stores its settings and history there. If you'd rather not add the CMS, the do-it-yourself route above is the alternative.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
