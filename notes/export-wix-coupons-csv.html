@@ -1,0 +1,25 @@
+<!-- TARGET QUERY / EVIDENCE: "export wix coupons to csv" (research/2026-11-08-wix-installs.md, a guess). Google autocomplete 2026-11-08 returned nothing for "wix coupon export", "wix export coupons", "wix coupon csv", "wix coupon list". No suggestion data; page is a bet on a real need. Wix sources fetched 2026-11-08: wix-stores-managing-your-coupons, wix-stores-creating-a-price-discount-coupon, adding-and-setting-up-the-bulk-coupon-creator-app (none describes exporting coupons). Product: Coupon Forge CSV columns code,discount,used,expires (SetsTab.tsx). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to export your Wix coupon codes to a spreadsheet</title>
+<meta name="description" content="Wix's Coupons page has no export button that I could find in its help articles. What you can do instead, and how to get a CSV of a set of codes.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/export-wix-coupons-csv.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to export your Wix coupon codes to a spreadsheet"><meta property="og:description" content="Wix's Coupons page has no export button that I could find in its help articles. What you can do instead, and how to get a CSV of a set of codes."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to export your Wix coupon codes to a spreadsheet</h1>
+<p class="mut">8 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>You've sent 500 unique codes to a mailing list and now you want them in a spreadsheet: which code, which discount, which ones were used. In the Wix dashboard, I couldn't find the button.</p>
+<p>I read the three Wix help articles that cover coupons (<a href="https://support.wix.com/en/article/wix-stores-managing-your-coupons" target="_blank" rel="noopener">managing coupons</a>, <a href="https://support.wix.com/en/article/wix-stores-creating-a-price-discount-coupon" target="_blank" rel="noopener">creating a price discount coupon</a> and <a href="https://support.wix.com/en/article/adding-and-setting-up-the-bulk-coupon-creator-app" target="_blank" rel="noopener">the Bulk Coupon Creator app</a>). None describes exporting the coupon list. The only per-coupon controls they mention are in the More Actions menu: activate, deactivate, delete. That's absence of evidence, not proof, and Wix changes its dashboard often, so if you see an Export button on your Coupons page, use it and tell me.</p>
+<h2>What Wix does export</h2>
+<p>Wix has an <a href="https://support.wix.com/en/article/exporting-orders-3126323" target="_blank" rel="noopener">export for orders</a>, and the Bulk Coupon Creator gives you a CSV of the codes it generated: "Choose an option for creating a CSV file with a list of codes", and on download, "This automatically uploads the generated codes." That file is the input of the tool, not a report. It has the codes and nothing about use.</p>
+<p>To see the codes made by that app inside the dashboard, the help page says: "Select Velo &amp; Apps from the Created with drop-down." Then you read them off the screen.</p>
+<h2>Workarounds</h2>
+<p>For a few dozen coupons, copy them from the Coupons page into a sheet. It's slow and it's easy to miss one.</p>
+<p>Keep the file you uploaded. If you generated codes in the Bulk Coupon Creator, the CSV you downloaded is your list. You won't have usage, but you will have the codes.</p>
+<p>If you write code, Wix's Coupons API can list coupons, and a short script can write them to a file. It has a trap: <a href="wix-coupons-api-offset-10000.html">paging past 10,000 coupons with offsets returns an HTTP 500</a>.</p>
+<h2>Export a set with Coupon Forge</h2>
+<p><a href="https://www.wix.com/app-market/54fe02ea-1813-4dd0-bfdb-f90e506a21d4" target="_blank" rel="noopener">Coupon Forge</a> keeps your codes in sets. Create a set of unique codes with a prefix, and in the list of sets press Export CSV. The file has four columns: code, discount, used and expires, one row per code, ready for your email tool or a printer. The list also shows how many codes in each set were used.</p>
+<p>If you already have codes from somewhere else, you can import a CSV and the app creates them as normal Wix coupons with the discount you pick, and then they can be exported the same way.</p>
+<p>It covers only the sets it created. It won't export coupons you made by hand on the Coupons page, and I haven't built that. Free plan: sets of up to 200 codes, with export. Premium, $6 a month, goes to 10,000 codes per set and imports of lists over 200.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
