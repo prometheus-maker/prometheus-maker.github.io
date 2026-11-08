@@ -1,0 +1,26 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete (suggestqueries, client=firefox, 2026-11-08): "wix form pdf" -> "wix form to pdf", "wix form submission pdf"; "wix form submission" -> includes "wix form submission pdf"; "wix form submissions pdf" returned nothing. Target: "wix form to pdf". Wix support fetched 2026-11-08: Wix Forms: Viewing and Managing a Submissions Table (Download PDF: one at a time, no customizing, empty fields excluded; CSV export, UTC). Product: Form PDF (wix/form-pdf). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to turn Wix form submissions into PDF (one or many)</title>
+<meta name="description" content="Wix lets you download one form submission as a PDF, with no settings. How that works, the CSV route for many, and an app for branded bulk PDFs.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-form-submissions-to-pdf.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to turn Wix form submissions into PDF"><meta property="og:description" content="Wix lets you download one form submission as a PDF, with no settings. How that works, the CSV route for many, and an app for branded bulk PDFs."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to turn Wix form submissions into PDF</h1>
+<p class="mut">8 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>A client fills in your intake form and you want it on paper, with your logo on top, for the file or the signature. Wix has a PDF button for that. It does one thing, and it's worth knowing exactly what.</p>
+<h2>The built-in way: one submission at a time</h2>
+<p>Open the submissions table, click the More Actions icon next to a submission and pick Download PDF. <a href="https://support.wix.com/en/article/wix-forms-viewing-and-managing-a-submissions-table" target="_blank" rel="noopener">Wix's help page</a> lists the limits itself: "You can only download one submission at a time." "You can't customize the PDF settings." And: "Only fields with data are included in the PDF. Empty fields (e.g., optional fields left blank) are excluded."</p>
+<p>So you get a plain PDF per submission, with the fields as Wix lays them out. Fifty submissions means fifty trips through that menu.</p>
+<h2>For many submissions, Wix gives you a CSV</h2>
+<p>The same page says "You can filter the submissions to create your own view, then export it as a CSV file." Tick the submissions, click Export, choose the data. One note from the page: "When exporting submission data, all dates and times are exported in UTC (Coordinated Universal Time) time zone."</p>
+<p>A CSV is fine for a spreadsheet. It isn't a document you can hand to a client or attach to a job. For that you'd paste rows into a template yourself.</p>
+<h2>Form PDF makes the document, and can make many at once</h2>
+<p>I built <a href="https://www.wix.com/app-market/3e8bac65-177f-4d67-b90d-846a764e5153" target="_blank" rel="noopener">Form PDF: Submissions to PDF</a> for this. It's on the Wix App Market and needs Wix Forms.</p>
+<p>Pick a form and its submissions appear in a table you can sort by any column, search, and filter by date or by an answer, say every kitchen project from last week. Press PDF on a row and the file downloads with your logo and business name at the top and the fields you chose. Signatures and uploaded photos are drawn into the PDF. Other uploaded files are listed with a link.</p>
+<p>The free plan makes PDFs one at a time from one form, with your logo and your choice of fields. Premium is $6 a month or $60 a year ($5 a month billed yearly). It adds bulk download (one PDF with a page per submission, or a ZIP with a PDF each), every form on your site, your colour, footer and field order, and automatic filing: each new submission lands as a PDF on the sender's contact card, so the signed waiver sits with the client.</p>
+<h2>Which one to use</h2>
+<p>If you need a PDF of a handful of submissions and don't care how it looks, use the Wix button. If you need a CSV, use Wix's export. If the PDF goes to clients, needs your branding, or you need a month of them in one go, that's the gap the app fills. If you only ever make one PDF a week, the free plan is enough and you never need Premium.</p>
+<p>Whichever route you take, open one PDF before you rely on it. Check that the fields you need are in it, because an empty optional field won't be.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
