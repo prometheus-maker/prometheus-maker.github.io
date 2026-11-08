@@ -1,0 +1,22 @@
+<!-- TARGET QUERY / EVIDENCE: Wix support request page (fetched 2026-11-08): 'Wix Bookings Request: Printing Your Daily Agenda or Weekly Schedule' ('We are collecting votes for this issue', 'Currently, it is not possible to print out your schedule of upcoming sessions from the Booking Calendar to display in your premises.', Tip: export reports on past bookings as .CSV). Product: Day Sheet for Bookings (wix/day-sheet). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to print your Wix Bookings schedule for the day</title>
+<meta name="description" content="Wix&#x27;s Booking Calendar has no print button. What the CSV export gives you, and an app that prints today&#x27;s bookings or a class roster on one page.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/print-wix-bookings-daily-schedule.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to print your Wix Bookings schedule for the day"><meta property="og:description" content="Wix&#x27;s Booking Calendar has no print button. What the CSV export gives you, and an app that prints today&#x27;s bookings or a class roster on one page."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to print your Wix Bookings schedule for the day</h1>
+<p class="mut">8 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>The front desk wants today's appointments on paper, the instructor wants a class list to tick off, and the Wix Booking Calendar has no print button.</p>
+<p>Wix has a request page for it, <a href="https://support.wix.com/en/article/wix-bookings-request-printing-your-daily-agenda-or-weekly-schedule" target="_blank" rel="noopener">"Printing Your Daily Agenda or Weekly Schedule"</a>, marked "We are collecting votes for this issue". It says: "Currently, it is not possible to print out your schedule of upcoming sessions from the Booking Calendar to display in your premises."</p>
+<h2>The free way: export a CSV and print that</h2>
+<p>The same page offers a tip: "It is possible to export reports on past bookings. If your schedule remains the same each week, you can export and print a .CSV file". In the Booking Calendar, Manage, Export booking data gives you a spreadsheet. Open it, delete the columns you don't need, sort by time, set the print area. That's fine once a week for a fixed timetable. Doing it every morning for a salon or a studio gets old fast, and class participants come out as separate rows you have to group yourself.</p>
+<h2>Day Sheet prints the day in one click</h2>
+<p>I built <a href="https://prometheus-maker.github.io/" target="_blank" rel="noopener">Day Sheet for Bookings</a> for the morning version of this job. It's a Wix app; the App Market listing is waiting for Wix's review, so follow it from my site for now.</p>
+<img class="cover" src="../img/wix-day-sheet.png" alt="A printed day sheet: time, staff, service, client, phone and payment status, with class participants grouped under each session" loading="lazy">
+<p>Pick today or tomorrow and the sheet is ready: every appointment and class in time order, with the client's name, phone and payment status, and a blank column for notes. Class bookings sit under their session, sorted by last name, so a long class is quick to scan. The preview on screen is exactly what prints. A4 or Letter, 12 or 24-hour clock, and times are always in your business time zone, even if you open it from abroad.</p>
+<p>Premium is $6 a month or $60 a year. It adds a page per staff member, a roster for every class with tick boxes, a head count and spare lines for walk-ins, any dates up to a week at a time, and saved layouts. Both plans download the same rows as CSV.</p>
+<p>Day Sheet only reads bookings. It stores nothing and changes nothing on your site. It doesn't show answers from your booking form yet: Wix refused that data to the app in my tests, so if you rely on form answers, the CSV export is still the place to get them.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>

@@ -1,0 +1,25 @@
+<!-- TARGET QUERY / EVIDENCE: Wix support request pages (fetched 2026-11-07/08): 'Wix Bookings Request: Limiting the Number of Daily Bookings' ('We are collecting votes for this issue', 'Currently, it is not possible to limit the number of bookings that can be made for a specific day.') and 'Wix Bookings Request: Daily Booking Limit'. Product: Booking Caps (wix/booking-caps). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to limit bookings per day on Wix (or per week)</title>
+<meta name="description" content="Wix Bookings limits people per session but not bookings per day, week or month. The manual workaround, and an app that refuses bookings over a cap.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/limit-wix-bookings-per-day.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="How to limit bookings per day on Wix"><meta property="og:description" content="Wix Bookings limits people per session but not bookings per day, week or month. The manual workaround, and an app that refuses bookings over a cap."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>How to limit bookings per day on Wix</h1>
+<p class="mut">8 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>You can do six massages a week before your hands give out, and your Wix booking page will happily sell you a seventh. Wix Bookings has a limit on how many people join one session. It has no limit on how many bookings you take in a day, a week or a month.</p>
+<p>Wix knows. Its help center has a feature request page, <a href="https://support.wix.com/en/article/wix-bookings-request-limiting-the-number-of-daily-bookings" target="_blank" rel="noopener">"Limiting the Number of Daily Bookings"</a>, marked "We are collecting votes for this issue", and it says plainly: "Currently, it is not possible to limit the number of bookings that can be made for a specific day."</p>
+<h2>The manual way: block time once you're full</h2>
+<p>The usual workaround is blocking the calendar by hand. When the sixth booking of the week comes in, you add a blocked slot or mark yourself unavailable for the rest of the week, and you undo it if someone cancels. It works if you check the calendar after every booking. It fails on the evening two people book within ten minutes of each other, and it doesn't help with rules like "each client gets two classes a week".</p>
+<p>Shorter working hours are the other dodge: offer fewer slots so you can't be overbooked. That also hides slots you'd happily fill on a quiet week.</p>
+<h2>Booking Caps refuses the booking over the limit</h2>
+<p>I built <a href="https://prometheus-maker.github.io/" target="_blank" rel="noopener">Booking Caps</a> for this. It's a Wix app; the App Market listing is waiting for Wix's review, so my site is where to follow it for now.</p>
+<img class="cover" src="../img/wix-booking-caps.png" alt="Booking Caps dashboard with three caps: 6 massages a week, 2 classes a week per client, 1 personal training a day for one trainer" loading="lazy">
+<p>Each cap has three parts. What it covers: one service or several, one staff member or anyone, and optionally each client on their own. The period: a day, a week (starting Monday or Sunday) or a calendar month, in your site's time zone. And the number. A session counts in the period it takes place, not the day it was booked, and you choose whether to count bookings or participants.</p>
+<p>When a new booking would go over a cap, Wix refuses it and the customer sees your message, something like "Massages are fully booked for this week. Please choose another week." The check runs on every new booking, including ones paid with a plan or at the venue. You and your staff can still book over a cap from the dashboard if you tick that option.</p>
+<p>The free plan has one active cap. Premium is $8 a month or $80 a year, with unlimited caps and a log of every blocked attempt.</p>
+<p>One design choice worth knowing: if the app can't check a booking (Wix is slow, something times out), the booking goes through. A broken limit should cost you one extra booking, not a day of lost ones. If you want a cap that can never be exceeded, keep an eye on the blocked-attempts log in the first weeks.</p>
+<p>If your limit is really "this many people in one class", you don't need an app: set the session's maximum participants in the service settings.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
