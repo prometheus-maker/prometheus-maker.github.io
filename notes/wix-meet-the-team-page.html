@@ -1,0 +1,24 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-10: "wix team page" -> "wix team page templates", "wix meet the team page". Wix support "Wix Bookings: Adding a Staff Widget to Your Site" (fetched 2026-11-10): no longer available to add, accessibility, "no alternative widget available", existing widgets stay. Product: Team (wix/team/listing/description-live.txt, listing.md pricing), PUBLISHED 2026-11-10. -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A "Meet the team" page on Wix now that the Bookings staff widget is gone</title>
+<meta name="description" content="Wix Bookings' staff members widget can't be added to new pages any more, and Wix says there's no alternative. Three ways to build a team page that lets clients book with a person.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-meet-the-team-page.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="A Meet the team page on Wix now that the Bookings staff widget is gone"><meta property="og:description" content="Wix says there's no alternative to its retired staff widget. Three ways to build a team page."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>A "Meet the team" page on Wix now that the Bookings staff widget is gone</h1>
+<p class="mut">10 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>Salons, clinics and studios sell people as much as services. Clients want to see who'll cut their hair or treat their back before they book. Wix Bookings used to have a widget for exactly that, and you can't add it any more.</p>
+<p><a href="https://support.wix.com/en/article/wix-bookings-adding-a-staff-widget-to-your-site" target="_blank" rel="noopener">Wix's help page</a> says the staff members widget "does not fully support accessibility and is no longer available to add to your site." If it's already on a page, you can keep managing it. For everyone else: "Currently, there is no alternative widget available."</p>
+<h2>Building it by hand</h2>
+<p>The free route is a repeater or a few strips: a photo, a name, a line about each person and a button linked to their booking page. It looks fine on launch day. The catch is upkeep: when someone joins, leaves or changes their photo, you update Bookings and then the team page, by hand, and the two drift apart.</p>
+<p>If you're comfortable with the CMS, you can keep staff in a collection and connect a repeater to it. That fixes the layout work, but it's still a second list next to your Bookings staff.</p>
+<h2>A team section that reads your Bookings staff</h2>
+<p>I built <a href="https://www.wix.com/app-market/c53bddc7-2f9a-4d0f-9e5e-f0cfca944b3b" target="_blank" rel="noopener">Team: Staff for Bookings</a> to close that gap. It shows the people from your Bookings staff as cards: photo, name, description, the services each person gives, and a "Book with Hannah" button. Add someone in Bookings or change a photo there, and the cards follow. There's nothing to type twice.</p>
+<img class="cover" src="../img/wix-meet-the-team.jpg" alt="A salon's Meet the team section with three staff cards, each with a photo, a short description, service tags and a Book with button" loading="lazy">
+<p>Since accessibility is why Wix retired its widget, Team is built from real headings, links and lists that screen readers follow, photos have alt text, and every button works from the keyboard. People without a photo get a tile with their initials instead of a broken image, and on phones the cards become compact rows.</p>
+<p>The free plan shows up to four people in a grid, with a small credit link. Premium ($4 a month, 20% off yearly) shows the whole team, adds list and carousel layouts, can show only the people who give one service, lets you hide people or set the order, and removes the link.</p>
+<h2>Which one to use</h2>
+<p>Two or three people who rarely change: build it by hand, it's free. A team that changes, or more than four people with their own services: let the page read Bookings so it can't go stale. Keep the old widget if you still have it; Wix hasn't said it will stop working.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
