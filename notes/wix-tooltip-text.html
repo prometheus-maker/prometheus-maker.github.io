@@ -1,0 +1,23 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-10: "wix tooltip" -> "wix tooltip text", "wix button tooltip". Wix support "Accessibility best practices for the CMS" (fetched 2026-11-10): image tooltips removed, use alt text. Forum "Tooltips GONE?!" /t/73674 (RETIRED1 row 6). Product: Hintly (wix/hintly/listing/description-live.txt). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tooltips on Wix: what happened to them, and tooltip text that works on phones</title>
+<meta name="description" content="Wix removed tooltips from images because not every visitor could use them. What to use for images now, and how to explain words in your text with tooltips that work by tap and keyboard.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-tooltip-text.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Tooltips on Wix: what happened to them"><meta property="og:description" content="Wix removed image tooltips. What to use for images now, and tooltip text that works by tap and keyboard."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Tooltips on Wix: what happened to them, and tooltip text that works on phones</h1>
+<p class="mut">10 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>The tooltip field on Wix images is gone. <a href="https://support.wix.com/en/article/accessibility-best-practices-for-the-cms" target="_blank" rel="noopener">Wix's help page</a> puts it plainly: "We have removed the option to add tooltips to image elements as tooltips are not accessible to all users." That covers images connected to the CMS too.</p>
+<p>Wix's reason is fair. A tooltip that only opens on mouse hover does nothing on a phone, and nothing for someone using a keyboard or a screen reader.</p>
+<h2>For images: use alt text</h2>
+<p>The same page says what to do instead: "use the alt text field to explain images in a way that screen readers can understand them." Click the image, open its settings and fill in the alt text. It won't pop up for sighted visitors, so if the explanation matters to everyone, put it in a caption or the text next to the image.</p>
+<h2>For words in your text: tooltips that open on tap</h2>
+<p>The other common use was explaining a word: a baking term, a treatment name, the jargon customers keep asking about. For that I built <a href="https://www.wix.com/app-market/prometheus-hintly-tooltip-text" target="_blank" rel="noopener">Hintly: Tooltip Text</a>. You type your text into the widget, add each word and its definition, and those words get a dotted underline. Pointing at one opens a small box with the definition.</p>
+<img class="cover" src="../img/wix-tooltip-text.jpg" alt="A bakery page where the word levain is underlined and a tooltip explains it: a natural starter of flour and water" loading="lazy">
+<p>Since accessibility is why Wix dropped the old tooltips, I built for it from the start. On a phone a tap opens the tooltip and a tap anywhere else closes it. Keyboard users reach every word with Tab and close the box with Esc. The box moves below the word when there's no room above.</p>
+<p>The free plan explains 3 words per widget with no branding. Premium ($4 a month, or $3 a month billed yearly) allows up to 60, a link inside each tooltip, a glossary list under the text and underlines on every match.</p>
+<h2>Which one to use</h2>
+<p>Describing what's in a picture: alt text, always. Explaining a term inside a paragraph so visitors don't have to leave the page: a tap-friendly tooltip. If a definition is long or important, write it into the page instead. Nobody should have to hunt for it.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
