@@ -1,0 +1,43 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-10: "wix countdown timer" -> "wix countdown app", "free", "clock", "widget", "einfügen". Fetched 2026-11-10: support.wix.com/en/article/countdown-clock-settings (Countdown Clock app: end date, time zone, "Do nothing"/"Customize a message"); dev.wix.com tutorial-create-a-countdown-widget-with-blocks (Blocks, not Harmony). Search found no support.wix.com page for a native countdown element. Snippet tested with node 2026-11-10 (1 d 14:03:22 / 00:00:05 / Sale ended). Product: wix/salecountdown/DONE.md + listing/description-live.txt. -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wix countdown timer: the free routes, and why a store needs one tied to the discount</title>
+<meta name="description" content="Wix Help Center documents a Countdown Clock app with a fixed end date. A free HTML embed does the same. A store's clock should end when its automatic discount ends. A tested snippet, and an app that does that.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-countdown-timer.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Wix countdown timer: free routes, and one tied to your store discount"><meta property="og:description" content="A tested free embed snippet for a Wix countdown, and why a store's clock should read the discount's own end time."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Wix countdown timer: the free routes, and why a store needs one tied to the discount</h1>
+<p class="mut">10 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>Wix's Help Center has a page for a Countdown Clock app. Its settings article, <a href="https://support.wix.com/en/article/countdown-clock-settings" target="_blank" rel="noopener">Countdown Clock: Settings</a>, says: "Click the drop-downs to select the month, day and year that the countdown ends" and then "choose your time zone and the exact time that the countdown ends." When it hits zero you pick one of two things: "Do nothing: No message appears. Your clock simply shows the countdown as 0," or "Customize a message."</p>
+<p>That's the Wix-made route I could verify. I searched the Help Center for a built-in countdown element in the Wix Editor and in Wix Studio and found no article for one. Some blog posts describe an element under Add, so look in your own Add panel before you install anything. The one countdown tutorial Wix does publish is for developers: <a href="https://dev.wix.com/docs/build-apps/get-started/tutorials/tutorial-create-a-countdown-widget-with-blocks" target="_blank" rel="noopener">build a countdown widget with Wix Blocks</a>, and its own note says Blocks apps aren't supported in the Wix Harmony editor.</p>
+<h2>A free countdown with an HTML embed</h2>
+<p>Add an Embed Code element, choose Embed HTML, and paste this. Change the date on the <code>END</code> line. Keep the offset at the end (<code>+01:00</code> here): without it the browser guesses the visitor's own time zone, and people in different countries get different deadlines. After the end it shows "Sale ended" and stops ticking.</p>
+<pre><code>&lt;div id="cd" style="font:600 28px/1.3 system-ui,sans-serif;text-align:center;padding:16px"&gt;&lt;/div&gt;
+&lt;script&gt;
+(function () {
+  // End moment with an explicit UTC offset, so every visitor sees the same deadline.
+  var END = new Date("2026-11-27T23:59:59+01:00").getTime();
+  var el = document.getElementById("cd");
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var s = Math.floor((END - Date.now()) / 1000);
+    if (s &lt;= 0) { el.textContent = "Sale ended"; clearInterval(t); return; }
+    var d = Math.floor(s / 86400);
+    el.textContent = (d ? d + " d " : "") + pad(Math.floor(s % 86400 / 3600)) + ":" + pad(Math.floor(s % 3600 / 60)) + ":" + pad(s % 60);
+  }
+  var t = setInterval(tick, 1000); tick();
+})();
+&lt;/script&gt;
+</code></pre>
+<p>I ran this logic in Node with the clock set to four moments: 1 d 14:03:22 before the end, 00:00:05 five seconds before, and "Sale ended" at the end and a day later. I haven't tested it inside every Wix plan's embed box, and it is plain text on a transparent background, so style it to match your site.</p>
+<h2>Where a plain timer goes wrong for a store</h2>
+<p>A typed-in end date is a second copy of a fact your store already holds. You set the discount to end on Friday at 23:59 in the dashboard, then type "Friday" again into the timer. Move the discount by a day and the timer still says Friday. Extend the sale and the clock reads "Sale ended" over products that are still marked down. Forget to remove it in January and it sits on your home page at zero.</p>
+<p>None of that is a bug in the clock. It just has no way to know.</p>
+<h2>A clock that reads the discount</h2>
+<p>I built <a href="https://www.wix.com/app-market/prometheus-sale-countdown-black-friday" target="_blank" rel="noopener">Sale Countdown: Black Friday</a> for this. It reads the automatic discounts in your Wix store and counts down to the end of the one that ends first, with its name and deal ("BLACK FRIDAY · 25% off · Ends in 1 day 14:03:22"). If a sale starts within 14 days it shows "Starts in" instead. When no discount is running, the bar hides itself.</p>
+<img class="cover" src="../img/wix-sale-countdown-bar.jpg" alt="A sample shop page with a dark bar reading Black Friday, 25% off, Ends in 1 day 14 hours 3 minutes 20 seconds, and a Shop now button" loading="lazy">
+<p>The free plan gives you the Black Friday look, your own texts and a button, with a small "Made with Sale Countdown" credit under the bar. Premium is $5 a month ($4 on the yearly plan) and adds Cyber Monday, Christmas and light themes, your own colours, a chosen discount instead of the next one to end, several sales taking turns, and no credit. It only knows about automatic discounts. A coupon code that a customer types has no end date it can read, so use the embed for that.</p>
+<h2>Which one to use</h2>
+<p>A launch, a webinar or a holiday that has nothing to do with a discount: Wix's Countdown Clock or the embed above, both free. A sale that runs on an automatic discount in your store: the bar that follows the discount, so you edit the date in one place. A coupon with an expiry date: the embed, with the same date typed twice and a reminder to check both.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
