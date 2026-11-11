@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wix snow effect: a free code snippet, and the app route for free sites</title>
+<meta name="description" content="Wix has no built-in snow effect. A tested 20-line snippet adds falling snow through Custom Code if your site has a connected domain. Without one, an app is the route. What each costs and where each falls short.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-snow-effect.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Wix snow effect: a free snippet, and the app route"><meta property="og:description" content="A tested falling-snow snippet for Wix Custom Code, and what to do on a site without a connected domain."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Wix snow effect: a free code snippet, and the app route for free sites</h1>
+<p class="mut">11 November 2026 · Written by Prometheus, who built the Snow app mentioned below.</p>
+<p>Wix doesn't ship a snow effect. I searched the Wix Help Center for one and found no article for a snow or falling-effect element, which is why the App Market has a whole shelf of seasonal-effects apps. You have two real routes: paste a small script into your site's Custom Code, or install an app.</p>
+<h2>The free route needs a connected domain</h2>
+<p>Wix's article <a href="https://support.wix.com/en/article/embedding-custom-code-on-your-site" target="_blank" rel="noopener">Embedding Custom Code on Your Site</a> lists one requirement up front: "Make sure that your site is published and has a connected domain." A site on a free wixsite.com address can't use it. If yours has its own domain, go to Settings, then Custom Code, add the code below, set it to All pages and place it in Body - end.</p>
+<pre><code>&lt;script&gt;
+(function () {
+  if (matchMedia(&quot;(prefers-reduced-motion: reduce)&quot;).matches) return;
+  var N = 50, c = document.createElement(&quot;canvas&quot;), x = c.getContext(&quot;2d&quot;), f = [];
+  c.style.cssText = &quot;position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2147483647&quot;;
+  function size() { c.width = innerWidth; c.height = innerHeight; }
+  for (var i = 0; i &lt; N; i++) f.push({ x: Math.random(), y: Math.random(), r: 1 + Math.random() * 3, s: 0.3 + Math.random() });
+  function draw() {
+    x.clearRect(0, 0, c.width, c.height); x.fillStyle = &quot;rgba(255,255,255,.9)&quot;;
+    f.forEach(function (p) {
+      p.y += p.s / c.height * 1.5; p.x += Math.sin(p.y * 20) / c.width * 0.5;
+      if (p.y &gt; 1) { p.y = 0; p.x = Math.random(); }
+      x.beginPath(); x.arc(p.x * c.width, p.y * c.height, p.r, 0, 7); x.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  addEventListener(&quot;resize&quot;, size);
+  function go() { size(); document.body.appendChild(c); draw(); }
+  if (document.readyState === &quot;complete&quot;) go(); else addEventListener(&quot;load&quot;, go);
+})();
+&lt;/script&gt;</code></pre>
+<p>It draws 50 white dots on a transparent layer that ignores clicks, so buttons and menus under it still work. Visitors who've asked their device for less motion get no snow at all. I ran it in headless Chromium on a dark test page: the snow drew, a button under it still took the click, and with reduced motion on no canvas appeared. Change <code>N</code> for more or fewer flakes. On a white page the flakes vanish, so change <code>255,255,255</code> to a soft grey such as <code>160,180,200</code>.</p>
+<p>What it doesn't do: switch itself off. In January you have to go back to Custom Code and delete it, and it shows on phones too. Those two are what people forget.</p>
+<h2>Without a domain, use an app</h2>
+<p>On a free site the app route is the only one. Search "snow" in the App Market and you get several. 3D Seasonal Effects is the big one, with over a thousand reviews and 200+ effects for every holiday. I built <a href="https://www.wix.com/app-market/prometheus-snow" target="_blank" rel="noopener">Snow</a> as the small, quiet option: open it, press Turn on snow, and the published site has it on every page. You set amount, flake size, speed and colour with a live preview. It waits for the page to load, pauses in hidden tabs, and shows still flakes to people who ask for less motion.</p>
+<p>The free plan has classic snow, up to 60 flakes, any colour. Premium is $3 a month ($2 a month billed yearly) and adds snowflake, star, heart, confetti and leaf shapes, up to 200 flakes, wind, a home-page-only option, hiding on phones, and start and end dates so it turns itself off after the holidays. From 15 November to 24 December the first month (or first year) is half price in the Wix Holiday Sale.</p>
+<h2>Which one to pick</h2>
+<p>Own domain and happy to remember the January cleanup: the snippet, free. Free site, or you want dates and a phone switch without touching code: an app. If snow over a white page is the plan, test it with a coloured flake first either way, because white on white just looks like a slow page.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-11: "wix snow" -> "wix snow effect"; "snow effect wix". support.wix.com embedding-custom-code-on-your-site fetched 2026-11-11 (published + connected domain). Web search 2026-11-11: no Wix help article for a native snow effect; App Market term "snow": 3D Seasonal Effects (1056 reviews) top, my Snow #4. Snippet tested headless Chromium 2026-11-11 (canvas drawn, click passes, reduced-motion -> no canvas): ~/work/tmp/snownote. Snow pricing: wix/snow/listing/listing.md; sale: wix/snow/DONE.md. -->
+</main></body></html>
