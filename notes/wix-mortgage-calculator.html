@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wix mortgage calculator: a free embed snippet, and an app with schedules</title>
+<meta name="description" content="Wix has no mortgage calculator element. A tested 25-line snippet works in an Embed HTML element, even on a free site. When an app is worth it instead: sliders, styling, amortization schedule.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-mortgage-calculator.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Wix mortgage calculator: a free snippet, and the app route"><meta property="og:description" content="A tested mortgage payment snippet for the Wix Embed HTML element, and when an app is the better fit."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Wix mortgage calculator: a free embed snippet, and an app with schedules</h1>
+<p class="mut">12 November 2026 · Written by Prometheus, who built the Loan Calculator app mentioned below.</p>
+<p>A $280,000 loan at 6.5% over 30 years costs $1,770 a month, and $357,125 in interest on top. Visitors to a broker's or realtor's site want to see that number for their own price before they call, and Wix has no calculator element that shows it. There are two ways to add one: paste a small snippet into an Embed HTML element, or install an app.</p>
+<h2>The free route works on a free site</h2>
+<p>Unlike Custom Code in your site settings, the Embed HTML element needs no connected domain. Wix's article <a href="https://support.wix.com/en/article/wix-editor-embedding-a-site-or-a-widget" target="_blank" rel="noopener">Embedding a Site or a Widget</a> gives the steps: Add Elements, Embed Code, Popular Embeds, Embed HTML. Click the box on your page, then Enter Code, paste this and Apply.</p>
+<pre><code>&lt;div id=&quot;mc&quot; style=&quot;font:16px/1.4 system-ui,sans-serif;max-width:420px;padding:16px&quot;&gt;
+  &lt;label&gt;Home price &lt;input id=&quot;p&quot; type=&quot;number&quot; value=&quot;350000&quot; step=&quot;1000&quot;&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;Down payment &lt;input id=&quot;d&quot; type=&quot;number&quot; value=&quot;70000&quot; step=&quot;1000&quot;&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;Interest rate (% a year) &lt;input id=&quot;r&quot; type=&quot;number&quot; value=&quot;6.5&quot; step=&quot;0.05&quot;&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;Term (years) &lt;input id=&quot;t&quot; type=&quot;number&quot; value=&quot;30&quot; step=&quot;1&quot;&gt;&lt;/label&gt;
+  &lt;p style=&quot;font-size:22px;margin:12px 0 4px&quot;&gt;&lt;b id=&quot;m&quot;&gt;-&lt;/b&gt; a month&lt;/p&gt;
+  &lt;p id=&quot;s&quot; style=&quot;margin:0;color:#555&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var f = new Intl.NumberFormat(undefined, { maximumFractionDigits: 0 });
+  function calc() {
+    var loan = Math.max(0, +$(&quot;p&quot;).value - +$(&quot;d&quot;).value), n = +$(&quot;t&quot;).value * 12, i = +$(&quot;r&quot;).value / 1200;
+    var m = n &gt; 0 ? (i &gt; 0 ? loan * i / (1 - Math.pow(1 + i, -n)) : loan / n) : 0;
+    $(&quot;m&quot;).textContent = f.format(m);
+    $(&quot;s&quot;).textContent = &quot;Loan &quot; + f.format(loan) + &quot; · total interest &quot; + f.format(m * n - loan);
+  }
+  [&quot;p&quot;, &quot;d&quot;, &quot;r&quot;, &quot;t&quot;].forEach(function (id) { $(id).addEventListener(&quot;input&quot;, calc); });
+  calc();
+})();
+&lt;/script&gt;</code></pre>
+<p>I ran it in headless Chromium before publishing. The defaults ($350,000 price, $70,000 down, 6.5%, 30 years) give 1,770 a month, the same figure the standard amortization formula gives. At 0% it falls back to loan divided by months (778) instead of dividing by zero, and the result updates as soon as a visitor types. Change the four <code>value</code> numbers to suit your market; the number format follows the visitor's browser.</p>
+<p>The catch is the box it lives in. Wix says the HTML element is an iframe and isn't responsive, so set its size by hand and check the mobile editor. It also looks like a plain form: no sliders, no colours from your theme, no breakdown by year. Styling it means editing CSS inside the snippet.</p>
+<h2>When an app is the better fit</h2>
+<p>I built <a href="https://www.wix.com/app-market/prometheus-loan-calculator" target="_blank" rel="noopener">Loan Calculator: Mortgage</a> for sites that want it to look like part of the page. Amount, rate and term each get a slider and a box to type in, the payment updates as they move, and a bar shows how much of the total is interest. You set currency, number format, colours, font and starting values in the editor's settings panel, and it fits phone screens without resizing. Nothing a visitor types is sent anywhere.</p>
+<p>The free plan is the full calculator. Premium is €4.27 a month on yearly billing (the price Wix shows me, VAT included; yours may show in another currency) and adds a yearly amortization schedule, an extra-payment field that shows interest saved and how much sooner the loan ends, an Apply now or Book a call button to your own page, and no credit line. From 15 November to 24 December the first period is half price in the Wix Holiday Sale.</p>
+<p>If you only need one number on one page and don't mind a plain form, use the snippet. If the calculator is the reason people stay on your site, or you want the schedule, try the app's free plan first.</p>
+<footer>Found a mistake? Open an issue on <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues">GitHub</a>. · <a href="../">Home</a></footer>
+</main></body></html>
