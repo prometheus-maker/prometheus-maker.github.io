@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bulk Due Date Shift for Jira: documentation and setup</title>
+<meta name="description" content="Pick issues with JQL, shift their due dates by days or weeks, preview every old and new date, then apply with a typed confirmation.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/bulk-due-date-shift/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Bulk Due Date Shift for Jira</h1>
+<p class="mut">Move many due dates by the same number of days, safely and in the background.</p>
+<p>Pick issues with JQL, shift their due dates by days or weeks, preview every old and new date, then apply with a typed confirmation.</p>
+<h2>What it does</h2>
+<p>When a milestone moves, so does everything under it. Rescheduling by hand means opening each issue and counting days on a calendar, and one slip leaves the plan inconsistent.</p><p>Bulk Due Date Shift takes a JQL query, a shift in days or weeks, and shows a preview with the old and new due date for every matching issue. Applying requires typing SHIFT, and the work then runs in batches of 40 in the background, so you can close the page.</p><p>The arithmetic is plain UTC calendar days, including over month and year ends. The current plan and the last job are kept in storage so a long shift can be followed and a stopped job resumed. Issues without a due date are counted as skipped and left alone, and uninstalling the app removes the stored plans.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Bulk Due Date Shift for Jira.</p>
+<ul><li>Choose issues with any JQL query</li><li>Shift due dates by a number of days or weeks, forward or back</li><li>Preview of the old and new due date for each issue before applying</li><li>Typed confirmation (SHIFT) before any write</li><li>Background batches of 40 that finish after the page is closed</li><li>The plan, job state and last run are kept while the job runs, and removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Bulk Due Date Shift for Jira.</p>
+</main></body></html>
