@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checklist Progress for Jira: documentation and setup</title>
+<meta name="description" content="Add tickable checklist items to any issue and track completion as a 0 to 100 number you can filter, sort and chart in JQL.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/checklist-progress/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Checklist Progress for Jira</h1>
+<p class="mut">A checklist field whose progress percentage is searchable in JQL.</p>
+<p>Add tickable checklist items to any issue and track completion as a 0 to 100 number you can filter, sort and chart in JQL.</p>
+<h2>What it does</h2>
+<p>Acceptance criteria, onboarding steps and definition-of-done lists usually live as bullets in a description, where nothing can count them. You cannot filter for issues that are half done, and a dashboard cannot chart them.</p><p>Checklist Progress puts the list in a real Jira custom field. Add items on the issue and tick them as the work completes; the field stores the percentage done and shows a progress bar in the issue view. Items are kept per issue in Forge storage and the field itself writes only the number.</p><p>That number is indexed by Jira like any other number field, so JQL finds work in progress and finished issues, saved filters keep a list for a stand-up, and dashboards can chart completion across a project.</p><p>Up to 50 items of 200 characters each fit in one checklist. Editing uses the issue&#x27;s own permissions: if you cannot update the issue, the checklist view tells you so instead of failing silently, and uninstalling the app removes the stored checklists.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the custom field (add it to a screen in Jira settings → Issues → Screens).</p>
+<ul><li>A checklist editor and viewer in the issue, with a progress bar</li><li>Completion stored as a number from 0 to 100</li><li>Filter and chart with plain JQL, no extra query syntax</li><li>Up to 50 items of 200 characters per issue</li><li>Respects Jira issue permissions when editing</li><li>Stored checklists are removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Checklist Progress for Jira.</p>
+</main></body></html>
