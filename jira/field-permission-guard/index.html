@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field Permission Guard for Jira: documentation and setup</title>
+<meta name="description" content="Per-project field policies that restore unauthorised edits, keep an audit log, and store a guarded text field&#x27;s value where only allowed users can read it.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/field-permission-guard/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Field Permission Guard for Jira</h1>
+<p class="mut">Keep sensitive field values out of the wrong hands, and put back any that are changed.</p>
+<p>Per-project field policies that restore unauthorised edits, keep an audit log, and store a guarded text field&#x27;s value where only allowed users can read it.</p>
+<h2>What it does</h2>
+<p>Jira&#x27;s field-level permissions either do not exist for most fields or apply to every project at once. A salary reference, a customer identifier or a legal note ends up editable by anyone who can edit the issue.</p><p>Field Permission Guard adds policies per project or for the whole site. When an issue is created or updated, it compares lockable fields - text and labels - with the policy, restores any value changed by someone not allowed to change it, and records the action in an audit log the admin page shows. Administrators are recognised by their membership of the standard administrator groups, and an empty allow list means administrators only.</p><p>It also adds a Guarded Text custom field. The value is kept in the app&#x27;s own storage and the issue holds only a token; a policy on that field decides who may see and edit it, and with no policy only administrators can. Uninstalling removes every stored policy, value and audit entry.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the custom field (add it to a screen in Jira settings → Issues → Screens).</p>
+<ul><li>Field policies per project or site-wide, with project policies taking precedence</li><li>Unauthorised changes are restored and written to an audit log</li><li>Audit log on the admin page, with who changed what and when</li><li>Guarded Text custom field whose value stays in app storage, not on the issue</li><li>Standard administrator groups recognised out of the box</li><li>Gate on the create screen: Guarded Text is set on existing issues</li><li>All stored policies, values and logs removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Field Permission Guard for Jira.</p>
+</main></body></html>
