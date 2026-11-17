@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bulk Clone for Jira: documentation and setup</title>
+<meta name="description" content="Pick issues with JQL, preview how many issues, subtasks, links and attachments the clone will create, then run it as one job into a target project. Each copy keeps a link back to i">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/bulk-clone/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Bulk Clone for Jira</h1>
+<p class="mut">Clone many Jira issues at once, with their subtasks, links and attachments.</p>
+<p>Pick issues with JQL, preview how many issues, subtasks, links and attachments the clone will create, then run it as one job into a target project. Each copy keeps a link back to its source.</p>
+<h2>What it does</h2>
+<p>Every release, audit or recurring maintenance window starts with the same set of issues. Copying forty of them by hand means forty clone dialogs, and the subtasks, links and attachments are usually lost along the way.</p><p>Bulk Clone takes a JQL query, runs it, and shows a pre-flight count: how many issues match, how many subtasks, links and attachments they carry, and what the clone will add up to. You choose the target project and which fields to copy, then start the job.</p><p>Work runs in batches on a scheduled trigger, so a few hundred issues are cloned without keeping a tab open, and the page shows progress as it happens. Each cloned issue gets a &quot;Relates&quot; link to the original, so the pair stays traceable. The result table lists every issue as copied, skipped or failed, with the reason for each failure — a partial run is visible, not silent.</p><p>The app uses the permissions of the user who starts the job: if you cannot create an issue in the target project, neither can the clone.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Bulk Clone for Jira.</p>
+<ul><li>Source selection by JQL, with a pre-flight count before anything is created</li><li>Copies subtasks, issue links and attachments according to what you tick</li><li>Every clone gets a &quot;Relates&quot; link back to its source issue</li><li>Batched jobs on a scheduled trigger, for hundreds of issues without an open tab</li><li>Per-issue result table: copied, skipped or failed, with reasons</li><li>Choose the target project and the fields to carry over</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Bulk Clone for Jira.</p>
+</main></body></html>
