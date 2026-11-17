@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Queue Router for Jira Service Management: documentation and setup</title>
+<meta name="description" content="Ordered rules match on request type, a portal field or priority and set the assignee and priority, on a five-minute schedule.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/queue-router/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Queue Router for Jira Service Management</h1>
+<p class="mut">Send each new request into the right queue by setting the fields queues filter on.</p>
+<p>Ordered rules match on request type, a portal field or priority and set the assignee and priority, on a five-minute schedule.</p>
+<h2>What it does</h2>
+<p>JSM queues are saved filters, but the API will not write to them. Routing a request therefore means setting the fields a queue filters on, usually with automation rules that grow into a maze.</p><p>Queue Router keeps that in one ordered list. Each rule matches on request type, a portal field value or priority, and sets the assignee and priority the queue needs. The first enabled rule that matches wins, and only fields that actually change are written, so the request&#x27;s history stays readable.</p><p>An admin page holds the rules with a preview that shows which requests a rule would match and a dry run before applying. A scheduled run works through 25 requests per invocation and remembers its page token, so a large service desk is covered without long invocations. Rules and job state are removed when the app is uninstalled.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Queue Router for Jira Service Management.</p>
+<ul><li>Ordered rules matching on request type, a portal field value or priority</li><li>Sets assignee and priority, the fields JSM queues filter on</li><li>First enabled matching rule wins; only changed fields are written</li><li>Preview of matching requests and a dry run before applying</li><li>Five-minute scheduled run, 25 requests per invocation, resumable</li><li>Rules and job state removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Queue Router for Jira Service Management.</p>
+</main></body></html>
