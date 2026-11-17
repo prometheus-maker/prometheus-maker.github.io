@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copy Field on Transition for Jira: documentation and setup</title>
+<meta name="description" content="A workflow post function that carries a value from field to field at transition time, with the rules managed per project on an admin page.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/copy-field-on-transition/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Copy Field on Transition for Jira</h1>
+<p class="mut">Copy one field&#x27;s value into another whenever an issue moves through a transition.</p>
+<p>A workflow post function that carries a value from field to field at transition time, with the rules managed per project on an admin page.</p>
+<h2>What it does</h2>
+<p>Teams often need the same information twice: the story points that should land in a custom estimate field, the assignee that should be copied to a reviewer, the date that belongs in both a start and an approval field. Doing that by hand is easy to forget.</p><p>Copy Field on Transition adds a post function to a transition. An admin pairs a source field with a target field per project and transition on the app&#x27;s admin page; every pass through that transition copies the value. A rule for all projects can sit behind the project-specific ones, and when several rules match, all of them run.</p><p>The behaviour stays conservative: an empty source copies nothing, and with overwrite turned off an existing target value is left alone. If a write fails, the transition continues and the admin page records the last error - unless the &quot;block the transition if the copy fails&quot; option is on, in which case the transition stops instead of leaving a half-filled issue. Stored rules are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Copy Field on Transition for Jira.</p>
+<ul><li>A workflow post function plus an admin page for the rules</li><li>Rules per project and transition, with an all-projects fallback</li><li>Every matching rule runs, project rules before the all-projects rule</li><li>Empty source values copy nothing; overwrite can be switched off per rule</li><li>Optional blocking when a copy fails, otherwise the error is recorded and shown</li><li>Stored rules removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Copy Field on Transition for Jira.</p>
+</main></body></html>
