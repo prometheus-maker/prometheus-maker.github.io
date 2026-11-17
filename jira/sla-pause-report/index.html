@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SLA Pause Report for Jira Service Management: documentation and setup</title>
+<meta name="description" content="Scan a service desk&#x27;s last 30 days of requests and group paused and breached SLA metrics by metric, request type and status.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/sla-pause-report/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>SLA Pause Report for Jira Service Management</h1>
+<p class="mut">Which SLAs pause, which breach, and where.</p>
+<p>Scan a service desk&#x27;s last 30 days of requests and group paused and breached SLA metrics by metric, request type and status.</p>
+<h2>What it does</h2>
+<p>An SLA that pauses looks healthy on the dashboard while your customers wait. The pause is usually legitimate - waiting for the customer, waiting for a vendor - but when it happens often, at one status or one request type, it is a process problem.</p><p>SLA Pause Report reads the requests created in the last 30 days on a service desk, collects every SLA metric on them and groups the paused and breached ones by metric, request type and the status the request was in. The table filters by those columns, and the grouped view exports as CSV for a review meeting.</p><p>The SLA API does not expose a pause reason, so the report shows the request&#x27;s status at scan time and claims nothing more. Scans advance on the hourly schedule, ten requests per invocation, and everything the app stores is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → SLA Pause Report for Jira Service Management.</p>
+<ul><li>Scans requests from the last 30 days on a chosen service desk</li><li>One row per SLA metric: paused, breached, and the status it paused in</li><li>Groups by metric, request type and status</li><li>Filterable table and CSV export of the grouped view</li><li>Hourly scheduled scan, ten requests per invocation</li><li>Stored scan data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for SLA Pause Report for Jira Service Management.</p>
+</main></body></html>
