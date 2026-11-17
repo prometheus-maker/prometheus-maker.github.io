@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Time in Status for Jira: documentation and setup</title>
+<meta name="description" content="Rebuild the status history from each issue&#x27;s changelog, total and average the time per status, and export the result as CSV.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/time-in-status/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Time in Status for Jira</h1>
+<p class="mut">See how long issues spend in each workflow status.</p>
+<p>Rebuild the status history from each issue&#x27;s changelog, total and average the time per status, and export the result as CSV.</p>
+<h2>What it does</h2>
+<p>&quot;Where does the time actually go?&quot; is a weekly question in most Jira teams, and Jira answers it only for the status an issue is in right now. The history is in the changelog, but nobody reads four hundred changelogs by hand.</p><p>Time in Status rebuilds the timeline from that changelog. You pick a selection with JQL and the app walks each issue&#x27;s history to sum the time it spent in every status, including the cases where an issue went back to an earlier status and was reopened.</p><p>The report shows totals per status, the number of issues that touched it, and an average, with a per-issue table underneath for the ones that took longest. Large selections are prepared in batches by a scheduled job and stored between steps, so a five-thousand-issue query does not hold the page open, and the page shows progress while it runs.</p><p>Everything is computed from data Jira already has. No history plugin or extra indexing is required, and the app only reads issues you can already see. The finished report exports as CSV with one row per issue and status.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Time in Status for Jira.</p>
+<ul><li>Status timeline rebuilt from each issue&#x27;s changelog</li><li>Totals, issue counts and averages per status</li><li>Reopened cycles counted as separate time in the status</li><li>Issue selection by JQL</li><li>Batched preparation on a scheduled trigger, with progress on the page</li><li>Per-issue table and CSV export</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Time in Status for Jira.</p>
+</main></body></html>
