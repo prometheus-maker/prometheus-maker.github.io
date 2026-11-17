@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bulk Transition for Jira: documentation and setup</title>
+<meta name="description" content="Pick issues with JQL and a target status, see ready and blocked issues with one reason each, then transition the ready ones in batches of 20.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/bulk-transition/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Bulk Transition for Jira</h1>
+<p class="mut">Move many issues to another status, with every blocked issue explained first.</p>
+<p>Pick issues with JQL and a target status, see ready and blocked issues with one reason each, then transition the ready ones in batches of 20.</p>
+<h2>What it does</h2>
+<p>Moving a batch of issues to Done or In Review usually means opening each one, because a transition can be missing, a required field empty, or the user without permission - and you find out one issue at a time.</p><p>Bulk Transition takes a JQL query and a target status and pre-checks every matching issue: whether that transition exists for it, whether its screen requires fields the issue does not have, and whether the user may perform it. The result lists the ready issues and the blocked ones, each with a single reason, so the blockers can be fixed once and the run repeated.</p><p>Applying works through the ready issues in batches of 20 and shows a per-issue result. State is saved after every issue, so a stopped run resumes without re-sending issues that already moved, and failed issues can be retried on their own. Up to 500 issues are covered per query.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Bulk Transition for Jira.</p>
+<ul><li>JQL scope and a chosen target status</li><li>Pre-checks transition availability, required screen fields and permission</li><li>Ready and blocked lists, one reason per blocked issue</li><li>Batches of 20 with a per-issue result</li><li>State saved after every issue, so a stopped run resumes and never re-sends a moved issue</li><li>Retry of failed issues only</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Bulk Transition for Jira.</p>
+</main></body></html>
