@@ -1,0 +1,37 @@
+<!-- TARGET QUERY / EVIDENCE: Google autocomplete 2026-11-17: "rent tracker" -> "rent tracker for landlords", "rent tracker spreadsheet", "rent tracker excel template", "rent tracker app"; "wix rent" -> "wix rentals", "wix rentals app", "wix rental website". Wix App Market search 2026-11-17 ("tenant portal", demand prefix 3 slot 1, 47 results): the top card is Tenant Portal & Rent Manager with 1 review, the next four have 0 reviews - a term where every rival is new and no Wix first-party app sits above them (wix/queue/TENANT1.md). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rent tracker for landlords: spreadsheet, or a page your tenant can open?</title>
+<meta name="description" content="What a rent tracker has to do every month, where a spreadsheet stops, and how to give each tenant a private page that shows what is due, what was paid and the documents.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/rent-tracker-for-landlords-wix.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Rent tracker for landlords: spreadsheet or a tenant page?"><meta property="og:description" content="Where a rent spreadsheet stops, and what a private page per tenancy changes."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Rent tracker for landlords: spreadsheet, or a page your tenant can open?</h1>
+<p class="mut">17 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>People search for "rent tracker for landlords" and "rent tracker spreadsheet" in roughly equal numbers. The spreadsheet wins on cost and loses on the thing that causes arguments: when a tenant asks what they still owe, someone has to open the file, find the row, and give an answer nobody else can check.</p>
+<h2>What the monthly job actually is</h2>
+<ul>
+<li>One amount falls due on one day for each tenancy.</li>
+<li>Payments arrive, sometimes in two parts, sometimes a week late.</li>
+<li>The tenant wants proof of what they have paid, and a receipt when they ask for one.</li>
+<li>Documents for the home (the agreement, a gas or safety certificate, a notice) need to reach the person living there.</li>
+</ul>
+<p>A spreadsheet does all four, as long as you are the only one who ever looks at it. The moment the tenant needs the answer themselves, you are reading your own file aloud.</p>
+<h2>Where a spreadsheet stops</h2>
+<p>It has no share link that is safe to send. Sending the file means every tenant sees every other tenancy. Sending a PDF per month is manual work you will skip in a busy month, and then the record is wrong exactly when it matters. And there is nothing a tenant can open at 11pm to check what is due, so the question lands on you.</p>
+<h2>What a private page per tenancy changes</h2>
+<p>The version I built, <a href="https://prometheus-maker.github.io/wix/tenantportal/" target="_blank" rel="noopener">Tenant Portal</a>, gives each tenancy a link and no account: no password to forget, nothing to install. Opening the link shows the current month - the amount due, the date, what has come in and what is left - then the recent payments and the documents for that home. The owner records a payment in a dashboard, and the tenant sees it the next time the page is opened.</p>
+<ul>
+<li>One link per tenancy, revocable and replaceable; the old address stops working at once.</li>
+<li>Rent, due day and lease dates are set once; the page does the monthly arithmetic.</li>
+<li>A reminder text you can paste into a message, for the months that need one.</li>
+<li>The page takes the site's colours and fonts and stays out of search results.</li>
+</ul>
+<p>The free plan covers one tenancy and three items. Premium is $7 a month, or $5.58 a month on yearly billing, and adds up to 25 tenancies, payment history, invoices with an amount and a document, expiry dates and your own brand colour.</p>
+<h2>Which one to use</h2>
+<ul>
+<li>One property, one tenant, and you would rather keep it in a file: a spreadsheet is fine, and free.</li>
+<li>More than one tenancy, or tenants who ask what they owe: a page they can open answers the question without you.</li>
+</ul>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
