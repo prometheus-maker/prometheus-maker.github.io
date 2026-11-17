@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field Auditor for Jira: documentation and setup</title>
+<meta name="description" content="Count how many issues use each custom field, see which screens and schemes point at it, and export the whole audit as CSV. Read-only, so it is safe on production.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/field-auditor/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Field Auditor for Jira</h1>
+<p class="mut">Find unused and empty custom fields, screens and schemes.</p>
+<p>Count how many issues use each custom field, see which screens and schemes point at it, and export the whole audit as CSV. Read-only, so it is safe on production.</p>
+<h2>What it does</h2>
+<p>Every Jira site that has been running for a few years carries custom fields nobody remembers adding. Some hold no value, some sit on no screen at all, and finding out which is which usually means writing a script against the admin API.</p><p>Field Auditor builds that picture for you. It joins custom fields, screens, field configurations and field configuration schemes into one table, with an issue count per field, so an unused field shows up next to the screen that still expects it.</p><p>The app is read-only. Nothing is edited or deleted, which means it runs safely on a production site during working hours, and its verdict column tells you which fields look safe to retire.</p><p>Filters narrow the table to just the unused fields or just the fields that sit on no screen, so the cleanup list is one click away. The audit exports as CSV with field id, name, type, issue count, screens, configurations, schemes, projects and verdict, ready to attach to a cleanup ticket.</p><p>Large sites are read in pages and the results are cached in Forge storage, so a second visit does not re-read thousands of issues.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Field Auditor for Jira.</p>
+<ul><li>One table of every custom field with usage count, type, screens, configurations, schemes and projects</li><li>Verdict per field: unused, on no screen, or in use</li><li>Filters for unused fields and fields on no screen</li><li>Shows which field configuration schemes point at each field</li><li>Read-only: no edits, no deletes, safe on production</li><li>CSV export of the whole table, verdict included</li><li>Paged reads and caching for large sites</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Field Auditor for Jira.</p>
+</main></body></html>
