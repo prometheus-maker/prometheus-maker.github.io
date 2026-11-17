@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Required on Transition for Jira: documentation and setup</title>
+<meta name="description" content="A workflow validator that requires chosen fields before an issue can move, with rules managed on an admin page instead of inside the workflow editor.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/required-on-transition/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Required on Transition for Jira</h1>
+<p class="mut">Block a workflow transition until the fields your team needs are filled in.</p>
+<p>A workflow validator that requires chosen fields before an issue can move, with rules managed on an admin page instead of inside the workflow editor.</p>
+<h2>What it does</h2>
+<p>Jira&#x27;s built-in required fields apply to screens, not transitions. If a team needs a component or a due date before an issue goes to In Progress, the usual answer is a workflow edit - and then another edit every time the rule changes.</p><p>Required on Transition adds one validator to a transition. Which fields are required lives in the app&#x27;s own settings, keyed by project and transition name, so a Jira admin can change the list on an admin page and the validator reads the new list straight away. A rule for all projects can sit behind the project-specific ones.</p><p>The validator treats a field as empty when it is missing, null, an empty string, an empty array, or rich text with nothing but blank space. The error message names exactly which fields are missing. Everything the app stores is removed when it is uninstalled.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Required on Transition for Jira.</p>
+<ul><li>One workflow validator: &quot;Required fields on transition&quot;</li><li>Rules per project and transition, plus a rule that covers every project</li><li>Rules edited on a Jira admin page, no workflow edit needed to change them</li><li>Empty means missing, null, blank string, empty array or blank rich text</li><li>Block message lists the missing fields by name</li><li>Stored rules removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Required on Transition for Jira.</p>
+</main></body></html>
