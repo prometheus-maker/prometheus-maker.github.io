@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field Usage Map for Jira: documentation and setup</title>
+<meta name="description" content="Build a tree per field - screens and tabs, screen schemes, projects - with filters for unused fields and a CSV export.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/field-usage-map/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Field Usage Map for Jira</h1>
+<p class="mut">Every Jira field, the screens and schemes that use it, and the projects behind them.</p>
+<p>Build a tree per field - screens and tabs, screen schemes, projects - with filters for unused fields and a CSV export.</p>
+<h2>What it does</h2>
+<p>As a Jira site ages, fields accumulate: created for a project that no longer exists, kept for a migration that finished, still on a screen nobody uses. Jira&#x27;s admin pages show fields from the screen&#x27;s point of view, one scheme at a time, and never in one place.</p><p>Field Usage Map builds the missing view. It walks the site&#x27;s fields, screens, screen schemes and projects and shows a tree for each field: which screens and tabs carry it, which screen schemes include those screens, and which projects use those schemes, with a badge counting the projects. Filters narrow it to all fields, fields on no screen, or fields in no project - the candidates for deletion.</p><p>The build runs in steps (fields, screens forty at a time, schemes, project lists twenty at a time) and keeps the map in storage so it can be reloaded without rebuilding. A CSV export of the current view is available for a clean-up meeting. Nothing is written to Jira; every endpoint used is a read.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Field Usage Map for Jira.</p>
+<ul><li>A tree per field: screens and tabs, screen schemes, projects</li><li>A project count badge on every field</li><li>Filters for all fields, on no screen, and in no project</li><li>Incremental build that finishes in steps and can be reloaded</li><li>CSV export of the current view</li><li>Read-only; stored map removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Field Usage Map for Jira.</p>
+</main></body></html>
