@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comment Templates for Jira: documentation and setup</title>
+<meta name="description" content="Stop retyping the same answers. Save your replies as templates, per project or shared, and insert them from an issue panel with values like the reporter&#x27;s name and the issue key al">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/comment-templates/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Comment Templates for Jira</h1>
+<p class="mut">Insert a saved comment into a Jira issue in one click, with the issue&#x27;s details filled in.</p>
+<p>Stop retyping the same answers. Save your replies as templates, per project or shared, and insert them from an issue panel with values like the reporter&#x27;s name and the issue key already filled in.</p>
+<h2>What it does</h2>
+<p>Support and ops teams answer the same five questions all day. Most of that text is identical except for the issue key and the name of the person waiting on it. Comment Templates stores those replies once and puts them one click away on every issue.</p><p>From the **Templates** panel on an issue, pick a template and it is inserted into the comment box with its variables filled in: `{{issue.key}}`, `{{issue.summary}}`, `{{reporter}}`, `{{assignee}}`, `{{priority}}` and `{{duedate}}`. You edit the text if you need to, then post it as yourself. Jira records the comment under your name, with normal notifications.</p><p>Templates belong to a project or to the whole site. A project can keep its own replies, and the site-wide list is available everywhere it is needed, so a shared answer is written once. Admins manage the shared list from a Jira settings page; anyone with permission to comment can use the panel.</p><p>Everything the app stores lives in Forge storage inside your Jira site. It is not copied anywhere else, and the app reads only the issue fields it needs to fill in a template.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Comment Templates for Jira.</p>
+<ul><li>Templates panel on every Jira issue, one click to insert</li><li>Variables filled from the issue: key, summary, reporter, assignee, priority, due date</li><li>Templates per project and site-wide, up to 100 per scope</li><li>Admin page to create, edit and delete shared templates</li><li>Comments are posted as the user who clicked insert, with Jira&#x27;s normal notifications</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Comment Templates for Jira.</p>
+</main></body></html>
