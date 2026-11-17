@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy: Tenant Portal for Wix</title>
+<meta name="description" content="Privacy Policy for the Tenant Portal app on Wix.">
+<link rel="icon" href="../../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../../style.css">
+</head><body><main>
+<header><a href="../../"><img src="../../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Privacy Policy: Tenant Portal</h1>
+<p>Effective date: 2026-11-16</p>
+<p>Developer: Prometheus (https://prometheus-maker.github.io)</p>
+<p>Contact: prometheus.maker@proton.me</p>
+<p>This policy describes what the Tenant Portal app (&quot;the app&quot;) does with data.</p>
+<h2>What the app does</h2>
+<p>The app puts a private tenant area on a Wix site. The site owner adds each tenant in the app&#x27;s dashboard, shares files and messages with them and, on the paid plan, invoices. The tenant opens a link the owner sends and sees only their own page.</p>
+<h2>Data the app handles</h2>
+<ul>
+<li>Tenancies: the name and email address the owner enters, the unit, the rent, the day it is due, the lease dates and the deposit, an optional private note, an expiry date, the time the record was created, the time the tenant last opened their page (paid plan) and whether the link is revoked. Stored in a collection in your site&#x27;s own database (CMS).</li>
+<li>Access links: a random token is made for each tenant. Only its SHA-256 hash is stored, in the tenant&#x27;s record. The raw token is never stored on the server; the owner&#x27;s browser keeps a copy so it can show the link again.</li>
+<li>Payments: on the paid plan, for each payment the owner records: the tenancy it belongs to, the month it is for, the amount, the date it was received and an optional note. Stored in a collection in your site&#x27;s CMS. The tenant&#x27;s page shows the month, what was paid and what is left.</li>
+<li>Items: for each file, message or invoice, the tenant it belongs to, the kind, a title, an optional note, the file&#x27;s address in your Media Manager, an amount and currency for invoices, and the time it was added. Stored in a collection in your site&#x27;s CMS.</li>
+<li>Files: documents and images the owner uploads or picks from the Media Manager stay in the site&#x27;s Media Manager; the item holds a link to the file.</li>
+<li>Rate-limit rows: when someone opens a tenant link, the app stores a salted SHA-256 hash of the visitor&#x27;s IP address together with the time, and counts the lookups per minute. The address itself is not stored and the hash cannot be turned back into it. These rows are pruned automatically.</li>
+<li>Settings: the portal title, intro text, brand colour, the address of the page the widget sits on, and a signed copy of the site&#x27;s plan status with its expiry time. Stored as one item in your site&#x27;s CMS.</li>
+<li>Plan status: the app asks Wix whether your site is on the free or the paid plan.</li>
+</ul>
+<h2>Who is responsible for the data</h2>
+<p>The site owner decides which tenants to add and what to share with them. The data stays in that site&#x27;s Wix account. The developer cannot see it and holds no copy. If you are a tenant, ask the business that sent you the link about your page.</p>
+<h2>Data the app does not collect</h2>
+<p>The app has no servers or database of its own; its pages and checks run on Wix&#x27;s platform. It does not send data to the developer or any third party. It uses no analytics, no advertising and no third-party scripts, and sets no cookies on visitors. The tenant page carries a noindex tag so search engines do not list it.</p>
+<h2>Sharing</h2>
+<p>We do not sell or share data. The only parties involved are the site owner, their tenants and Wix. Wix processes data under its own privacy policy (https://www.wix.com/about/privacy). Payments for the paid plan are handled by Wix; the developer does not receive card details.</p>
+<h2>Retention and deletion</h2>
+<p>Tenancies, payments, items and settings stay in your site&#x27;s collections until you delete them in the app&#x27;s dashboard or the CMS, or uninstall the app. Revoking or rotating a link stops the old one working at once. Files stay in your Media Manager until you delete them there. The developer holds nothing, so there is nothing for the developer to delete.</p>
+<h2>Changes</h2>
+<p>If the app changes what it does with data, this policy will be updated before the change is released and the effective date will change.</p>
+<h2>Contact</h2>
+<p>Questions or requests: prometheus.maker@proton.me.</p>
+</main></body></html>
