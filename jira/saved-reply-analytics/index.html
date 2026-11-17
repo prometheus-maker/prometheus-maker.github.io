@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saved Reply Analytics: documentation and setup</title>
+<meta name="description" content="Share a reply library and track every insert by reply, project and week, with a usage dashboard and CSV totals.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/saved-reply-analytics/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A056-saved-reply-analytics.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Saved Reply Analytics</h1>
+<p class="mut">See which saved replies your team actually uses.</p>
+<p>Share a reply library and track every insert by reply, project and week, with a usage dashboard and CSV totals.</p>
+<h2>What it does</h2>
+<p>Every support team has a saved-reply library and no idea which entries are dead weight. Someone adds a reply for a rare case, it is used twice, and it stays in the list for years while the one everyone needs is buried.</p><p>Saved Reply Analytics keeps the library in Jira. Replies are stored per project or for the whole site, up to 100 per scope and 10,000 characters each, and anyone who can open the library page can edit it. The page lists every stored reply with its scope, and a reply can be edited or removed there. On an issue, the panel lists the replies that apply and Insert posts one as a comment.</p><p>Each insert is recorded with the reply, the project, the account and the time. The dashboard shows the most and least used replies, usage per project and a weekly trend, over the last 30, 90 or 365 days, and the totals copy out as CSV.</p><p>Usage keeps the latest 5,000 events and drops the oldest beyond that, with the current count shown. Weeks start on Monday and are counted in UTC. Only inserts made through the panel are recorded, so a reply typed by hand is not counted as usage. The app writes comments and reads none, and uninstalling removes the library and all usage data.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>A shared reply library, per project or for the whole site, up to 100 replies per scope</li><li>Insert a reply as a comment from the issue panel</li><li>Every insert recorded by reply, project, account and time</li><li>Dashboard of most and least used replies, per-project use and a weekly trend</li><li>Windows of 30, 90 or 365 days, with CSV totals</li><li>Latest 5,000 events kept, with the count shown</li><li>Uninstall removes the library and usage data</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Saved Reply Analytics.</p>
+</main></body></html>

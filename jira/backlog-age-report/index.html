@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backlog Age Report: documentation and setup</title>
+<meta name="description" content="Bucket a project&#x27;s open work by age, see each bucket&#x27;s share and oldest item, and export the distribution as CSV.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/backlog-age-report/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A078-backlog-age-report.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Backlog Age Report</h1>
+<p class="mut">How old is your backlog, in buckets and in one number.</p>
+<p>Bucket a project&#x27;s open work by age, see each bucket&#x27;s share and oldest item, and export the distribution as CSV.</p>
+<h2>What it does</h2>
+<p>A backlog grows quietly. Nothing in Jira answers the question a grooming session actually needs - how much of this is more than a year old - and the issue navigator shows dates one row at a time, sorted by whatever you asked for.</p><p>Backlog Age Report is a Jira page that measures one project&#x27;s open work. It reads the project&#x27;s backlog, calculates the age of each item in days, and sorts them into six buckets: 0-7 days, 8-30, 31-90, 91-180, 181-365 and over a year. Each bucket shows its count, its share of the total, and its oldest issue with a link. Under the buckets is a table of the twenty oldest items with key, summary, age, status and type - the list a clean-up meeting works from.</p><p>The source is honest about itself: if the project has a board, the report reads that board&#x27;s backlog; if it does not, it reads unresolved issues in the To Do status category, oldest first. The report says which source it used, because a board backlog and a JQL can differ.</p><p>A scan reads at most 2000 items and marks the report when it stopped at that cap. It works in batches - four pages of 50 for a board, two pages of 100 for a JQL - and only one scan runs at a time. Reports are stored per project so the page opens on the last result, and the CSV export gives the buckets for a slide or a spreadsheet.</p><p>The page reads issues and stores its own report; nothing in Jira is changed. Stored reports and scan state are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Backlog Age Report.</p>
+<ul><li>Six age buckets from under a week to over a year</li><li>Count, share and oldest issue for every bucket</li><li>The twenty oldest items with links into Jira</li><li>Board backlog when the project has a board, otherwise an unresolved To Do query</li><li>The source used is named on the report</li><li>Up to 2000 items per scan, in batches, with a truncation notice</li><li>CSV export of the buckets; stored reports removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Backlog Age Report.</p>
+</main></body></html>

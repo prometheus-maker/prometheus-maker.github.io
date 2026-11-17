@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Group Membership Diff: documentation and setup</title>
+<meta name="description" content="See exactly who is in one Jira group but not another, then copy or remove members in batches after a dry-run count.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/group-membership-diff/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A044-group-membership-diff.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Group Membership Diff</h1>
+<p class="mut">Compare two Jira groups and copy or remove the difference.</p>
+<p>See exactly who is in one Jira group but not another, then copy or remove members in batches after a dry-run count.</p>
+<h2>What it does</h2>
+<p>Two Jira groups drift apart over months: the leads group gains three people, the team group loses one, and nobody notices until access breaks. Comparing them by hand means exporting both member lists and matching rows in a spreadsheet.</p><p>Group Membership Diff puts two groups in one table with three sections: only in A, only in B, and in both, sorted by name and paged 50 rows at a time. Groups are read up to 5,000 members each, with a warning when one is larger.</p><p>When the difference is clear, choose to copy A&#x27;s extra members into B or remove them from A. The app states how many members will change before anything is written, and the write then runs in batches of 50: the first batch happens when you press Apply, and a five-minute trigger continues the rest of the job. A job covers at most 500 members, one job runs at a time, and Cancel stops it after the current batch. Members already in the target group or already gone from the source are listed as skipped rather than treated as failures.</p><p>The diff copies out as CSV with account id, display name, email, active flag and side. Only Jira administrators can open the page; stored diff and job data are removed on uninstall, and membership changes are never reverted by the app.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Group Membership Diff.</p>
+<ul><li>Three sections: only in A, only in B, in both; groups read up to 5,000 members each</li><li>Dry-run count before any change is written</li><li>Copy A&#x27;s extra members to B, or remove them from A</li><li>Batches of 50, continued by a five-minute trigger</li><li>One job at a time, 500 members per job, cancellable</li><li>CSV of the diff with account id, name, email and active flag</li><li>Administrator permission required; uninstall clears stored data</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Group Membership Diff.</p>
+</main></body></html>

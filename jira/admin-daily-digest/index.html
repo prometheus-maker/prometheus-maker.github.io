@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Daily Digest: documentation and setup</title>
+<meta name="description" content="One daily comment on a tracking issue: new projects and users, issues created, resolved and open, and the high-priority work getting old.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/admin-daily-digest/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A100-admin-daily-digest.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Admin Daily Digest</h1>
+<p class="mut">The state of the Jira site, one comment a day.</p>
+<p>One daily comment on a tracking issue: new projects and users, issues created, resolved and open, and the high-priority work getting old.</p>
+<h2>What it does</h2>
+<p>A Jira administrator is asked &quot;has anything changed?&quot; and answers by opening four admin pages and three filters. The things worth knowing arrive one at a time, usually after somebody notices them.</p><p>Admin Daily Digest posts one comment a day on a tracking issue you choose, mentioning the recipients you list. It reports new projects since the last digest, new users first seen since then, issues created and resolved in the last 24 hours, the current open count, and the high-priority issues that are not done and were created more than a set number of days ago. Every count links to the matching Jira search and every at-risk row links to its issue, with priority, age and assignee.</p><p>The numbers have limits. Jira accounts carry no creation date, so &quot;new users&quot; means first seen since the previous digest: the first digest after install reports none and records the baseline. User lists are read up to 2000 accounts, and the comment says &quot;first 2000 accounts&quot; when it hit that. At-risk rows are limited to the number you set, 1 to 50.</p><p>You choose the hour, the time zone, the at-risk age (1 to 90 days) and the recipients. The admin page previews the exact comment text, shows the last run, and has Send now and Force send. Only users with the Administer Jira permission can change settings or send. The app does not report automation rules or SLA values, which have no public API, and keeps no data beyond its snapshots, settings and last run - all deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Admin Daily Digest.</p>
+<ul><li>Daily comment on a tracking issue at an hour and time zone you set</li><li>New projects and new users since the last digest</li><li>Issues created and resolved in the last 24 hours, and the open count, each linked to a search</li><li>At-risk high-priority issues older than 1 to 90 days, up to 50 rows</li><li>Recipients mentioned by name in the comment</li><li>Preview, Send now and Force send on the admin page</li><li>User list read up to 2000 accounts, with the cap stated; data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Admin Daily Digest.</p>
+</main></body></html>

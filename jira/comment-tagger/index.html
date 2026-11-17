@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comment Tagger for Jira: documentation and setup</title>
+<meta name="description" content="Save named lists of users as aliases, then mention everyone correctly in one comment without retyping names.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/comment-tagger/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A055-comment-tagger.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Comment Tagger for Jira</h1>
+<p class="mut">Mention a whole team in a Jira comment with one click.</p>
+<p>Save named lists of users as aliases, then mention everyone correctly in one comment without retyping names.</p>
+<h2>What it does</h2>
+<p>Retyping the same four or six @mentions on every issue invites typos and leaves people out. The platform on-call list changes and the comment template does not, so the person who needed to know reads about it a day later.</p><p>Comment Tagger puts aliases in an admin page: a name such as platform-on-call or release approvers, filled from the user search, up to 200 members each and 100 aliases per site. Alias names are 1 to 40 characters, and members are picked from Jira&#x27;s user search by name or email. On an issue, the panel has a comment box and one button per alias. Write the comment, click the aliases it concerns, and the panel states exactly who will be mentioned; posting creates one comment with a real mention for each member.</p><p>Mentions only notify people who can browse the issue, and the panel shows no user data beyond the names already in an alias. Aliases and settings live in storage; uninstalling removes them. An alias can be edited at any time, and the change applies to the next comment posted, not to comments already on issues.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>Named alias lists built from the Jira user search</li><li>Up to 100 aliases per site and 200 members per alias</li><li>Comment box on the issue panel with one button per alias</li><li>A &quot;Will mention&quot; line naming everyone before you post</li><li>One posted comment with real mentions, not plain text names</li><li>Administrator page for creating and editing aliases</li><li>Stored aliases removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Comment Tagger for Jira.</p>
+</main></body></html>

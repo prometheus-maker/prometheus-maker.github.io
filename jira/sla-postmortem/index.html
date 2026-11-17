@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SLA Breach Postmortem: documentation and setup</title>
+<meta name="description" content="Scan a service desk each week, tag every SLA breach with an observable cause and post a digest to a tracking issue.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/sla-postmortem/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A087-sla-postmortem.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>SLA Breach Postmortem</h1>
+<p class="mut">A weekly, cause-tagged report of every SLA breach in a service desk.</p>
+<p>Scan a service desk each week, tag every SLA breach with an observable cause and post a digest to a tracking issue.</p>
+<h2>What it does</h2>
+<p>A missed SLA target is easy to see on one request and hard to explain for a whole week. Was the queue unstaffed, was the request bounced between agents, or did nobody answer while the clock ran?</p><p>SLA Breach Postmortem takes one service project and one week - the previous ISO week, Monday 00:00 UTC to Monday 00:00 UTC - reads every request updated in it, and checks each SLA metric. Every breach inside that window becomes a row with the request, the metric and the exact breach time, plus a cause assigned by a fixed rule set, first match wins: unassigned at the breach, reassigned twice or more before it, no reply from an agent account before it, low or lowest priority at it, or unclassified with the status the request held longest.</p><p>The scan is paced at 20 requests per run on a five-minute trigger and shows progress on the admin page. Reports are stored per week, kept for the last 26 weeks, and browsable with a filter per cause. When a week finishes, the app posts a digest comment on the tracking issue you nominate: the breach count, a few example breaches, and the totals per cause.</p><p>Weekly runs start on their own, and a past week can be rerun for up to 26 weeks back. The project is checked against the SLA endpoint when you save it, so a non-service project is refused. Only Jira administrators open the page or start a run. Reports, the week index and cached display names are deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → SLA Breach Postmortem.</p>
+<ul><li>Weekly scan of one service project&#x27;s previous ISO week, started automatically</li><li>Every breached SLA metric read from the request, with the exact breach time</li><li>Five cause rules: unassigned, reassigned, no agent reply, low priority, unclassified</li><li>Report per week with counts per metric, cause and assignee</li><li>Digest comment posted on a tracking issue you nominate</li><li>Rerun any of the last 26 weeks from the admin page</li><li>Batched at 20 requests per run; stored data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for SLA Breach Postmortem.</p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asset Owner Notifier: documentation and setup</title>
+<meta name="description" content="Read the Assets objects on an issue and add each owner as a watcher with a comment that mentions them by name.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/asset-owner-notifier/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A088-asset-owner-notifier.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Asset Owner Notifier</h1>
+<p class="mut">Tell the JSM Assets owner the moment a linked issue needs them.</p>
+<p>Read the Assets objects on an issue and add each owner as a watcher with a comment that mentions them by name.</p>
+<h2>What it does</h2>
+<p>Assets have named owners, but the person responsible for a laptop or a licence usually hears about a request only when a colleague remembers to tell them. The link from the issue to the object is there; the notification never happens.</p><p>Asset Owner Notifier listens to two events in one project you choose: issue created, and issue moved into a status you pick. On the event it reads the object key or keys in the issue&#x27;s asset field - up to 25 per issue - and looks up an owner for each. Owners come from a CSV map you paste into the admin page (object key, account id, name, label, up to 200 entries), and from JSM Assets by AQL when a key is not in the map and the app has been given access to your Assets workspace.</p><p>For each owner found, it adds the person as a watcher and posts a comment that mentions them by name, with the object key, its label, the issue, the status and the summary. The comment text is a template you can edit. If the watcher call is refused by permissions, the comment is still posted and the log records it - an owner who cannot watch still gets told.</p><p>Repeat notifications to the same person on the same issue are suppressed for six hours after a transition; issue creation always notifies. The admin page shows counts and the last 50 attempts with their result, so a missing owner is a row in a log rather than a mystery. Settings, the owner map, the sent records and the log are deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Asset Owner Notifier.</p>
+<ul><li>Notifies on issue creation or on entering a chosen status, in one chosen project</li><li>Owner from a pasted CSV map of up to 200 object keys, then from Assets AQL</li><li>Up to 25 object keys per issue</li><li>Adds the owner as a watcher and mentions them in a comment</li><li>Editable comment template with object, issue and status placeholders</li><li>Six-hour duplicate suppression per person per issue on transitions</li><li>Last 50 attempts logged with a result; all data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Asset Owner Notifier.</p>
+</main></body></html>

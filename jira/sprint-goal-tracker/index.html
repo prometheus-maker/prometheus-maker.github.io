@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprint Goal Tracker: documentation and setup</title>
+<meta name="description" content="Show a sprint&#x27;s goal beside its issues, tick the ones that serve it, and see completion by issue count and story points.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/sprint-goal-tracker/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A059-sprint-goal-tracker.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Sprint Goal Tracker</h1>
+<p class="mut">Keep the sprint goal next to the issues that deliver it.</p>
+<p>Show a sprint&#x27;s goal beside its issues, tick the ones that serve it, and see completion by issue count and story points.</p>
+<h2>What it does</h2>
+<p>A sprint goal is written at planning and then buried: Jira shows it in the backlog, never next to the issues it justifies, and the stand-up ends up counting tickets instead of asking whether the outcome is being delivered.</p><p>Sprint Goal Tracker is a Jira page that pairs a board and a sprint. It reads the sprint&#x27;s goal from Jira and shows it in an editor, with the sprint&#x27;s issues underneath, each with a &quot;Serves goal&quot; tick. Progress is reported twice - for the ticked issues and for the whole sprint - by issue count and by story points, so a goal with five issues half done reads differently from one with two.</p><p>The goal itself is written back to Jira through the sprint API, so the backlog and the page always show the same sentence; the ticks are kept in app storage, per sprint. Saving a goal keeps the last ten texts, and editing needs the Manage sprints permission - without it the page is read-only for that person. Story points are picked up automatically from a field named Story Points or Story point estimate.</p><p>The page reads the first 200 issues of a sprint and says so when a sprint is larger. It lists scrum boards only and their active and future sprints, up to 50 of each. Nothing is created or moved, and all stored goals, ticks and history are deleted when the app is uninstalled.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Sprint Goal Tracker.</p>
+<ul><li>The sprint goal, edited in place and saved back to Jira</li><li>A &quot;Serves goal&quot; tick per issue, kept per sprint</li><li>Completion by issue count and by story points, for the goal set and the whole sprint</li><li>The last ten goal texts kept as history</li><li>Active and future sprints across your scrum boards</li><li>Reads up to 200 issues per sprint, with a notice when a sprint is larger</li><li>Manage sprints permission respected; storage removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Sprint Goal Tracker.</p>
+</main></body></html>

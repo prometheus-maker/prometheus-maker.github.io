@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal Banner Planner: documentation and setup</title>
+<meta name="description" content="Schedule portal announcement campaigns, see which one is live, copy the exact text, and mirror it onto a Confluence page.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/portal-banner-planner/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A084-portal-banner-planner.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Portal Banner Planner</h1>
+<p class="mut">Plan, time and copy your JSM portal announcement.</p>
+<p>Schedule portal announcement campaigns, see which one is live, copy the exact text, and mirror it onto a Confluence page.</p>
+<h2>What it does</h2>
+<p>The JSM portal has a single announcement field and no calendar behind it, so notices go up late, stay up after the maintenance window, and nobody remembers which text was used.</p><p>Portal Banner Planner keeps a list of campaigns instead. Each campaign has text of up to 280 characters, an optional https link, and a start and end time in UTC. From those times every campaign is scheduled, live or ended, and the page shows the live one and the next one as cards above the table, so the notice that should be up now is never a guess. A Copy button produces the exact text to paste, with the link appended as &quot;More: ...&quot; when one is set.</p><p>Pasting into Project settings &gt; Portals &gt; Announcement is still yours to do: Atlassian has no API for that field, and the app does not pretend otherwise. What it adds is timing and memory - an hourly trigger records when each campaign went live and when it ended.</p><p>The same campaign can be appended to a Confluence page in one click. The app adds a dated paragraph to the existing storage-format body and increments the page version; if someone else edits the page at the same moment it reports the conflict instead of overwriting, and appending the same campaign to the same page twice is refused. Campaigns, the live state and the knowledge-base log live in Forge storage and are removed on uninstall. The page requires the Administer Jira permission.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Portal Banner Planner.</p>
+<ul><li>Campaigns with text up to 280 characters, an https link, and UTC start and end times</li><li>Live and next campaign shown as cards above the table</li><li>Scheduled, live and ended computed from the times and recomputed hourly</li><li>Copy button producing the exact portal text with the link appended</li><li>One-click append to a Confluence page, with version bump and conflict detection</li><li>Duplicate append of the same campaign to the same page refused</li><li>Admin-only page; all stored campaigns and the log removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Portal Banner Planner.</p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bulk Link Builder: documentation and setup</title>
+<meta name="description" content="Preview every link between two JQL sets, skip the ones that already exist, then create the rest in batches with a failure list.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/bulk-link-creator/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A061-bulk-link-creator.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Bulk Link Builder</h1>
+<p class="mut">Link two JQL selections in bulk, without opening each issue.</p>
+<p>Preview every link between two JQL sets, skip the ones that already exist, then create the rest in batches with a failure list.</p>
+<h2>What it does</h2>
+<p>Linking a test plan to its stories, or a dependency set to a release, means opening every issue and adding the link pair by pair. With forty issues on each side that is an afternoon of clicking.</p><p>Bulk Link Builder takes two JQL queries and one link type. It reads both result sets, builds every pair, and previews the plan before anything is written: how many links are new, how many already exist, and how many pairs it dropped because an issue would link to itself. Two modes control the pairing - every issue on one side to every issue on the other, or one to one by position when both sides return the same count.</p><p>Nothing is written until you press Create links. Then the plan is saved in shards of 500 pairs and worked through 40 links at a time. The first batch runs immediately; a scheduled job continues every five minutes, so a large plan finishes without holding a request open. Progress, the created and skipped counts and every failure are on the page, with Cancel and a CSV export of the outcome.</p><p>The app caps each JQL side at 500 issues and the plan at 2000 pairs, and tells you to narrow the queries when a plan is larger. Links are created with a link type that already exists on your site; existing links of that type and direction are skipped, not duplicated. The plan, the job record and the CSV rows are deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Bulk Link Builder.</p>
+<ul><li>Two JQL selections, one link type, inward or outward</li><li>Cross-product or one-to-one pairing by position</li><li>Preview of new, existing and self-referencing pairs before writing anything</li><li>Links created 40 per run, continued by a scheduled job every five minutes</li><li>Live progress with created, skipped and per-pair failure detail</li><li>Cancel at any point, and CSV export of what was created and what failed</li><li>Caps of 500 issues per side and 2000 pairs, stated before you start</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Bulk Link Builder.</p>
+</main></body></html>

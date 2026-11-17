@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog Calendar for Confluence: documentation and setup</title>
+<meta name="description" content="See Confluence blog posts on a month calendar, filter by space and author, and open any post in one click.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/blog-calendar/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A041-blog-calendar.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Blog Calendar for Confluence</h1>
+<p class="mut">A month grid of every Confluence blog post, per space.</p>
+<p>See Confluence blog posts on a month calendar, filter by space and author, and open any post in one click.</p>
+<h2>What it does</h2>
+<p>Confluence shows blog posts as one long stream inside one space. Anyone running several blogging spaces has no way to see what went out last month, or who wrote it, without scrolling each stream in turn.</p><p>Blog Calendar adds a global page with a familiar month grid, Monday first. Every post appears as a link on the day it was created. A space selector switches between all spaces and one space, an author filter narrows the month to one person, and Previous month, Today and Next month move through the calendar. Clicking a post title opens it.</p><p>The page reads live from Confluence each time it loads and stores nothing. It takes one search per month, paged 100 at a time, and shows the newest 500 posts of a busy month with a note when there are more. The author filter applies to the posts loaded for that month.</p><p>Under the grid, a line states how many posts and how many spaces the month contains, and a month with no posts shows a message above the empty grid. The search covers blog posts created inside the month&#x27;s date range, in all spaces or the one selected.</p><p>The app only reads content and needs no write access.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Blog Calendar for Confluence.</p>
+<ul><li>A Monday-first month grid with one link per post</li><li>Every space at once, or one space</li><li>Author filter for the loaded month</li><li>Previous, Today and Next month controls</li><li>Each post title opens the post</li><li>Newest 500 posts per month, with a notice beyond that</li><li>Read-only and stateless: nothing is stored</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Blog Calendar for Confluence.</p>
+</main></body></html>

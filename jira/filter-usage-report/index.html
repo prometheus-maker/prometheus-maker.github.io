@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Filter Usage Report: documentation and setup</title>
+<meta name="description" content="One table of saved filters with the boards and dashboards that use them, least used first, plus a CSV export and a coverage line.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/filter-usage-report/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A048-filter-usage-report.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Filter Usage Report</h1>
+<p class="mut">See which saved Jira filters are used, and which are dead weight.</p>
+<p>One table of saved filters with the boards and dashboards that use them, least used first, plus a CSV export and a coverage line.</p>
+<h2>What it does</h2>
+<p>Saved filters accumulate for years. Nothing in Jira tells you which ones still carry a board or a dashboard, so clean-ups are guesswork and a filter someone relies on every morning can be deleted with the rest.</p><p>Filter Usage Report scans the site&#x27;s saved filters, board configurations and shared dashboards and counts the uses of each filter: how many boards, how many dashboards, and the total. The table puts the least used filters first, which is where the dead weight is, and the whole table copies out as CSV for a clean-up meeting.</p><p>The scan is resumable: each batch reads up to 15 board configurations and 3 dashboards, and the page continues until it finishes, so a large site does not have to complete in one request. Only shared dashboards are read. A coverage line reports what the scan read, including how many dashboards it could not read, so an empty count is not mistaken for an unused filter.</p><p>Two limits are stated in the app: filters beyond the first 1,500 are counted as a lower bound and show a 0+-style total, and filter subscribers cannot be read from Jira, so they are not part of the count.</p><p>The report is read-only and requires the Administer Jira permission. Stored scan data is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Filter Usage Report.</p>
+<ul><li>Counts boards, dashboards and total uses per saved filter</li><li>Least used filters first</li><li>Resumable scan: 15 board configurations and 3 dashboards per batch</li><li>Coverage line with the counts read and the unreadable dashboards</li><li>Up to 1,500 filters counted, with capped totals marked</li><li>CSV of the whole table</li><li>Read-only; administrator permission required; data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Filter Usage Report.</p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Table of Contents+ Macro: documentation and setup</title>
+<meta name="description" content="Add a numbered table of contents with anchor links, depth control and a back-to-top link to a page or a runbook tree.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/toc-plus/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A039-toc-plus.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Table of Contents+ Macro</h1>
+<p class="mut">Numbered, depth-limited table of contents for any Confluence page.</p>
+<p>Add a numbered table of contents with anchor links, depth control and a back-to-top link to a page or a runbook tree.</p>
+<h2>What it does</h2>
+<p>A long policy page or runbook needs a table of contents that tells a reader where they are and how deep the page goes. The built-in list shows every heading at once, unnumbered, and a tree of pages gets a separate list on each page.</p><p>Insert Table of Contents+ on a page, then set it in the macro panel: a depth from one to six, numbering on or off, and whether to list this page only or this page and its children. Headings become numbered entries - 1, 1.1, 1.1.1 - and each entry links straight to its heading anchor, with an optional Back to top link at the end.</p><p>With &quot;This page and children&quot; chosen, the macro builds one list across the page tree, showing the page title above each group of headings. It reads at most 100 descendant pages and shows a note when a tree is larger.</p><p>Each result is cached for ten minutes and keyed by the page version, depth, numbering and scope, so a common view does not re-read Confluence on every load. The macro reads page bodies and writes nothing; its cache is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the macro browser while editing a Confluence page.</p>
+<ul><li>Depth from 1 to 6, with 3 as the default</li><li>Numbered headings (1, 1.1, 1.1.1) that can be switched off, each linked to its anchor</li><li>This page only, or the page plus up to 100 descendant pages</li><li>Page titles shown above each group in a tree</li><li>Optional Back to top link</li><li>Ten-minute cache keyed by page version; cache removed on uninstall</li><li>Read-only: no page is edited</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Table of Contents+ Macro.</p>
+</main></body></html>

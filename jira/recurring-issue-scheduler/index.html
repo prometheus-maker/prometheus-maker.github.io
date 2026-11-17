@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recurring Issue Scheduler: documentation and setup</title>
+<meta name="description" content="Define recurring issues once with a template and rotating assignees, and let an hourly trigger create them on time.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/recurring-issue-scheduler/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A053-recurring-issue-scheduler.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Recurring Issue Scheduler</h1>
+<p class="mut">Create Jira issues on a daily, weekly or monthly schedule.</p>
+<p>Define recurring issues once with a template and rotating assignees, and let an hourly trigger create them on time.</p>
+<h2>What it does</h2>
+<p>Release checklists, access reviews and standup prep are copy-paste work. They disappear the week the person who remembers is away, and the ticket that should have been raised on Monday is raised on Thursday.</p><p>Recurring Issue Scheduler lets a Jira administrator define each schedule once: daily, weekly or monthly, a local time and timezone, project and issue type, a summary that can include the date, a description, labels, a due date offset and a rotation of assignees. Assignee names are stored with the schedule, so the list stays readable without extra lookups.</p><p>An hourly trigger checks each schedule and creates at most one issue per slot. The slot is written before the issue is created, so a crash skips a slot rather than duplicating it. Slots older than 26 hours are not caught up; the log records them as missed instead of filling a backlog. A new schedule starts at the current slot, so it never fires retroactively.</p><p>A dry run shows what the next run would create without writing anything, and Create now makes one issue immediately for testing. Each schedule keeps the last 20 log entries. The app stores at most 100 schedules, creates the trigger&#x27;s issues with the app identity rather than a person, and removes every schedule and log on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Recurring Issue Scheduler.</p>
+<ul><li>Daily, weekly and monthly schedules with local time and timezone</li><li>Project, issue type, summary, description, labels and due offset per schedule</li><li>A rotation of assignees, advanced after each successful create</li><li>Exactly one issue per slot, with the slot written before the create</li><li>Missed slots older than 26 hours are logged, not replayed</li><li>Dry run and Create now for checking a schedule</li><li>Last 20 log entries per schedule, with up to 100 schedules per site and an admin requirement</li><li>All stored schedules, counters and logs removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Recurring Issue Scheduler.</p>
+</main></body></html>

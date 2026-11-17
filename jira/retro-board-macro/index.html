@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Retro Board for Confluence: documentation and setup</title>
+<meta name="description" content="Run the retrospective on a Confluence page: sprint issues, notes, votes, and one-click action items that become Jira issues in the sprint.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/retro-board-macro/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A081-retro-board-macro.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Retro Board for Confluence</h1>
+<p class="mut">A retro board on a Confluence page, connected to your Jira sprint.</p>
+<p>Run the retrospective on a Confluence page: sprint issues, notes, votes, and one-click action items that become Jira issues in the sprint.</p>
+<h2>What it does</h2>
+<p>Retro notes end up in a page nobody reopens, and the action items are retyped into Jira the next morning, when half of them are already forgotten.</p><p>Retro Board is a Confluence macro. Insert it on a page, connect it once to a Jira board and an active or future sprint, and the page shows that sprint&#x27;s issues split into two groups by their real status: issues in a Done status category sit under Went well, everything else under To improve. Notes go into three columns - Went well, To improve and Actions - and the team votes on them during the meeting; a vote is a toggle per person.</p><p>Any note can become an action with one click. The macro creates a Task in the project that owns the board, adds it to the same sprint, and replaces the note with a card linking to the new issue. Existing issues are never edited; creating the Task and adding it to the sprint are the only writes the app makes, and it asks for just the Jira scopes it uses.</p><p>The sprint&#x27;s issues are read from the Jira Agile API and cached for 300 seconds, up to 500 issues per sprint; a refresh button forces a re-read. Notes and page settings live in Forge storage keyed by the Confluence page, so each page keeps its own board. A board holds up to 200 notes of 1 to 500 characters, and a person can delete only their own note.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the macro browser while editing a Confluence page.</p>
+<ul><li>Sprint issues grouped by real status: Done under Went well, rest under To improve</li><li>Three note columns with per-person voting on every note</li><li>One-click action: a note becomes a Task in the same sprint, with a link back</li><li>Board and sprint picked in the macro; closed sprints are refused</li><li>Issue list cached for 300 seconds, up to 500 issues, with force refresh</li><li>Up to 200 notes per page, 500 characters each, own notes only for deletion</li><li>Settings and notes stored per Confluence page</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Retro Board for Confluence.</p>
+</main></body></html>

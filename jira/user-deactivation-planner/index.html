@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User Deactivation Planner: documentation and setup</title>
+<meta name="description" content="List every filter, dashboard, board and project a departing user owns or administers, with a what-breaks checklist and a CSV for the ticket.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/user-deactivation-planner/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A043-user-deactivation-planner.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>User Deactivation Planner</h1>
+<p class="mut">See what breaks in Jira before you deactivate a user.</p>
+<p>List every filter, dashboard, board and project a departing user owns or administers, with a what-breaks checklist and a CSV for the ticket.</p>
+<h2>What it does</h2>
+<p>Deactivating a leaver takes one click. Finding out which shared dashboard or filter stops working takes a week of tickets, and the person who could have told you has already lost access.</p><p>User Deactivation Planner runs on a Jira admin page. Search for the user by name or email, press Scan site, and the app walks the site in four steps: saved filters they own, dashboards they own, boards they administer and projects where they are lead. Each row links to the object and says how widely it is shared, so a dashboard used by 40 people is not mistaken for a personal one.</p><p>A checklist at the top states how many shared objects would be left without an active owner, which is the paragraph the offboarding ticket needs. The same list copies out as CSV with type, name, id, sharing counts, link and impact per row.</p><p>The scan makes at most eight API calls per step and covers at most 300 boards, with progress on the page. Results are kept in storage, only Jira administrators can open the page, and nothing about the user, the filters or the projects is changed. Stored results are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → User Deactivation Planner.</p>
+<ul><li>Search by name or email, then one scan across four object types</li><li>Owned filters, owned dashboards, administered boards, led projects</li><li>Shared-with counts and a direct link on every row</li><li>A what-breaks checklist of impacted shared objects</li><li>CSV with type, name, id, sharing, link and impact</li><li>At most 300 boards per scan, stated on the page</li><li>Read-only; administrator permission required; data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for User Deactivation Planner.</p>
+</main></body></html>

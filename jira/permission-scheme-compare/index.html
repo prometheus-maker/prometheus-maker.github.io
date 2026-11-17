@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Permission Scheme Comparer: documentation and setup</title>
+<meta name="description" content="See every grant in two Jira permission schemes side by side, with differences marked and the whole comparison copyable as CSV.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/permission-scheme-compare/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A045-permission-scheme-compare.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Permission Scheme Comparer</h1>
+<p class="mut">Compare two Jira permission schemes side by side.</p>
+<p>See every grant in two Jira permission schemes side by side, with differences marked and the whole comparison copyable as CSV.</p>
+<h2>What it does</h2>
+<p>Two permission schemes can look identical in Jira settings and still differ in a dozen grants that decide who can administer a project. Finding the difference means opening one scheme, remembering it, then opening the other.</p><p>Permission Scheme Comparer loads both schemes and shows them permission by permission, with the holders listed on each side. Each permission that appears in either scheme is listed once, with its holders under it. Every grant that exists in only one scheme carries a badge, and counts at the top say how many permissions differ. An Only differences toggle hides everything that matches, which turns a long list into the handful of lines that matter.</p><p>The comparison copies out as CSV, one row per permission and holder with an inA and inB flag, for a security review or a change ticket.</p><p>The app reads two schemes per comparison, stores nothing, and asks for one admin scope. Schemes are chosen by name from the site&#x27;s list, and the page needs the Administer Jira permission. It never edits a scheme.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Permission Scheme Comparer.</p>
+<ul><li>Choose any two permission schemes from one page</li><li>Holders shown for each side, permission by permission</li><li>A badge on every grant present in only one scheme</li><li>Counts of differing permissions at the top</li><li>Only differences toggle to hide matches</li><li>CSV with one row per permission and holder, flagged inA and inB</li><li>Read-only and stateless: nothing is stored</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Permission Scheme Comparer.</p>
+</main></body></html>

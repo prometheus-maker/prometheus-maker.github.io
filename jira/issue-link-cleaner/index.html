@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Issue Link Cleaner: documentation and setup</title>
+<meta name="description" content="Scan up to five projects for issue links whose target is missing or archived, review them by state, then remove them in a confirmed batch.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/issue-link-cleaner/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A079-issue-link-cleaner.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Issue Link Cleaner</h1>
+<p class="mut">Find and remove links to archived or missing issues.</p>
+<p>Scan up to five projects for issue links whose target is missing or archived, review them by state, then remove them in a confirmed batch.</p>
+<h2>What it does</h2>
+<p>Issue links outlive the issues they point at. A project is archived after a migration, issues are deleted, and the links stay on the surviving issues - visible in the link panel, useless when clicked, and the reason a link matrix looks broken. Jira has no report for this and no bulk way to clean it up.</p><p>Issue Link Cleaner is an admin page in two phases. The scan reads the issues of up to five projects, optionally only one link type, and checks each link&#x27;s target: whether it is still active, in a project that has been archived, missing altogether, or not readable by the app. Findings are counted by those four states and listed with source issue, target and state, filterable and paged.</p><p>Only two states are removable: targets that are missing and targets in an archived project. Links the app simply cannot read are left alone, so a permission problem is not mistaken for a dead link.</p><p>Removal is a separate step that you start after seeing the dry run, and it is permanent - Jira has no undo for a deleted link. Links are deleted 50 per batch, continuing on a five-minute schedule, with a removed count and a failure list; a job can be cancelled while it runs.</p><p>A scan reads at most 5000 issues and marks the result when it stopped there, and it resolves at most 60 unknown target issues per step, so a very tangled project takes several passes. The scan, removal and report records are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Issue Link Cleaner.</p>
+<ul><li>Scan up to five projects, all link types or one named type</li><li>Every link target classified as active, archived, missing or no access</li><li>Findings filterable by state, with source issue and target key</li><li>Removable states limited to missing and archived targets</li><li>Dry run first, then a separately started removal</li><li>Removed 50 links per batch, with failures listed and a cancel control</li><li>Up to 5000 issues per scan, marked when capped</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Issue Link Cleaner.</p>
+</main></body></html>

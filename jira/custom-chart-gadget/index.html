@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Custom Chart Gadget: documentation and setup</title>
+<meta name="description" content="Chart any JQL query over days, weeks or months, as a total or split by a field&#x27;s values.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/custom-chart-gadget/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A094-custom-chart-gadget.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Custom Chart Gadget</h1>
+<p class="mut">Any JQL query as a chart, on the dashboard where the question comes up.</p>
+<p>Chart any JQL query over days, weeks or months, as a total or split by a field&#x27;s values.</p>
+<h2>What it does</h2>
+<p>The question is usually simple - how many bugs came in each week, how are open incidents split by priority - and the answer needs a report, a filter and a saved chart, which is more setup than the question deserves.</p><p>Custom Chart Gadget takes a JQL query and a date field and draws it over 4 to 26 buckets: calendar days, Monday-based weeks, or calendar months, aligned in UTC, with the last bucket containing today. The chart is a bar or a line. In grouped mode it reads the values of a field on up to 300 issues, ranks them by frequency, and draws the top series you choose - up to eight - with the rest gathered into an Other series.</p><p>The JQL is checked when you save the configuration, so a broken query is reported on the settings dialog rather than as an empty chart. Results are cached per gadget for 15 minutes and the configuration is part of the cache key, so changing a setting re-runs immediately and a refresh button skips the cache.</p><p>Counting uses Jira&#x27;s approximate count endpoint, one call per bucket per series, and a chart is limited to 260 calls; a configuration over that limit is refused with a message asking you to reduce buckets or series, rather than being silently cut short. The gadget is read-only - `read:jira-work` and storage for its cache - and writes nothing to Jira.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>Any valid JQL as the source of the chart</li><li>Day, week (Monday) or month buckets, 4 to 26 of them, in UTC</li><li>Bar or line chart</li><li>Optional grouping by a field, up to eight series plus Other</li><li>Group values ranked from up to 300 issues</li><li>JQL checked on save, with the error shown on the settings dialog</li><li>15-minute cache per gadget with a refresh button; 260 count calls per chart</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Custom Chart Gadget.</p>
+</main></body></html>

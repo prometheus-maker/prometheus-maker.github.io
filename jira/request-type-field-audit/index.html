@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Request Type Field Audit: documentation and setup</title>
+<meta name="description" content="Audit every JSM portal: which fields its request types show, which are hidden, and which no form uses at all. Export to CSV.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/request-type-field-audit/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A085-request-type-field-audit.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Request Type Field Audit</h1>
+<p class="mut">See which request type fields no portal form uses.</p>
+<p>Audit every JSM portal: which fields its request types show, which are hidden, and which no form uses at all. Export to CSV.</p>
+<h2>What it does</h2>
+<p>Portal settings show one request type at a time, so nobody notices the fields that stopped being used years ago, or the ones collected on one form and forgotten on the others.</p><p>Request Type Field Audit scans your service desks - all of them, or the ones you select - and reads the field list of every request type, including hidden request types. It builds one table of every field with its request type, required flag and visibility, then adds three views on top: fields that appear on some request types of a portal but not all (with &quot;used on X of Y&quot;), fields configured but never visible to customers, and custom fields that no request type in that portal references at all.</p><p>The scan runs in batches, one service desk and at most 40 request types per step, with the admin page calling it until done, so a site with many portals does not time out. Results are stored in shards of 200 rows and the table pages through them; the current view exports to CSV with one click. The summary keeps the portal, request type, used, unused and hidden counts plus the time of the last run.</p><p>The app only reads. It cannot see field schemes or screens, so &quot;unused&quot; means no request type field references the custom field in that portal - not that the field is safe to delete everywhere. Running an audit requires the Administer Jira permission, and all stored rows, the field list and the index are deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Request Type Field Audit.</p>
+<ul><li>Every service desk, or only the portals you pick</li><li>One row per field per request type: required and visible flags</li><li>Views for unused custom fields, hidden fields, and gaps across request types</li><li>Gap rows labelled &quot;used on X of Y&quot; request types</li><li>Batched scan of 40 request types per step, results in 200-row shards</li><li>CSV export of the current filtered view</li><li>Read-only; all stored data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Request Type Field Audit.</p>
+</main></body></html>

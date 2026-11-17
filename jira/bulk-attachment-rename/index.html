@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bulk Attachment Rename: documentation and setup</title>
+<meta name="description" content="Pick issues by JQL, set a pattern like {issue}-{index}-{filename}, preview every new name and rename in safe batches.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/bulk-attachment-rename/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A051-bulk-attachment-rename.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Bulk Attachment Rename</h1>
+<p class="mut">Rename Jira attachments in bulk with a naming pattern.</p>
+<p>Pick issues by JQL, set a pattern like {issue}-{index}-{filename}, preview every new name and rename in safe batches.</p>
+<h2>What it does</h2>
+<p>Attachments named &quot;Screenshot 2026-11-15 at 10.14.22.png&quot; make tickets hard to read, and renaming them by hand across a project is an afternoon of downloading and uploading files.</p><p>Bulk Attachment Rename takes a JQL query, a naming pattern and nothing else. The pattern uses the issue key, the 1-based position of the file on the issue, the original name without its extension and the extension itself - for example {issue}-{index}-{filename}{ext}. Illegal filename characters are replaced with a dash and names are trimmed to 200 characters. A preview lists every old and new name before anything changes.</p><p>Renames run three attachments per call, with the admin page continuing every two seconds, so the work survives the 25-second limit on a Forge invocation. Each file is downloaded, uploaded under its new name, and only then is the old attachment deleted. Files over 10 MB, files whose name already matches and files that have disappeared are skipped and listed. Each renamed file gets a new attachment id, so links that point at the old id stop working; the preview is there to catch that before it happens.</p><p>Only Jira administrators can open the page. The active job, the last result and the settings are kept in storage and removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Bulk Attachment Rename.</p>
+<ul><li>Issues chosen by JQL, not by hand</li><li>Pattern tokens for issue key, position, original name and extension, with illegal characters replaced and names capped at 200 characters</li><li>Preview of up to 100 old and new names before any change</li><li>Three renames per call, continuing on the page until done</li><li>Files over 10 MB, unchanged names and missing files skipped and listed</li><li>Upload-before-delete, with a new attachment id per renamed file</li><li>Admin permission required; stored job data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Bulk Attachment Rename.</p>
+</main></body></html>

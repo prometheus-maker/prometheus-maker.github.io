@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dependency Map for Jira: documentation and setup</title>
+<meta name="description" content="A matrix of Blocks links for one epic, the longest blocking chain, any cycles, and a CSV of the edges.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/dependency-map/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A098-dependency-map.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Dependency Map for Jira</h1>
+<p class="mut">See what blocks what in an epic, before the plan breaks.</p>
+<p>A matrix of Blocks links for one epic, the longest blocking chain, any cycles, and a CSV of the edges.</p>
+<h2>What it does</h2>
+<p>An epic&#x27;s issues are not a flat list: one has to land before another, two block each other by mistake, and the chain that decides the delivery date runs through five tickets nobody looked at together. Someone reads the links one issue at a time, and the chain that matters stays invisible.</p><p>Dependency Map reads one epic and the issues under it - through the Epic Link field when the site has one, otherwise through the parent field - up to 150 issues, with a warning when the epic is larger. It keeps the Blocks links between those issues and ignores links to anything outside the epic, though it counts the other link types it found.</p><p>The result is a matrix: a row per issue, a column per issue, `&gt;` where the row blocks the column and `&lt;` where it is blocked by it. Two further views follow. The longest blocking chain lists the sequence of issues that has to happen in order, with cycle members left out. The cycle list shows every blocking loop found, up to ten, because a loop in a dependency plan is always a mistake to fix.</p><p>The edges export as CSV in the format `from_key,from_summary,to_key,to_summary,relation`, shown in a read-only box to copy - UI Kit has no file download. The matrix reads best on an epic of twenty or so issues; on a larger one the chain, the cycle list and the CSV carry the answer. Everything is read-only, the only scope is `read:jira-work`, and no data is stored between views.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Dependency Map for Jira.</p>
+<ul><li>Epic scope via Epic Link or parent field, up to 150 issues</li><li>Blocks-only matrix with `&gt;` and `&lt;` for direction</li><li>Longest blocking chain with cycle members excluded</li><li>Cycle detection listing up to ten loops and the total</li><li>Count of non-blocking link types found in the epic</li><li>CSV export of every blocking edge</li><li>Read-only, one Jira scope, no storage</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Dependency Map for Jira.</p>
+</main></body></html>

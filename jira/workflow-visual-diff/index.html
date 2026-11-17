@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workflow Visual Diff: documentation and setup</title>
+<meta name="description" content="Put two Jira workflows side by side and mark every transition added, removed or changed before you publish the edit.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/workflow-visual-diff/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A046-workflow-visual-diff.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Workflow Visual Diff</h1>
+<p class="mut">Compare two Jira workflows and see exactly what changed.</p>
+<p>Put two Jira workflows side by side and mark every transition added, removed or changed before you publish the edit.</p>
+<h2>What it does</h2>
+<p>Reviewing a workflow change in Jira means switching between two editors and remembering what the old one looked like. The one transition whose condition changed is easy to miss, and publishing a workflow affects every project that uses it.</p><p>Workflow Visual Diff loads two workflows at once. Statuses are listed in each column, with a count of the transitions added or removed at that status, and every transition is listed underneath with a tag: ADDED, REMOVED or CHANGED. For a changed transition the app compares its rule signature - conditions, validators, post functions and screen - so a change that only adds a validator or a screen is tagged rather than hidden. A summary line counts added, removed, changed and unaffected transitions, and unchanged transitions are hidden unless Show unaffected transitions is switched on.</p><p>The app reads workflows through Jira&#x27;s REST API and makes only GET requests. Both workflows are picked by name from the site&#x27;s workflow list, and the page needs the Administer Jira permission. It keeps the last 10 compared pairs so you can return to a comparison, and removes that list on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Workflow Visual Diff.</p>
+<ul><li>Two workflows side by side, statuses listed in each column</li><li>Every transition tagged ADDED, REMOVED or CHANGED</li><li>Conditions, validators, post functions and screen compared per transition</li><li>Added and removed counts shown against each status</li><li>Summary line of added, removed, changed and unaffected transitions</li><li>The last 10 compared pairs kept for later</li><li>Read-only; recent list removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Workflow Visual Diff.</p>
+</main></body></html>

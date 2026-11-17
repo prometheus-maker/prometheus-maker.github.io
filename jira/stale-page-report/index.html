@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stale Page Report: documentation and setup</title>
+<meta name="description" content="Find pages not updated in the number of days you choose, grouped by space or last editor, with days stale and a CSV export.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/stale-page-report/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A038-stale-page-report.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Stale Page Report</h1>
+<p class="mut">List Confluence pages nobody has updated in N days.</p>
+<p>Find pages not updated in the number of days you choose, grouped by space or last editor, with days stale and a CSV export.</p>
+<h2>What it does</h2>
+<p>Every Confluence site has pages that were true two years ago. Finding them means opening each one and reading its last edited date, space by space, and the list is out of date as soon as it is written down.</p><p>Stale Page Report takes a number of days - 180 by default, anything from 0 to 3650 - and runs one search for pages older than that. Each row shows the page, its space, its last editor, the last modified date and how many days stale it is. Group the report by space or by owner - the owner column is the last editor Jira reports - to see which team carries the oldest documentation, and narrow it to one space before a review.</p><p>The search runs in batches of two result pages of 50, with progress on the page, and stops at 2,000 pages with a notice when a site has more. It uses one search with a cutoff computed when the scan starts, so the list does not shift while you read it. The results are kept in storage, so reloading the page shows the last report without scanning again, and the current view can be copied out as CSV.</p><p>The app only reads pages, and its stored report is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Stale Page Report.</p>
+<ul><li>Any cutoff from 0 to 3650 days, with 180 as the default</li><li>Rows with space, last editor, last modified date and days stale</li><li>Group by space or owner, where owner is the last editor, and filter to one space</li><li>One search per scan, run in batches with progress</li><li>Scans stop at 2,000 pages with a notice</li><li>CSV of the current view, shown in a copy box</li><li>Read-only; stored report removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Stale Page Report.</p>
+</main></body></html>

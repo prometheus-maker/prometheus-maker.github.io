@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Secret Field for Jira: documentation and setup</title>
+<meta name="description" content="Store a credential on an issue as encrypted text, revealed only to the people you list, with every reveal audited.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/field-encryptor/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A099-field-encryptor.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Secret Field for Jira</h1>
+<p class="mut">Keep a password out of the description and out of Jira fields.</p>
+<p>Store a credential on an issue as encrypted text, revealed only to the people you list, with every reveal audited.</p>
+<h2>What it does</h2>
+<p>A licence key, a database password or a customer&#x27;s API token ends up in an issue description because that is where the conversation is. It is then searchable, exported with every issue, visible to anyone who can read the issue, and impossible to audit.</p><p>Secret Field adds a panel to the issue where you store one value, up to 8000 characters. The value never goes into a Jira field: it is encrypted with AES-256-GCM under a key held in an encrypted Forge variable, the issue key is bound in as additional authenticated data, and only a ciphertext is written to Forge storage. The panel shows whether a value exists, how long it is, when it changed and who changed it - not the value.</p><p>Revealing is a deliberate action. An administrator lists the people and groups allowed to reveal, and that list is the whole rule: Jira administrators get no automatic right, and everyone else is told they are not allowed and the attempt is recorded. Setting or clearing a value needs edit permission on the issue. Every set, clear and reveal is written to an audit list of the last 200 actions, including denied reveals, readable on the admin page.</p><p>The limits matter as much as the guarantee. Because the value is not a Jira field, it cannot be searched with JQL and does not appear in field exports - which is the point. It does not encrypt native Jira fields, does not rotate keys, and does not protect against a site administrator who can read Forge variables, Atlassian itself, or anyone already on the allowed list. Records and policy are deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>One secret per issue, up to 8000 characters, in an issue panel</li><li>AES-256-GCM with the issue key bound as authenticated data</li><li>Reveal restricted to listed users and members of listed groups</li><li>No automatic reveal right for Jira administrators</li><li>Changing the value needs edit permission on the issue</li><li>Audit of the last 200 sets, clears and reveals, including denied attempts</li><li>Not a Jira field, so absent from JQL and field exports; data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Secret Field for Jira.</p>
+</main></body></html>

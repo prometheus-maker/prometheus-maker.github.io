@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Approver Reminders for JSM: documentation and setup</title>
+<meta name="description" content="Scan open JSM requests, find approvals that have waited too long, and mention the approvers who have not answered.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/approver-reminder/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A086-approver-reminder.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Approver Reminders for JSM</h1>
+<p class="mut">Nudge pending JSM approvers after a delay you set.</p>
+<p>Scan open JSM requests, find approvals that have waited too long, and mention the approvers who have not answered.</p>
+<h2>What it does</h2>
+<p>An approval waits behind one person&#x27;s attention, and Jira Service Management tells nobody when it has gone unanswered for a day or a week. The requester sees &quot;pending&quot; and has no way to find out why.</p><p>Approver Reminders checks your open service desk requests on a five-minute schedule. For each request it reads the approvals, and for each approval still pending it measures the hours since the approval was created. Once the delay you set has passed - 24 hours by default - it posts an internal comment on the request that mentions only the approvers who have not decided yet. The comment names the approval, lists the hours waiting, and on a repeat says which reminder number it is.</p><p>You control three numbers: the first delay (1 to 720 hours), the repeat interval (1 to 720 hours), and the maximum reminders per approval (1 to 10, default 3). You can leave the scan on every portal or limit it to specific service desk ids. A page lists every pending approval with its age and time until the next reminder, sorted oldest first, and a Remind now button posts one by hand.</p><p>The scan is paced: each run handles one page of one portal and at most 25 requests, rotating through portals and remembering where it stopped, so a busy site is not scanned all at once. The app never approves, rejects or transitions anything, and it does not mention requesters. Settings, the scan cursor, the last-run summary and the approval records are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Approver Reminders for JSM.</p>
+<ul><li>Five-minute scheduled scan of open requests across every portal or chosen ones</li><li>Reminder after a delay you set from 1 to 720 hours</li><li>Repeats every 1 to 720 hours, capped at 1 to 10 reminders per approval</li><li>Internal comment mentioning only the approvers still pending</li><li>Pending list with hours waiting and time until the next reminder</li><li>Manual Remind now button per approval</li><li>Scan cursor kept between runs; settings and records removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Approver Reminders for JSM.</p>
+</main></body></html>

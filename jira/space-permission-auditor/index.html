@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Space Permissions Auditor: documentation and setup</title>
+<meta name="description" content="Audit all Confluence space permissions at once, flag anonymous access and administer grants, then export who can do what per space as CSV.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/space-permission-auditor/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A042-space-permission-auditor.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Space Permissions Auditor</h1>
+<p class="mut">Who can do what in every Confluence space, as one CSV.</p>
+<p>Audit all Confluence space permissions at once, flag anonymous access and administer grants, then export who can do what per space as CSV.</p>
+<h2>What it does</h2>
+<p>Space permissions live behind one screen per space. Nobody can answer &quot;which spaces are open to anonymous users&quot; or &quot;who can administer space ENG&quot; without opening every space in turn and reading the same long list again.</p><p>Space Permissions Auditor scans the site&#x27;s global spaces and builds one table of space, permission, holder and risk. Each row says whether the holder is a user, a group or anonymous access, so a group grant is not read as one person. Anonymous access and administer grants are sorted to the top, and a banner states how many spaces allow anonymous access and how many grant administer to a group, so the answer is visible before you read a row.</p><p>The scan runs five spaces per call with progress on the page, covering the first 500 global spaces, and keeps its rows in storage so the result survives a reload. The CSV has one row per space, permission and holder, ready for a review spreadsheet or an audit file. A very large audit stops the CSV at 9 MB.</p><p>The app asks only for read scopes, never changes a permission, and removes its stored audit on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Space Permissions Auditor.</p>
+<ul><li>One table of space, permission, holder and risk</li><li>A banner counting spaces with anonymous access and group administer grants</li><li>Risk-first sorting: anonymous, administer, space administer, normal</li><li>Five spaces per batch with progress, up to the first 500 global spaces</li><li>Results kept in storage and reloaded with the page</li><li>CSV with one row per space, permission and holder, capped at 9 MB</li><li>Read-only scopes; stored audit removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Space Permissions Auditor.</p>
+</main></body></html>
