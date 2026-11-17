@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Issue Link Matrix for Jira: documentation and setup</title>
+<meta name="description" content="Read the links among a JQL, epic or version scope and show them as a matrix, a per-issue grid and a CSV export.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/issue-link-matrix/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Issue Link Matrix for Jira</h1>
+<p class="mut">See how issues in a set are linked to each other, type by type.</p>
+<p>Read the links among a JQL, epic or version scope and show them as a matrix, a per-issue grid and a CSV export.</p>
+<h2>What it does</h2>
+<p>Links are the relationship layer of a Jira project, and Jira shows them one issue at a time. Understanding how a release hangs together, or which epics depend on each other, means opening dozens of issues.</p><p>Issue Link Matrix takes a scope - a JQL query, a version, or an epic - reads the links among those issues and lays them out three ways: a matrix counting each link type (blocks, duplicates, relates to and the rest), a grid of each issue with its links, and a CSV export you can paste anywhere. One-way links are marked so a dependency that nothing points back to is visible.</p><p>The page is read-only: it requests read access to Jira work and nothing else, changes nothing, and stores no copy of your data. A scope can hold up to 200 issues, and issues outside the scope that appear in the links are counted and labelled so the totals add up.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Issue Link Matrix for Jira.</p>
+<ul><li>Three scopes: JQL, version, or epic</li><li>A matrix of link types with counts</li><li>One-way links marked, so missing back-links stand out</li><li>A per-issue grid of links, with out-of-scope issues labelled</li><li>CSV export of the whole result</li><li>Read-only with a single read scope; nothing is written or stored</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Issue Link Matrix for Jira.</p>
+</main></body></html>
