@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Epic Progress Field for Jira: documentation and setup</title>
+<meta name="description" content="A 0 to 100 custom field computed from an epic&#x27;s child issues - story points when every child has an estimate, else issue count - refreshed hourly.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/epic-progress-field/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Epic Progress Field for Jira</h1>
+<p class="mut">A number field that says how far an epic got, and nothing else.</p>
+<p>A 0 to 100 custom field computed from an epic&#x27;s child issues - story points when every child has an estimate, else issue count - refreshed hourly.</p>
+<h2>What it does</h2>
+<p>Epic progress in Jira is a bar you have to look at, not a number you can filter or sort. Teams that want &quot;epics almost done&quot; in a saved filter or on a roadmap end up counting children by eye.</p><p>Epic Progress Field adds a number custom field, 0 to 100, computed from the epic&#x27;s child issues: story-point progress when every child has an estimate, issue-count progress otherwise. A line next to the value says which basis was used and the fraction behind it. Because it is a real number field, JQL works as usual: `cf[&lt;fieldId&gt;] &lt; 100` finds unfinished epics, `= 100` finished ones, and `&quot;Epic progress&quot; is EMPTY` finds epics with no children.</p><p>An hourly job recomputes fifteen epics per run, and a Refresh button on the field updates one epic immediately. The value is written only when it changed, so the issue history stays clean. Uninstalling removes the queue and run state.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the custom field (add it to a screen in Jira settings → Issues → Screens).</p>
+<ul><li>A number custom field, 0 to 100, per epic</li><li>Story-point progress when all children are estimated, otherwise issue count</li><li>A value line naming the basis and the fraction</li><li>Plain JQL on the field: under 100, exactly 100, is empty</li><li>Hourly job recomputing 15 epics, plus per-epic Refresh</li><li>Writes only when the value changes; state removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Epic Progress Field for Jira.</p>
+</main></body></html>
