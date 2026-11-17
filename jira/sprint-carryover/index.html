@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprint Carryover Report for Jira: documentation and setup</title>
+<meta name="description" content="Read a board&#x27;s closed sprints and report which issues were carried forward, by assignee, with a CSV export.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/sprint-carryover/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Sprint Carryover Report for Jira</h1>
+<p class="mut">See per assignee how much work carries from sprint to sprint.</p>
+<p>Read a board&#x27;s closed sprints and report which issues were carried forward, by assignee, with a CSV export.</p>
+<h2>What it does</h2>
+<p>Carryover is the quiet measure of a team&#x27;s planning. It is also invisible in Jira: the board shows the current sprint, and the fact that the same five issues have slipped three sprints running only shows if someone does the archaeology.</p><p>Sprint Carryover Report reads the closed sprints of one board and counts, per assignee, how many issues moved from sprint to sprint, how many carry events there were, and how many of those issues are still open. The result is cached for an hour, so a team can return to the same numbers during a stand-up without re-reading every sprint.</p><p>The page is read-only and requests read access to Jira work only. Very large sprints are truncated and flagged rather than silently dropped, and a CSV export (up to 2000 rows) is available in a text area for copying into a spreadsheet. Uninstalling removes the cached results.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Sprint Carryover Report for Jira.</p>
+<ul><li>Per-assignee carryover counts for a board&#x27;s closed sprints</li><li>Carry events and how many carried issues are still open</li><li>Results cached for 60 minutes, removed on uninstall</li><li>Truncated sprints flagged instead of silently cut</li><li>CSV export with a fixed header for spreadsheets</li><li>Read-only, with read access to Jira work only</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Sprint Carryover Report for Jira.</p>
+</main></body></html>
