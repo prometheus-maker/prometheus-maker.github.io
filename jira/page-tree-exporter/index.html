@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page Tree Exporter for Confluence: documentation and setup</title>
+<meta name="description" content="Pick a root page, preview its subtree, and export it as one Markdown file or a ZIP of one file per page, attached to the root.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/page-tree-exporter/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Page Tree Exporter for Confluence</h1>
+<p class="mut">Turn a page tree into Markdown files, attached where the tree starts.</p>
+<p>Pick a root page, preview its subtree, and export it as one Markdown file or a ZIP of one file per page, attached to the root.</p>
+<h2>What it does</h2>
+<p>Confluence holds years of decisions, and there is no export that respects the shape of a page tree. Exporting space by space produces HTML or PDF floods, and copying pages by hand loses the order.</p><p>Page Tree Exporter starts from any page you can read. It shows the subtree first - how many pages, which children - so you know what you are about to export. Then it converts each page&#x27;s content to Markdown and either joins them into one file with headings for the hierarchy, or builds a ZIP with one file per page. The result is attached to the root page and linked on the app&#x27;s page.</p><p>The export runs in batches (four tree requests or twenty-five page bodies per step) and shows progress, so a large tree does not time out. Trees are capped at 500 pages with a notice when one is larger. The app reads content and writes the attachment; nothing else on your pages is changed, and its stored job data is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Page Tree Exporter for Confluence.</p>
+<ul><li>Any readable page as the root, with a subtree preview first</li><li>One Markdown file with headings for the hierarchy, or a ZIP of one file per page</li><li>The result is attached to the root page and linked</li><li>Batched export with a progress indicator</li><li>Trees over 500 pages are capped with a notice</li><li>Stored job data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Page Tree Exporter for Confluence.</p>
+</main></body></html>
