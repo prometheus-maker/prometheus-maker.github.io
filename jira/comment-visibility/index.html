@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comment Visibility Helper for Jira Service Management: documentation and setup</title>
+<meta name="description" content="A banner and toggle above the comment box that shows whether the next comment is an internal note or customer-visible, and posts it that way.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/comment-visibility/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Comment Visibility Helper for Jira Service Management</h1>
+<p class="mut">Always know whether the comment you are writing goes to the customer.</p>
+<p>A banner and toggle above the comment box that shows whether the next comment is an internal note or customer-visible, and posts it that way.</p>
+<h2>What it does</h2>
+<p>On a Jira Service Management issue, one wrong toggle turns an internal note into an email to the customer. The toggle is small, it sits away from the comment box, and its state carries over from the previous comment.</p><p>Comment Visibility Helper puts the answer where the writing happens. An issue panel above the comment box states whether the next comment will be internal or customer-visible, with a toggle that switches it. The comment is then posted with the matching visibility property, so what the banner says is what the customer sees.</p><p>The app remembers each user&#x27;s last choice, so a support agent who always works internally does not re-check the toggle on every reply. On Jira Software issues, where there are no customer comments, the panel shows a notice, disables the toggle and posts normally. Comment text is never stored - only the visibility preference - and uninstalling removes it.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>A banner above the comment box stating internal note or customer-visible</li><li>A toggle that sets the visibility of the next comment</li><li>The comment is posted with the matching visibility property</li><li>Each user&#x27;s last choice remembered</li><li>A clear notice and a disabled toggle on Jira Software issues</li><li>Only the preference is stored, removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Comment Visibility Helper for Jira Service Management.</p>
+</main></body></html>
