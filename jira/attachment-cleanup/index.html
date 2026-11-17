@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Attachment Cleanup for Jira: documentation and setup</title>
+<meta name="description" content="Scan Jira attachments by size, age and file type, flag files no comment or description mentions, and delete only what you select, after a dry run.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/attachment-cleanup/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Attachment Cleanup for Jira</h1>
+<p class="mut">Find oversized and unattached Jira attachments, then delete them safely.</p>
+<p>Scan Jira attachments by size, age and file type, flag files no comment or description mentions, and delete only what you select, after a dry run.</p>
+<h2>What it does</h2>
+<p>Attachments are the quiet cost of a long-lived Jira site: screen recordings, duplicate exports, log files nobody opens again. Jira shows attachment size only one issue at a time, and has no notion of a file that nothing refers to any more.</p><p>Attachment Cleanup scans a selection of issues and lists every attachment with its size, date, type and issue, plus a flag for files whose name appears in no description or comment on that issue. You filter by a JQL query, a minimum size, a minimum age and a file type prefix, so the scan can be narrowed to the big old screen recordings and skip everything else.</p><p>The page totals what it found: number of files, total size, and how much of that total is flagged as unattached. Nothing is deleted until you tick rows and confirm. The delete job then works through the selection in batches of fifty and reports every file as removed, already gone, or refused.</p><p>The unattached flag is a heuristic based on the file name appearing in the issue text, and the page says so: check the file, the issue and the size in the table before you confirm a delete.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Attachment Cleanup for Jira.</p>
+<ul><li>Scan by JQL, minimum size in MB, minimum age in days and MIME type prefix</li><li>One table of every matching attachment: size, date, type, issue</li><li>Flag for files whose name appears in no description or comment</li><li>Totals for file count, size and flagged size</li><li>Select rows and delete, up to 500 files per job, in batches of 50</li><li>Per-file result after the job: removed, already gone or refused</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Attachment Cleanup for Jira.</p>
+</main></body></html>

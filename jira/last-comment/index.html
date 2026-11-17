@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Last Comment for Jira: documentation and setup</title>
+<meta name="description" content="A read-only Jira field holding the newest comment, its author and its date, so you can sort and filter a queue by what was actually said last.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/last-comment/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Last Comment for Jira</h1>
+<p class="mut">See, sort and filter issues by their latest comment.</p>
+<p>A read-only Jira field holding the newest comment, its author and its date, so you can sort and filter a queue by what was actually said last.</p>
+<h2>What it does</h2>
+<p>In a support or operations queue, the last comment is usually the most useful thing on the issue. Jira will show it, but it will not let you search, sort or filter by it, so &quot;who is waiting on us, and what did they say&quot; becomes a manual read of forty tabs.</p><p>Last Comment adds one string field to your issues. Each issue gets its newest comment text shortened to a single line, followed by the author and the date, for example `Waiting on the invoice from finance — A. Costa — 2026-11-16 09:40`. Because it is a normal Jira field, it works with JQL, the issue navigator&#x27;s sort menu, saved filters and dashboard gadgets, without any new query language.</p><p>The field is maintained for you. A scheduled job refreshes it every hour, and a settings page lets you pick the field and run a refresh on demand, so a queue that changed five minutes ago can be brought up to date before a stand-up.</p><p>The app only reads issues and comments you can already see, works as the user, and writes nothing outside your site. The field is read-only in the issue view: nobody edits it by hand, so it always reflects the real thread.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the field type Last Comment for Jira: add a field of that type in Jira settings → Issues → Custom fields.</p>
+<ul><li>One string field per issue with the newest comment, author and date</li><li>Works in JQL, sort menus, saved filters and dashboards, like any Jira field</li><li>Refreshed hourly by a scheduled job</li><li>Settings page to detect the field and refresh on demand</li><li>Read-only field: no manual edits to drift out of date</li><li>Uses the viewer&#x27;s own permissions when reading issues</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Last Comment for Jira.</p>
+</main></body></html>

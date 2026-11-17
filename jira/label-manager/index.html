@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Label Manager for Jira: documentation and setup</title>
+<meta name="description" content="See every Jira label with the number of issues using it, then rename, merge or delete it across the project. A dry run tells you exactly how many issues will change before anything">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/label-manager/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Label Manager for Jira</h1>
+<p class="mut">Count, rename, merge and delete Jira labels in bulk, with a dry run first.</p>
+<p>See every Jira label with the number of issues using it, then rename, merge or delete it across the project. A dry run tells you exactly how many issues will change before anything is touched.</p>
+<h2>What it does</h2>
+<p>Jira labels are free text, so every project slowly collects `billing`, `Billing`, `billing-old` and a few `temp-test` tags nobody meant to keep. Nothing in Jira shows how many issues carry each label, and the built-in bulk editor is not built for four thousand issues at once.</p><p>Label Manager opens as a page under Jira settings. It lists every label with its issue count, and for each one you can rename it, merge it into another label, or delete it from the project. Every action starts with a dry run that states how many issues will be read and changed, so a mistyped merge is caught before it happens.</p><p>Big jobs do not need an open browser tab. The page queues the work and a scheduled job works through the issues in small batches, updating progress as it goes. When it finishes, the page lists every issue that failed, with the reason, so a partially successful rename is visible instead of silent.</p><p>Only a Jira administrator can open the app. It uses Jira&#x27;s own permission checks for reading and editing issues, and the label data itself stays in Jira.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Label Manager for Jira.</p>
+<ul><li>Every label in a project with its exact issue count</li><li>Rename, merge or delete a label across the whole project</li><li>Dry run before each change, showing how many issues are affected</li><li>Long jobs run in batches on a scheduled trigger, so a 5,000-issue rename finishes without the page open</li><li>A list of issues that failed, with the reason, after each job</li><li>Clean-up on uninstall: queued job state is removed</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Label Manager for Jira.</p>
+</main></body></html>
