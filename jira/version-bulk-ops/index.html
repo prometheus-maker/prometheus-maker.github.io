@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Version Bulk Ops for Jira: documentation and setup</title>
+<meta name="description" content="Clean up a project&#x27;s version list safely: preview the affected issues, confirm by typing, then remap fix and affects versions in batches.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/version-bulk-ops/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Version Bulk Ops for Jira</h1>
+<p class="mut">Release, archive, merge or delete project versions across all their issues at once.</p>
+<p>Clean up a project&#x27;s version list safely: preview the affected issues, confirm by typing, then remap fix and affects versions in batches.</p>
+<h2>What it does</h2>
+<p>Version lists accumulate: releases that never shipped, duplicates named slightly differently, versions used by five issues that nobody dares delete. Jira will not let a version go while issues still carry it, so the clean-up is either done issue by issue or not at all.</p><p>Version Bulk Ops lists the project&#x27;s versions with their issue counts and plans the operation - release, archive, merge into another version, or delete. Before anything is written, the plan shows which issues will be touched. Applying needs a typed confirmation, then the app remaps Fix versions and Affects versions in batches of 20 issues and only at the end removes the old versions.</p><p>Plans are limited to 500 issues at a time, run with project admin permission, and progress is stored so a stopped run can be resumed. Everything the app stores is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Version Bulk Ops for Jira.</p>
+<ul><li>Version list with issue counts for a project</li><li>Release, archive, merge and delete, each with a preview plan</li><li>Typed confirmation before any change</li><li>Fix versions and Affects versions remapped in batches of 20</li><li>Up to 500 issues per plan, resumable if interrupted</li><li>Stored plans and job state deleted on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Version Bulk Ops for Jira.</p>
+</main></body></html>
