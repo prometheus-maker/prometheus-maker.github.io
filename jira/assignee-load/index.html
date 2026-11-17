@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assignee Load Gadget for Jira: documentation and setup</title>
+<meta name="description" content="A dashboard gadget drawing each assignee&#x27;s open issues and story points against the capacity you set.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/assignee-load/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Assignee Load Gadget for Jira</h1>
+<p class="mut">Who is carrying too much, as one bar per person.</p>
+<p>A dashboard gadget drawing each assignee&#x27;s open issues and story points against the capacity you set.</p>
+<h2>What it does</h2>
+<p>Sprint planning starts with a question nobody can answer quickly: who is already full? Issue counts alone mislead - ten small fixes are not ten large features - and story points alone hide the person drowning in unestimated work.</p><p>Assignee Load Gadget draws one bar per person, showing their open issues and story points side by side against a capacity you set per person or as a default for everyone. A project key selects the work, or a JQL replaces it when the work crosses projects. Colour makes a person over capacity visible at a glance.</p><p>Settings live with the gadget, so a team dashboard and a manager dashboard can hold different capacities. The gadget reads at most 1000 issues and is read-only; its configuration is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>One bar per assignee with open issues and story points</li><li>Capacity per person, plus a default capacity for everyone</li><li>Project key scope or any JQL</li><li>Over-capacity visible without reading numbers</li><li>Reads up to 1000 issues, story points field chosen in settings</li><li>Read-only; gadget settings removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Assignee Load Gadget for Jira.</p>
+</main></body></html>
