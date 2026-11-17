@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Label Sync Across Projects: documentation and setup</title>
+<meta name="description" content="Find near-duplicate labels, approve the mapping, preview the change per project, then merge them in batches.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/label-sync/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A096-label-sync.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Label Sync Across Projects</h1>
+<p class="mut">Merge label variants across projects, with a dry run first.</p>
+<p>Find near-duplicate labels, approve the mapping, preview the change per project, then merge them in batches.</p>
+<h2>What it does</h2>
+<p>One team labels issues `backend`, another `Back-End`, a third `back_end`. Every filter and report that counts by label is wrong, and Jira has no rename or merge for labels at all.</p><p>Label Sync reads the site&#x27;s labels and groups the ones that collapse to the same key once case, spaces, underscores and hyphens are ignored. For each group it proposes a target - the spelling with the most issues in the source project - and lists the variants to merge into it, with the reason: trim, case or separator. You approve, edit or remove each mapping; nothing is applied from a suggestion alone.</p><p>Before any change you run a dry run against the target projects you pick. It counts the issues carrying each source label in each project, in batches of 40, and lists anything it could not count. Apply is refused unless the current mapping matches the dry run exactly, so a mapping approved after the preview cannot slip through unseen.</p><p>The job then searches issue by issue and rewrites the issue&#x27;s full label array - the source label is removed, the target added, and case duplicates collapsed - with one search page and up to 50 updates per invocation. A five-minute trigger continues the job until every issue is done, the page shows progress, and failures are listed per issue key; deleted issues are skipped and reported. The mapping and job state are in Forge storage, the page is admin-only, and everything is deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Label Sync Across Projects.</p>
+<ul><li>Near-duplicate detection across the whole site by case, separator and spaces</li><li>Suggested target per group, based on issue counts in the source project</li><li>Appoint, edit or drop each mapping before anything runs</li><li>Dry run per target project with issue counts per label</li><li>Apply refused unless the mapping matches the last dry run</li><li>Rewrites the issue&#x27;s label array, up to 50 issues per batch, run to the end by a five-minute trigger</li><li>Admin-only; mapping and job state removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Label Sync Across Projects.</p>
+</main></body></html>

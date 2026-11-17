@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customer Org Digest: documentation and setup</title>
+<meta name="description" content="Build one digest per organization each week from its members&#x27; requests, with new, resolved, open, breaches and the oldest ticket.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/customer-org-digest/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A089-customer-org-digest.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Customer Org Digest</h1>
+<p class="mut">A weekly account summary for every JSM organization.</p>
+<p>Build one digest per organization each week from its members&#x27; requests, with new, resolved, open, breaches and the oldest ticket.</p>
+<h2>What it does</h2>
+<p>Account teams ask how a customer&#x27;s week went, and Jira answers per request: one search at a time, one reporter at a time, with no account view at all.</p><p>Customer Org Digest takes one service project and the previous ISO week. It reads the organizations in your JSM site and their members, maps each request to the organization of its reporter, and builds one digest per organization with members&#x27; requests: how many were created in the week, how many resolved, how many are open now, the top request types, and the oldest open request with its age and assignee. SLA breaches are counted from completed breached cycles on up to 25 of that organization&#x27;s requests in the week, and the digest says so when it was capped.</p><p>Each digest is stored and posted as its own comment on a tracking issue you nominate, so the account team reads a list of customers rather than a pile of links. A rerun of the same week updates the stored digest without posting a second comment. At the end of a run the app also reports how many requests in the week came from reporters in no organization, and up to 20 of their names - the gap that usually explains a missing customer.</p><p>Runs start weekly on their own and process five organizations per five-minute step, with the organization list cached for a day. Requests are read five pages of 100 at most per step. Only Jira administrators can save settings or start a run, and settings, the organization map, cached organizations and all digests are deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Customer Org Digest.</p>
+<ul><li>One digest per JSM organization, built from its members&#x27; requests</li><li>New, resolved, open now, and the oldest open request with age and assignee</li><li>Top request types per organization, up to three</li><li>SLA breaches counted on up to 25 requests per organization, capped flag included</li><li>One comment per organization on your tracking issue, no duplicate on rerun</li><li>Unassigned requests and reporter names reported after each run</li><li>Five organizations per batch; all data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Customer Org Digest.</p>
+</main></body></html>

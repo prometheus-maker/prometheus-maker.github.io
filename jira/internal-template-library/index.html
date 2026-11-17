@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Internal Template Library: documentation and setup</title>
+<meta name="description" content="One reviewed library of issue templates, applied from the issue panel with the issue&#x27;s own details filled in.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/internal-template-library/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A092-internal-template-library.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Internal Template Library</h1>
+<p class="mut">Approved issue templates your team can apply in one click.</p>
+<p>One reviewed library of issue templates, applied from the issue panel with the issue&#x27;s own details filled in.</p>
+<h2>What it does</h2>
+<p>Every team keeps its own issue templates, in three places, in four versions, and the careful one is in somebody&#x27;s draft. Nobody can tell which version is current, and pasting it means editing the issue key and the reporter by hand.</p><p>Internal Template Library keeps one library. Anyone writes a template - a name, a category and a plain-text body with a heading, bullets, numbered steps or plain paragraphs - and submits it. A Jira administrator approves or rejects it from the Review queue, with a note on a rejection. Only approved templates appear in the issue panel, so a half-finished draft never reaches the team.</p><p>Applying one is a single click in the issue panel. The template&#x27;s variables are filled from the issue you have open - `{{issue.key}}`, `{{issue.summary}}`, `{{reporter}}`, `{{priority}}`, `{{duedate}}` and `{{today}}` - and the result goes either into the description (replacing it) or into a new comment, whichever the admin sets as the site default and you can override per use. The preview shows the filled text before you apply it, and highlights any unknown variable instead of guessing.</p><p>Editing an approved template sends it back to the review queue, because changed text has not been reviewed. The library holds up to 200 templates with bodies of up to 20,000 characters, tracks how often each one is used, and keeps a log of the last 200 submissions, approvals, rejections and applications. Settings, templates and the log are deleted on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>Shared library of templates with name, category and plain-text body</li><li>Anyone submits; a Jira admin approves or rejects with a note</li><li>Only approved templates shown in the issue panel</li><li>Variables filled from the open issue: key, summary, reporter, priority, due date, today</li><li>Apply into the description or as a comment, with preview before applying</li><li>Editing an approved template returns it to the review queue</li><li>200 templates, 20,000 characters per body, uses per template, last 200 actions logged</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Internal Template Library.</p>
+</main></body></html>

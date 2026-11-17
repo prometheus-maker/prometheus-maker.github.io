@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprint Velocity Widget: documentation and setup</title>
+<meta name="description" content="Committed against completed points for the last closed sprints of a Scrum board, with average velocity and predictability.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/sprint-velocity-widget/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A093-sprint-velocity-widget.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Sprint Velocity Widget</h1>
+<p class="mut">Committed versus delivered, sprint by sprint, on your dashboard.</p>
+<p>Committed against completed points for the last closed sprints of a Scrum board, with average velocity and predictability.</p>
+<h2>What it does</h2>
+<p>Velocity arguments are easier to settle with a picture: what the team committed to, what it finished, and whether either number is going anywhere. Jira&#x27;s own reports answer this per board, not on the dashboard where the rest of the conversation happens.</p><p>Sprint Velocity is a dashboard gadget. Pick a Scrum board, the numeric field you estimate in (Story Points is suggested when it exists), and how many closed sprints to show - 4, 6, 8, 10 or 12. Each sprint appears as a bar of points committed against points completed, taken from the sprint&#x27;s final issue list: an issue counts as committed if it was in the sprint when it closed, and as completed if its status is in the Done category.</p><p>Below the bars the gadget gives two numbers: average velocity, the mean completed points over the sprints that had any commitment, and predictability, the share of those sprints that finished at least 85 percent of their commitment. Board name comes from the Scrum board list; if it cannot be read, the gadget shows the board id instead.</p><p>It is read-only and has no storage: only the three Jira read scopes it needs, no writes to Jira, and nothing kept between views. Each sprint is read up to 300 issues, and the gadget says when a larger sprint was truncated, so a very big sprint does not silently distort the average.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>Committed and completed points per closed sprint, as one bar each</li><li>Average velocity over sprints with any commitment</li><li>Predictability: share of sprints finishing at least 85 percent</li><li>Window of 4, 6, 8, 10 or 12 sprints</li><li>Any numeric estimate field, with Story Points suggested</li><li>Up to 300 issues per sprint, with a truncation notice</li><li>Read-only with no storage</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Sprint Velocity Widget.</p>
+</main></body></html>

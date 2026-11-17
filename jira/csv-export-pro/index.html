@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jira CSV Export Pro: documentation and setup</title>
+<meta name="description" content="Build one CSV from any JQL query with the fields you choose, plus comments, worklogs and status history per issue.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/csv-export-pro/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A052-csv-export-pro.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Jira CSV Export Pro</h1>
+<p class="mut">Export Jira issues with comments, worklogs and status history.</p>
+<p>Build one CSV from any JQL query with the fields you choose, plus comments, worklogs and status history per issue.</p>
+<h2>What it does</h2>
+<p>Jira&#x27;s own CSV export drops comments, worklogs and status history, so a weekly report means a second export and a manual join in a spreadsheet.</p><p>Jira CSV Export Pro starts from a JQL query. Choose the fields you want, including custom fields, then switch on up to three optional columns that flatten the history of each issue onto its row: comments, worklogs and status changes. The result is one row per issue with a fixed set of base columns - key, summary, type, status, priority, assignee, reporter and the main dates - followed by your fields and the optional history.</p><p>The export runs in pages of 100 issues with a progress line, and stops at 5,000 issues or 8 MB of CSV text, whichever comes first, with a notice when it does. Comments are included as the first 20 per issue, each trimmed to 500 characters; worklogs and status changes are listed in full for the issues fetched.</p><p>UI Kit cannot save a file to your machine, so the finished CSV appears in a read-only box with a Copy CSV button. The last export and your field selection are kept in storage and removed on uninstall; the app only reads issues.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Jira CSV Export Pro.</p>
+<ul><li>Any JQL query as the source</li><li>Standard and custom fields, chosen per export</li><li>Optional comments, worklogs and status history columns, joined onto one row per issue</li><li>Pages of 100 issues with a progress line</li><li>Stops at 5,000 issues or 8 MB of CSV text, with a notice</li><li>Copy CSV from a read-only box</li><li>Read-only; stored export and settings removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Jira CSV Export Pro.</p>
+</main></body></html>

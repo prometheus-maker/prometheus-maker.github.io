@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Board Config Comparer: documentation and setup</title>
+<meta name="description" content="Compare two Jira boards&#x27; columns, statuses, filters and estimation side by side and see every difference in one table.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/board-config-compare/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A049-board-config-compare.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Board Config Comparer</h1>
+<p class="mut">Two Jira boards, every setting, side by side.</p>
+<p>Compare two Jira boards&#x27; columns, statuses, filters and estimation side by side and see every difference in one table.</p>
+<h2>What it does</h2>
+<p>Two boards that look alike often differ in one mapped status or one estimation field. Finding that difference means opening two configuration screens and comparing them from memory, and the board people complain about is rarely the one you checked first.</p><p>Board Config Comparer loads two boards and prints them section by section: board type, filter and its JQL, sub-filter, every column in order with its statuses, estimation statistic, ranking field and column constraint. A row that differs is tagged DIFFERENT, and the JQL comparison lists the tokens added on each side, so a filter change is visible rather than buried in one long line.</p><p>The last 10 compared pairs are kept so you can return to a comparison, and that list is removed on uninstall. Boards are found by name, the page needs the Administer Jira permission, and the app makes only GET requests and changes no board.</p><p>Swimlanes are not part of the configuration API the app reads, and the page says so instead of implying the comparison is complete.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Board Config Comparer.</p>
+<ul><li>Type, filter and JQL, sub-filter compared in one table</li><li>Every column in order, with its statuses</li><li>Estimation statistic, ranking field and column constraint</li><li>DIFFERENT tag on each row that differs</li><li>JQL token difference showing what was added on each side</li><li>Last 10 compared pairs kept for later</li><li>Read-only; recent list removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Board Config Comparer.</p>
+</main></body></html>

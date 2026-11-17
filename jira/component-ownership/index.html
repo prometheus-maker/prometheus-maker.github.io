@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component Ownership Map: documentation and setup</title>
+<meta name="description" content="Assign an owner and backup per Jira component, show the owner on the issue, and optionally auto-assign new issues to them.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/component-ownership/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A067-component-ownership.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Component Ownership Map</h1>
+<p class="mut">Give every component an owner and suggest them on each issue.</p>
+<p>Assign an owner and backup per Jira component, show the owner on the issue, and optionally auto-assign new issues to them.</p>
+<h2>What it does</h2>
+<p>Components are the closest thing most Jira projects have to a team structure - the API, the billing screen, the mobile app - but Jira does not connect a component to a person. New issues land unassigned, or with whoever triages, and the decision about who really owns that area lives in someone&#x27;s head.</p><p>Component Ownership Map is a project settings page. It reads the project&#x27;s components and lets a project admin set an owner and an optional backup on each one. The map shows the open issue count next to every component, so ownership is set against real load - the first 40 components are counted, and the page says when a project has more.</p><p>On an issue, a panel reads that issue&#x27;s components and names the owner. When the issue&#x27;s components belong to one person, the panel offers Assign to them in one click; when components point at different people, it says so and lists both rather than guessing.</p><p>Auto-assign is off by default and switched on per project. When it is on, a newly created issue that has no assignee and components with exactly one owner is assigned to that owner, and the last ten auto-assignments are listed on the settings page so the rule stays visible.</p><p>Owners are stored by the app, not written to Jira&#x27;s component records, and every stored owner map is removed on uninstall. The panel needs no write access unless someone presses Assign.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>Owner and optional backup per component, set in project settings</li><li>Open issue count beside each component, for the first 40</li><li>An issue panel naming the component owner</li><li>One-click Assign to the owner when components agree</li><li>Conflict shown, not guessed, when components have different owners</li><li>Optional auto-assign of new unassigned issues, with the last ten actions listed</li><li>Stored maps removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Component Ownership Map.</p>
+</main></body></html>

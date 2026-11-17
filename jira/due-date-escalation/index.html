@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Due Date Escalation: documentation and setup</title>
+<meta name="description" content="Write rules for overdue issues: comment with a mention, raise priority or hand the issue to the manager, once per issue.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/due-date-escalation/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A054-due-date-escalation.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Due Date Escalation</h1>
+<p class="mut">Escalate overdue Jira issues to their manager automatically.</p>
+<p>Write rules for overdue issues: comment with a mention, raise priority or hand the issue to the manager, once per issue.</p>
+<h2>What it does</h2>
+<p>A due date only turns red for whoever happens to look at the issue, so overdue work drifts until someone complains. By then the reason is gone and the ticket is a week older.</p><p>Due Date Escalation lets an administrator write rules per project: how many days overdue (1 to 365), who the manager is, and what should happen - a comment with a mention, a priority change, a reassignment to the manager, or all three. The comment text is written in the rule, and the manager is mentioned in it, so Jira notifies the person directly.</p><p>A preview lists the issues that match a rule before anything is applied. An hourly trigger then works through the matches: at most 10 issues per rule per run, with the rest waiting for the next hour. Each issue is escalated once per rule, tracked in storage for 90 days, so reopening a ticket does not spam the thread; a failed action is not marked as seen and is retried.</p><p>Rules are limited to 50, and each escalation is listed on the page with what was done. The scheduled run uses the app identity while Run now uses the admin who pressed it. No email is sent: the notification is the mention in the comment. All rules and seen keys are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Due Date Escalation.</p>
+<ul><li>Rules per project with an overdue threshold from 1 to 365 days</li><li>Actions: comment with a manager mention, priority change, reassignment to the manager</li><li>Preview of matching issues before applying a rule</li><li>Hourly run, at most 10 issues per rule per run</li><li>Each issue escalated once per rule, remembered for 90 days; failed actions are retried</li><li>Recent escalations listed on the page</li><li>Up to 50 rules; all stored data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Due Date Escalation.</p>
+</main></body></html>

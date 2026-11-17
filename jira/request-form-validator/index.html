@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Request Form Validator: documentation and setup</title>
+<meta name="description" content="Check each new request against rules you write, comment with what is missing, and optionally block a transition until it passes.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/request-form-validator/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A090-request-form-validator.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Request Form Validator</h1>
+<p class="mut">Catch incomplete portal requests before an agent starts on them.</p>
+<p>Check each new request against rules you write, comment with what is missing, and optionally block a transition until it passes.</p>
+<h2>What it does</h2>
+<p>A portal request arrives with an empty description, a serial number that does not match anything, or a date in the past, and the agent finds out after picking it up. Jira&#x27;s own required fields do not cover the checks teams actually need.</p><p>Request Form Validator checks each new request in one service project against rules you write in the admin page. A rule names a field and one of seven operators: required, minimum length, maximum length, a regular expression, one of a list of values, a number range, or a date after today. You give each rule your own message or keep the generated one, switch it off without deleting it, and reorder the list.</p><p>When a request fails, the app adds the label `invalid-request` and posts a public comment on the request listing what is missing - up to eight items - so the requester can reply in the portal with the details. When a later check passes and the label is present, the label is removed. A Re-check button runs the rules again on any issue key after the request has been corrected.</p><p>Enforcement is optional. Add the app&#x27;s &quot;Request form complete&quot; validator to the workflow transition that starts work, switch on Block transitions, and that transition is refused while the last stored check for the issue failed, with the first missing item in the error. The validator reads the last check the app made, not the live form, so a Re-check after fixing is what clears the way. The admin page keeps the last 200 checks with pass or fail counts, and settings, rules and check rows are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Request Form Validator.</p>
+<ul><li>Seven rule types: required, min and max length, pattern, one of, number range, date after today</li><li>One project and its request type field; rules run on issue creation</li><li>Public comment listing up to eight missing items, written for the requester</li><li>`invalid-request` label added on failure and removed when a check passes</li><li>Optional workflow validator that blocks a transition after a failed check</li><li>Re-check any issue by key after it is fixed</li><li>Last 200 checks and pass or fail counts; all data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Request Form Validator.</p>
+</main></body></html>

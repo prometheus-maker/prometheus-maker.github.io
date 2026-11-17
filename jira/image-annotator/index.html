@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Annotator for Jira: documentation and setup</title>
+<meta name="description" content="Arrows, boxes, labels and redaction on any screenshot before it becomes a Jira attachment, from the issue panel.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/image-annotator/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A082-image-annotator.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Image Annotator for Jira</h1>
+<p class="mut">Draw on screenshots and attach the marked copy in one step.</p>
+<p>Arrows, boxes, labels and redaction on any screenshot before it becomes a Jira attachment, from the issue panel.</p>
+<h2>What it does</h2>
+<p>A bug report with a screenshot and no markings still needs a paragraph explaining where to look, and redacting a customer name usually means opening a separate image editor and re-uploading by hand.</p><p>Image Annotator lives in the issue panel. It lists the images already attached to the issue - PNG, JPEG, GIF and WebP, up to 50, newest first - and opens any of them on a full-size canvas at its native resolution. Six tools are available: arrow, box, ellipse, freehand pen, a text label you type before clicking the image, and a solid black redaction block. There are five colours, two stroke widths (2 px and 6 px), undo for the last shape and clear for all of them.</p><p>One click renders the canvas to a flat PNG and uploads it to the same issue as `&lt;original-name&gt;-annotated.png`, next to the original; the panel then shows it in the list. The file is checked against the size limit before editing starts - the site&#x27;s own upload limit or your configured limit, whichever is lower - and an oversized file is reported instead of opened.</p><p>The drawing happens entirely in your browser and the upload goes straight from the browser to Jira, so image bytes never pass through the app&#x27;s backend. The app stores two small records: the site settings and a counter of annotations made. Admins set the default colour, stroke width and size limit (10 MB by default, up to 20 MB) on a settings page that requires the Administer Jira permission; everyone else can still annotate.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>Arrow, box, ellipse, pen, text label and solid redaction block</li><li>Five colours, two widths (2 px and 6 px), undo and clear</li><li>Works on up to 50 PNG, JPEG, GIF or WebP attachments per issue, newest first</li><li>Saves as a new PNG named `&lt;original&gt;-annotated.png` on the same issue</li><li>Size limit checked before editing: 10 MB default, configurable up to 20 MB</li><li>Admin settings page for colour, stroke width and size limit</li><li>Drawing and upload happen in the browser; image bytes never reach the backend</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Image Annotator for Jira.</p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Subtask Rollup for Jira: documentation and setup</title>
+<meta name="description" content="A number field on the parent calculated from its children&#x27;s chosen number field, refreshed when a child changes and reconciled hourly.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/subtask-rollup/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A062-subtask-rollup.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Subtask Rollup for Jira</h1>
+<p class="mut">Sum, highest, lowest or average a child field onto the parent issue.</p>
+<p>A number field on the parent calculated from its children&#x27;s chosen number field, refreshed when a child changes and reconciled hourly.</p>
+<h2>What it does</h2>
+<p>Parents never show the size of the work underneath them. Story points sit on sub-tasks, estimates sit on children, and the total is added up by hand or kept in a spreadsheet that is out of date by the next grooming session.</p><p>Subtask Rollup for Jira adds one number field, &quot;Child rollup&quot;, whose value is calculated from a parent&#x27;s children. An admin picks the source number field and the calculation - sum, highest, lowest, average, or a count of children that have a value - and how many decimals to keep. The field then behaves like any other number field: it sorts, filters and appears in JQL.</p><p>The value is recomputed when a child issue changes, through Jira&#x27;s issue-updated event, which reads the changed issue&#x27;s parent and recalculates it. An hourly job walks the rest of the site in steps of 25 issues so drift is corrected, taking the 1000 oldest non-done standard issues and rebuilding that queue daily. A value is only written when it differs from what the field already holds.</p><p>The field reads at most 500 children per parent and shows when a parent has more. Configuration needs the Administer Jira permission; other users see the value read-only with a Refresh button. Field settings, the queue and the run log are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the custom field (add it to a screen in Jira settings → Issues → Screens).</p>
+<ul><li>One number field calculated from a parent&#x27;s children</li><li>Sum, highest, lowest, average, or a count of children with a value</li><li>Decimals from zero to two</li><li>Recalculated when a child issue changes, and hourly for up to 1000 issues</li><li>Written only when the value changes</li><li>Up to 500 children read per parent, with a notice when there are more</li><li>Admin-only configuration; read-only value and a Refresh button for everyone else</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Subtask Rollup for Jira.</p>
+</main></body></html>

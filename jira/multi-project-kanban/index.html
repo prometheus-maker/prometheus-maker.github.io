@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multi-Project Kanban: documentation and setup</title>
+<meta name="description" content="A dashboard gadget that puts up to 10 projects and a JQL scope into columns by status, with the most recently updated cards first.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/multi-project-kanban/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A077-multi-project-kanban.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Multi-Project Kanban</h1>
+<p class="mut">One Kanban view across projects, straight onto a dashboard.</p>
+<p>A dashboard gadget that puts up to 10 projects and a JQL scope into columns by status, with the most recently updated cards first.</p>
+<h2>What it does</h2>
+<p>Work splits across projects more often than boards admit it: support bugs in one project, platform work in another, a migration in a third. Jira boards are bound to one project or one filter, so a manager following all three keeps three browser tabs open and still misses the picture.</p><p>Multi-Project Kanban is a dashboard gadget. You pick up to 10 projects, add a JQL scope to narrow the work - everything not done by default - and choose how many cards each column shows. The gadget returns one column per status, ordered new, then in progress, then done, with a count on each column and the most recently updated cards beneath it.</p><p>Each card shows the issue key, a shortened summary, the issue type and the assignee, so a card with no name under it is visible at a glance. The order is by last update, which means the top of each column is what moved most recently.</p><p>One load reads the 100 most recently updated issues that match the scope, so the column counts describe those 100 rather than the whole set; the gadget marks the view when more issues exist than it read. That makes it a stand-up and overview gadget rather than a workload report.</p><p>It is read-only and needs no storage: settings live with the gadget, and nothing is written to Jira or kept by the app.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>Up to 10 projects in one gadget</li><li>A JQL scope to narrow the work, up to 500 characters</li><li>One column per status, in new, in progress, done order</li><li>A count per column and 3, 5 or 10 cards shown per column</li><li>Cards with key, summary, type and assignee, ordered by last update</li><li>Reads up to 100 issues per load and marks the view when there are more</li><li>Read-only, with no app storage</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Multi-Project Kanban.</p>
+</main></body></html>

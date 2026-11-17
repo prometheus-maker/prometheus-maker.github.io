@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page Approval Reminder: documentation and setup</title>
+<meta name="description" content="Give a Confluence page a review date and owner, see what is overdue by space, and post a mention comment on the page when it is due.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/approval-reminder/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A040-approval-reminder.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Page Approval Reminder</h1>
+<p class="mut">Set review dates on Confluence pages and remind owners on a schedule.</p>
+<p>Give a Confluence page a review date and owner, see what is overdue by space, and post a mention comment on the page when it is due.</p>
+<h2>What it does</h2>
+<p>Policies and runbooks go stale because no page knows when it was last checked or who owns it. A spreadsheet of review dates is out of date the moment it is written, and it lives nowhere near the page it describes.</p><p>Page Approval Reminder stores a due date and an owner for each page you add. Add a page by its content id, enter the due date and the owner&#x27;s account id, and the app reads the page title and space itself. The overview lists every review grouped by space, with overdue and due-soon counts at the top, and a lead time in days (14 by default, 0 to 90) decides what counts as due soon.</p><p>A daily scheduled job posts a comment on each overdue page that mentions its owner, so the reminder sits in the page&#x27;s own activity. At most 20 pages are commented on per run, and the same page is not commented on again within six days. Nothing is sent by email. Mark a page reviewed and it leaves the overdue list; save a new due date to put it back in rotation.</p><p>The app stores up to 5,000 review records, reads page titles and spaces, and writes only comments. An uninstall removes every stored review.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Page Approval Reminder.</p>
+<ul><li>A due date and owner per page, with title and space read from Confluence</li><li>Overdue and due-soon counts, grouped by space and owner</li><li>Daily comment mentioning the owner, at most 20 pages per run, with no email sent</li><li>No repeat comment on the same page within six days</li><li>Lead time from 0 to 90 days, 14 by default, setting what counts as due soon</li><li>Mark reviewed to clear a page, or reschedule with a new date</li><li>Up to 5,000 reviews; stored data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Page Approval Reminder.</p>
+</main></body></html>

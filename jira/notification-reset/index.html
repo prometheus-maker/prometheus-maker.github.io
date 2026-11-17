@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notification Reset for Jira: documentation and setup</title>
+<meta name="description" content="Collect reset requests from a JQL filter and clear a user&#x27;s issue watchers and Single User scheme entries in one dry-run-first job.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/notification-reset/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A083-notification-reset.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Notification Reset for Jira</h1>
+<p class="mut">Bulk reset watchers and scheme recipients for users who ask.</p>
+<p>Collect reset requests from a JQL filter and clear a user&#x27;s issue watchers and Single User scheme entries in one dry-run-first job.</p>
+<h2>What it does</h2>
+<p>&quot;Please reset my notifications&quot; is a request an administrator answers by clicking through issue after issue and scheme after scheme, with no list of what the user actually carries.</p><p>Notification Reset reads the requests from a JQL filter - by default `labels = notification-reset AND resolution = Unresolved`, and you can change it on the page. It returns one row per distinct reporter with a Reset button. A preview then counts, before anything is changed, how many issue watchers and how many Single User entries in notification schemes that person holds, and states the totals in a dry-run line.</p><p>The reset itself runs as a background job: a five-minute scheduled function removes watchers 50 at a time and rewrites one scheme per step, so a user watching a thousand issues does not hit a timeout. Up to 200 users can be queued in one job. Every reset is recorded per account, with the watcher keys and scheme entries it removed, and the Restore action puts them back - once per event and user, skipping issues deleted in the meantime. A 403 from the scheme API stops the job with a clear message instead of half-finished work.</p><p>It changes only two things: issue watchers for the selected users and their Single User entries in notification schemes. Personal notification preferences are left exactly as each user set them, other recipients on the same scheme events are untouched, and stored job data, reset records and the scheme cache are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Notification Reset for Jira.</p>
+<ul><li>Requests collected from your JQL filter, one row per reporter</li><li>Dry-run preview of watcher and scheme entries before any change</li><li>Reset job bounded to 200 users, 50 watcher removals per step</li><li>One scheme rewritten per job step, so large schemes do not time out</li><li>Reset records per user with one-click Restore</li><li>Deleted issues reported as skipped rather than failing the job</li><li>Personal notification preferences never touched; stored data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Notification Reset for Jira.</p>
+</main></body></html>

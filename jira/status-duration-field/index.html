@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Days in Status for Jira: documentation and setup</title>
+<meta name="description" content="Days in status as a number field rebuilt from the changelog hourly and on every transition, so stale issues sort and filter in JQL.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/status-duration-field/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A057-status-duration-field.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Days in Status for Jira</h1>
+<p class="mut">A sortable number of days each issue has sat in its current status.</p>
+<p>Days in status as a number field rebuilt from the changelog hourly and on every transition, so stale issues sort and filter in JQL.</p>
+<h2>What it does</h2>
+<p>Jira shows where an issue is, not how long it has been there. An aging review means opening the history tab issue by issue, and the number nobody can sort on is the one that matters: how long has this been sitting.</p><p>Days in Status for Jira writes that number into a number custom field. It reads the issue changelog, finds the newest status change and stores the whole days since then. Because the value is a number, JQL works on it: cf[fieldId] &gt; 7 finds work sitting too long, ORDER BY sorts it, and &quot;Days in status&quot; is EMPTY finds issues never calculated.</p><p>An hourly job refreshes 25 issues per run, walking a queue of up to 1,000 issues that is rebuilt every 24 hours, and a transition event refreshes an issue as soon as its status changes. A value is written only when it differs from the stored one, so an idle site is not written to every hour.</p><p>The field must be added to your screens and issue layout. The app learns the field id the first time an issue is opened with the field on it; until then it stores values but cannot write them. State is kept in storage and removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the custom field (add it to a screen in Jira settings → Issues → Screens).</p>
+<ul><li>A number custom field, whole days in the current status</li><li>Calculated from the newest status change in the changelog</li><li>Hourly refresh of 25 issues per run, queue of 1,000, plus immediate refresh on transition</li><li>Values written only when they change</li><li>Works in JQL: compare, sort and find empty values</li><li>Field and issue views included, with a manual Refresh</li><li>Stored state removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Days in Status for Jira.</p>
+</main></body></html>

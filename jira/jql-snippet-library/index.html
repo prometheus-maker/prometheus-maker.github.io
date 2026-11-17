@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JQL Snippet Library: documentation and setup</title>
+<meta name="description" content="Save JQL snippets with a description and tags on a project page, test them against Jira, and share them with the project or keep them private.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/jql-snippet-library/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A065-jql-snippet-library.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>JQL Snippet Library</h1>
+<p class="mut">Keep the team&#x27;s JQL queries named, described and in one place.</p>
+<p>Save JQL snippets with a description and tags on a project page, test them against Jira, and share them with the project or keep them private.</p>
+<h2>What it does</h2>
+<p>Every project has a handful of JQL queries people retype or paste from a chat thread: the release filter, the stale-ticket check, the one that finds issues missing an estimate. They live in bookmarks and memory, and only the person who wrote them can fix them when they break.</p><p>JQL Snippet Library is a project page that stores those queries with a name, a description and up to 20 tags. A snippet is private to its author until it is marked shared, at which point everyone on the project sees it. Name, description, JQL and tag searches narrow the list, and duplicate names within a scope are rejected so two &quot;My open bugs&quot; cannot drift apart.</p><p>Each snippet can be tested before it is saved: the app asks Jira for an approximate count and shows the number, or the error Jira returns, so a query is fixed at the point it is written. Opening a snippet counts a use and records the last count, which makes the queries nobody opens visible. Open in Jira sends the snippet to the issue navigator as a normal JQL search.</p><p>Snippets are stored by the app for the project, not as Jira filters - nothing is created in Jira. JQL is capped at 2000 characters, and authors edit their own snippets while project admins can edit or delete any snippet in the project. All stored snippets are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>Named JQL snippets with a description and up to 20 tags</li><li>Private by default, shared with the whole project when you tick Shared</li><li>Search across name, description, JQL and tag</li><li>Test a query against Jira before saving, with the count or the error</li><li>Use count and last count per snippet, so unused queries show</li><li>Open in Jira hands the query to the issue navigator</li><li>Project admin override; all snippets removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for JQL Snippet Library.</p>
+</main></body></html>

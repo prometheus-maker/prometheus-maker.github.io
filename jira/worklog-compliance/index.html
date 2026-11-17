@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Worklog Compliance: documentation and setup</title>
+<meta name="description" content="One row per person per week with daily hours and a Full, Partial or None status, so the people missing time are visible.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/worklog-compliance/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A080-worklog-compliance.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Worklog Compliance</h1>
+<p class="mut">Who logged time this week, and who logged none.</p>
+<p>One row per person per week with daily hours and a Full, Partial or None status, so the people missing time are visible.</p>
+<h2>What it does</h2>
+<p>Timesheet reports in Jira show the hours that were logged. The person who logged nothing is absent from every one of them, and the gap surfaces at invoicing time, when the week is already closed.</p><p>Worklog Compliance starts from the roster rather than from the worklogs: the assignees of the projects you pick, or the members of a Jira group. For a chosen week it reads every worklog in those projects and fills one row per person with Monday to Friday hours, the total, the number of issues touched, and a status of Full, Partial or None against a weekly target you enter (between 1 and 80 hours). People with no time are listed first, so the row you need is at the top.</p><p>The scan runs in stages - roster, issues, worklogs - and the page polls it every two seconds, reading 20 issues per step, so a large week does not time out. A roster is capped at 500 people and the project picker lists up to 50 projects. Each issue&#x27;s worklogs are read up to 1000 entries. The report is kept per week and project set and reloads without rescanning; the CSV export shows the text in a read-only box for copying.</p><p>Nothing is written to Jira. The only data stored is the report, its row shards and a display name per account id, and a pre-uninstall function removes all of it.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Worklog Compliance.</p>
+<ul><li>Roster from project assignees or from a Jira group, up to 500 people</li><li>Monday to Friday hours, weekly total and issues touched per person</li><li>Full, Partial or None against a target you set from 1 to 80 hours</li><li>People with no time listed first, then partial, then full</li><li>Batched scan reading 20 issues per step with progress on the page</li><li>Report cached per week and project set, with CSV export to copy</li><li>Read-only in Jira; all stored data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Worklog Compliance.</p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moved Issue Lookup: documentation and setup</title>
+<meta name="description" content="Paste old issue keys and get the new key, project and status for each one, with a mapping CSV to share.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/issue-key-redirect/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A050-issue-key-redirect.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Moved Issue Lookup</h1>
+<p class="mut">Resolve old Jira issue keys to where they live now.</p>
+<p>Paste old issue keys and get the new key, project and status for each one, with a mapping CSV to share.</p>
+<h2>What it does</h2>
+<p>Old links in emails and documents break when a project key changes or an issue moves. The reader sees &quot;issue does not exist&quot; and has no way to find where the discussion went.</p><p>Moved Issue Lookup takes a list of old keys, one per line, or a CSV column pasted into the same box. For each key it reports what happened: moved, still here, not found, not visible, invalid key or an error. For a moved issue it shows the new key, the project and the current status, and the whole mapping copies out as CSV so the sender can fix the original links or share the map with a team.</p><p>Lookups run 25 keys per batch with progress, and a paste is capped at 500 keys, stated on the page. Each key is checked against the issue key format first, so a typo comes back as an invalid key without a request. The last result is restored when you come back, and an interrupted run resumes where it stopped.</p><p>A Forge app cannot redirect an old Jira URL. This page resolves keys on request; it does not sit in front of Jira and forward visitors. It only reads issues, and its stored keys and results are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Moved Issue Lookup.</p>
+<ul><li>Paste a list of keys or a CSV column</li><li>Six results: moved, still here, not found, not visible, invalid key, error</li><li>New key, project and status for each moved issue</li><li>Batches of 25 lookups with progress, up to 500 keys per paste</li><li>CSV mapping of old key to new key</li><li>Last result restored; interrupted run resumes</li><li>Read-only; stored data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Moved Issue Lookup.</p>
+</main></body></html>

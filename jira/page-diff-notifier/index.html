@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page Diff Notifier: documentation and setup</title>
+<meta name="description" content="Watch Confluence pages and get a readable added and removed line diff in a footer comment when one changes.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/page-diff-notifier/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A095-page-diff-notifier.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Page Diff Notifier</h1>
+<p class="mut">See what changed on a page, line by line, where the page lives.</p>
+<p>Watch Confluence pages and get a readable added and removed line diff in a footer comment when one changes.</p>
+<h2>What it does</h2>
+<p>A policy page, a spec or a runbook changes, and the people who rely on it find out by reading the whole thing again or by noticing too late that a number moved.</p><p>Page Diff Notifier watches the pages you name - paste a page URL or its ID, up to 50 pages. An hourly job checks the five least recently checked pages, and a Check now button runs the same code path for one page on demand. When a new version appears, it reads both versions in storage format, converts them to text lines, and compares them line by line.</p><p>The result lands as a footer comment on the page itself: a heading with the old and new version numbers, how many lines were added and removed, and the changed lines marked with + and - with one line of context. Up to 80 lines are shown, followed by a count of any further changed lines, so the comment stays readable on a long page. The last three diffs per page are kept and can be opened again from the app&#x27;s page.</p><p>Two modes: mention, the default, mentions every subscriber in the comment, so Confluence&#x27;s own mention notifications email them; or comment, a plain comment with no mentions. Each person subscribes and unsubscribes themselves on the app&#x27;s page. The app never edits page content, sends no mail itself, and removes its watch and diff records on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Page Diff Notifier.</p>
+<ul><li>Watch up to 50 pages by URL or page ID</li><li>Hourly check of the five least recently checked pages, plus Check now per page</li><li>Line diff with added and removed counts and one line of context</li><li>Comment shows up to 80 changed lines and counts the rest</li><li>Mention mode notifies subscribers through Confluence, or a plain comment mode</li><li>Last three diffs per page kept and reviewable</li><li>Never edits page content; all records removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Page Diff Notifier.</p>
+</main></body></html>

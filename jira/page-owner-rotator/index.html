@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page Owner Rotator: documentation and setup</title>
+<meta name="description" content="Assign pages to reviewers in turn, create a Jira review issue for each, and show the current owner and due date on the page.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/page-owner-rotator/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A071-page-owner-rotator.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Page Owner Rotator</h1>
+<p class="mut">Rotate Confluence page reviews across your team, on a schedule.</p>
+<p>Assign pages to reviewers in turn, create a Jira review issue for each, and show the current owner and due date on the page.</p>
+<h2>What it does</h2>
+<p>Documentation rots because nobody owns it. A policy or runbook is written once, and the question &quot;who keeps this true?&quot; has no answer, so the answer becomes &quot;nobody, until someone notices&quot;.</p><p>Page Owner Rotator takes a space and a label - the pages that should be reviewed - and a list of reviewers. It rotates ownership so nobody carries all of it: each page goes to the reviewer with the fewest open reviews, and the count rotates through the list on ties, so the load stays even over time rather than random.</p><p>When a page comes due, the daily job assigns it, writes the owner and due date onto the page as a content property, and creates a Jira issue in the project you set - summary &quot;Review page: &lt;title&gt;&quot;, assigned to the reviewer, due on the review date, labelled doc-review, with a link back to the page. A Page Owner macro on the page shows who owns it now and how many days are left.</p><p>Review intervals run from 1 to 365 days, so the same app covers a monthly check and an annual one. A daily run processes at most 40 pages across at most 2 rotations; Run now works through up to 20 pages of one rotation on demand. A rotation&#x27;s page list comes from a CQL search of its space and label, read in pages of 50 up to 10 search requests.</p><p>If Jira rejects an issue, the failure is recorded and the assignment still happens, so the rotation does not stall. Stored rotations, assignments and run records are removed on uninstall; the owner property already written on a page stays there.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the macro browser while editing a Confluence page.</p>
+<ul><li>Rotations per space and label, with any number of reviewers</li><li>Least-loaded assignment with a rotating tie-break</li><li>Review interval from 1 to 365 days</li><li>A Jira review issue per assignment, with due date, assignee and a back-link</li><li>Owner and due date on the page as a content property</li><li>A Page Owner macro showing owner and days left</li><li>Daily run of up to 40 pages, Run now for 20 pages, and an overdue filter in the list</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Page Owner Rotator.</p>
+</main></body></html>

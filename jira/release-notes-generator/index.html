@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Release Notes Generator: documentation and setup</title>
+<meta name="description" content="Generate Markdown or HTML release notes from the issues fixed in a Jira version, grouped by type and linked back to Jira.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/release-notes-generator/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A060-release-notes-generator.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Release Notes Generator</h1>
+<p class="mut">Turn a version&#x27;s fixed issues into release notes, ready to paste.</p>
+<p>Generate Markdown or HTML release notes from the issues fixed in a Jira version, grouped by type and linked back to Jira.</p>
+<h2>What it does</h2>
+<p>Release notes get written at the worst possible moment: five minutes before a deploy, from a version&#x27;s issue list, by someone copying summaries into a document and hunting for keys.</p><p>Release Notes Generator takes a project and a version and builds the notes from the issues whose fix version matches. Issues are grouped by type in a fixed order - bugs first, then stories, improvements, tasks and epics, with any other type last - each line a link back to the issue. You choose which issue types to include, add a header and a footer, and switch between Markdown and HTML of the same content.</p><p>The result appears in an editor, not as a finished document, so wording can be fixed before it is pasted anywhere. One draft is kept per project and version, up to 60,000 characters, so a notes document can be revised across a release instead of rebuilt.</p><p>The app reads the first 50 projects, 100 versions per project and up to 500 issues per generation, with a notice when a version is larger. It is read-only: no issue, version or release is changed. Drafts and the cached site address, which is kept for a day, are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Release Notes Generator.</p>
+<ul><li>Markdown or HTML from the same selection</li><li>Project and version pickers, with unreleased versions listed before released ones</li><li>Issues grouped by type, in a fixed order, each key linked back to Jira</li><li>Issue type checkboxes plus a header and footer you write</li><li>One editable draft per project and version, up to 60,000 characters</li><li>Pages through a version&#x27;s issues, up to 500 per generation</li><li>Read-only; drafts removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Release Notes Generator.</p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Attachment Version Diff: documentation and setup</title>
+<meta name="description" content="Pick an attachment on a Confluence page and two of its versions, and read a line-by-line diff of what was added and removed.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/attachment-version-diff/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A073-attachment-version-diff.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Attachment Version Diff</h1>
+<p class="mut">See exactly what changed between two attachment versions.</p>
+<p>Pick an attachment on a Confluence page and two of its versions, and read a line-by-line diff of what was added and removed.</p>
+<h2>What it does</h2>
+<p>Confluence versions a page every time it is edited, and versions an attachment every time it is re-uploaded. Opening two versions of the same spreadsheet export, config file or Word document side by side and finding the changed line is manual work, and the download history gives no help at all.</p><p>Attachment Version Diff is a macro that sits on the page. It lists the page&#x27;s attachments, shows each one&#x27;s version history with author and date, and lets you pick any two versions. It downloads both, reads them as text, and renders a diff with three lines of context, added and removed counts, and line numbers on both sides - the familiar shape of a code diff, applied to a document.</p><p>Text formats work best: .txt, .md, .csv, .tsv, .json, .log, .xml, .yaml, .yml, and .docx, whose paragraph text is extracted before comparison. Anything else is shown in the picker as not diffable rather than failing silently. Files over 2 MB are refused, and a diff is capped at 500 rows with a notice when a change is larger than that.</p><p>A diff is cached for ten minutes, so scrolling the page does not download the files again, and the refresh control clears the cache. Up to 50 versions are listed per attachment. The macro reads attachments and their versions; nothing is uploaded, edited or deleted.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the macro browser while editing a Confluence page.</p>
+<ul><li>Attachment picker with version number, author, date and size</li><li>Any two versions compared, up to 50 versions listed</li><li>Line diff with three lines of context and line numbers on both sides</li><li>Added and removed line counts</li><li>Text files plus Word documents, with .docx text extracted</li><li>Files up to 2 MB, diffs up to 500 rows</li><li>Ten-minute cache with a refresh control</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Attachment Version Diff.</p>
+</main></body></html>

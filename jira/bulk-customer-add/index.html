@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bulk Customer Add: documentation and setup</title>
+<meta name="description" content="Resolve emails or account ids to Atlassian accounts, diff them against an organization, and add only the new people.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/bulk-customer-add/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A091-bulk-customer-add.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Bulk Customer Add</h1>
+<p class="mut">Paste a list of customers into a JSM organization, without duplicates.</p>
+<p>Resolve emails or account ids to Atlassian accounts, diff them against an organization, and add only the new people.</p>
+<h2>What it does</h2>
+<p>Onboarding a customer means adding a spreadsheet of contacts to a JSM organization by hand, one search and one Add click at a time, and finding out halfway through that half of them were already members.</p><p>Bulk Customer Add takes a pasted list of email addresses or account ids - on any mix of lines, commas, semicolons and spaces, deduplicated, up to 200 at a time - and resolves each one to an Atlassian account. Before anything changes, a preview tells you exactly what will happen: how many are new, how many are already members of the organization, how many were not found, how many are ambiguous, external accounts or inactive.</p><p>Only the new people are added, 20 per batch, with a per-person retry if a batch call fails. Progress advances in steps of up to 100 people with a Continue button, so a long list does not time out. If Jira answers 403, the run stops and every remaining person is marked forbidden rather than being retried blindly. The app never removes anyone from an organization and never creates accounts.</p><p>Lookups are cached for 24 hours, so running the same list twice costs one search per person the first time and almost none the second. The page keeps the last 20 runs with their counts. Cached lookups, the current run and its history are deleted on uninstall, and the page requires the Administer Jira permission.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Bulk Customer Add.</p>
+<ul><li>Paste up to 200 emails or account ids in any mix of separators, deduplicated</li><li>Preview counts: new, already a member, not found, ambiguous, external, inactive</li><li>Adds only new people, in batches of 20 with per-person retry</li><li>Steps of up to 100 people with a Continue button</li><li>Stops on a 403 and marks the rest forbidden</li><li>Never removes members or creates accounts</li><li>Lookups cached 24 hours; last 20 runs kept; all data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Bulk Customer Add.</p>
+</main></body></html>

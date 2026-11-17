@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orphan Page Finder: documentation and setup</title>
+<meta name="description" content="List pages whose only parent is the space home page or that have no parent, flag missing labels, group by space and copy the list as CSV.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/orphan-page-finder/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A037-orphan-page-finder.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Orphan Page Finder</h1>
+<p class="mut">Find Confluence pages that sit outside every page tree.</p>
+<p>List pages whose only parent is the space home page or that have no parent, flag missing labels, group by space and copy the list as CSV.</p>
+<h2>What it does</h2>
+<p>Content created in a hurry lands at the space root, gets no labels, and is invisible in the navigation from that day on. Nobody notices until an audit, and then nobody can name the pages.</p><p>Orphan Page Finder scans one space or the whole site and lists every page whose only parent is the space home page or that has no parent at all. Each row also shows whether the page has labels, how many, and who last edited it, so a page with no labels and no identifiable last editor stands out. Results are grouped by space, can be filtered to orphans only, and are copied out as CSV for a cleanup ticket or a restructure plan.</p><p>The scan runs in batches: each call does about 18 seconds of work, reading pages 250 at a time and looking up labels and last editors ten at a time, and the page shows progress until it finishes. A scan stops at 2,000 candidate pages and 500 spaces, and says so when it does. The last scan is kept in storage and reloads with the page.</p><p>The app only reads pages, labels and spaces, and its stored scan is removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the Apps menu in the top bar → Orphan Page Finder.</p>
+<ul><li>Scan one space or every space on the site, up to 500 spaces</li><li>Orphans defined as pages parented only by the space home page, or with no parent</li><li>No labels and No owner tags, where owner means the last editor Jira reports</li><li>Results grouped by space, with an orphans-only filter</li><li>Scans stop at 2,000 candidates with a notice, and can be cancelled</li><li>CSV of the current view, shown in a copy box</li><li>Read-only; stored scan data removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Orphan Page Finder.</p>
+</main></body></html>

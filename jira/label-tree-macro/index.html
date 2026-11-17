@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Label Tree for Confluence: documentation and setup</title>
+<meta name="description" content="A macro that groups pages by hierarchical labels like team/platform/api into a tree with counts, and marks the branch the current page belongs to.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/label-tree-macro/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A072-label-tree-macro.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Label Tree for Confluence</h1>
+<p class="mut">Slash-separated labels become a browsable tree of your space.</p>
+<p>A macro that groups pages by hierarchical labels like team/platform/api into a tree with counts, and marks the branch the current page belongs to.</p>
+<h2>What it does</h2>
+<p>Confluence labels are flat, so a space that uses them to build structure ends up with hundreds of them: team, team/platform, team/platform/api, and no way to walk that hierarchy without knowing the exact label to search.</p><p>Label Tree for Confluence reads the space around the page it sits on and turns slash-separated labels into a tree. A label &quot;team/platform/api&quot; creates three levels, and each level shows how many pages carry it - directly or through deeper labels - so a parent&#x27;s number covers its whole subtree. Siblings are sorted by count, which puts the busy areas at the top.</p><p>The current page&#x27;s own deepest slash label decides which branch is marked, so a reader can see where they are in the structure without clicking. Three levels are shown by default with expand controls for deeper branches, plus a Show all option. Every node links to a Confluence search for that label, so the tree is a navigation tool and not a dead diagram.</p><p>Labels without a slash are ignored: the macro is for hierarchical labels and leaves flat ones alone. It reads up to 1000 pages per space, in pages of 100, and reports when a space is larger. The built tree is cached per space for 15 minutes, with a refresh control on the macro.</p><p>The macro needs no write access. It reads pages and labels and renders them.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the macro browser while editing a Confluence page.</p>
+<ul><li>A tree built from slash-separated labels, any depth</li><li>Page counts per level, including the whole subtree</li><li>Siblings sorted by count, deepest branches expandable</li><li>The current page&#x27;s branch marked automatically</li><li>Every node links to a search for that label in the space</li><li>Three levels shown by default, with Show all</li><li>Up to 1000 pages per space, cached for 15 minutes, refresh control</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Label Tree for Confluence.</p>
+</main></body></html>

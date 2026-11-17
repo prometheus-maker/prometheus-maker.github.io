@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Issue Count Badge: documentation and setup</title>
+<meta name="description" content="A Confluence macro that runs a JQL query and shows the matching issue count, with a warning colour above a threshold you set.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/issue-count-macro/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A068-issue-count-macro.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Issue Count Badge</h1>
+<p class="mut">A live Jira issue count on any Confluence page.</p>
+<p>A Confluence macro that runs a JQL query and shows the matching issue count, with a warning colour above a threshold you set.</p>
+<h2>What it does</h2>
+<p>A Confluence page that reports on delivery usually carries a number that was true on the day it was written. &quot;18 open bugs&quot; is stale by the next stand-up, and nobody edits the page to fix it.</p><p>Issue Count Badge is a Confluence macro. You give it a JQL query, a title and optionally a warning threshold. It shows the number of matching issues as a badge, links to those issues in Jira&#x27;s issue navigator, and tells you how old the number is. When the count reaches the threshold you set, the badge changes colour, which turns a status page into something you can read at a glance. A page can carry several badges, each with its own query and threshold.</p><p>Counts respect the viewer&#x27;s permissions, because the query runs as the person reading the page rather than as the app - a page cannot be used to reveal issues someone is not allowed to see.</p><p>Results are cached per reader and per query for between 1 and 60 minutes, five by default, so a dashboard of badges does not run a query on every page view. A refresh control forces a new count. JQL is capped at 1000 characters, and invalid queries show Jira&#x27;s own error message in place of a number.</p><p>Cached counts are stored by the app and removed on uninstall. The macro is read-only: it runs a search and draws the result.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the macro browser while editing a Confluence page.</p>
+<ul><li>Any JQL query of up to 1000 characters</li><li>A badge with a title, linked to the matching issues in Jira</li><li>A warning threshold from 0 to 10000, with a colour change at or above it</li><li>Cache from 1 to 60 minutes, five by default, per reader and query</li><li>Counts run as the viewer, so page readers see only issues they may see</li><li>Jira&#x27;s own query errors shown in place of a number</li><li>Cached counts removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Issue Count Badge.</p>
+</main></body></html>

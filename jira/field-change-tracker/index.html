@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field Change Tracker: documentation and setup</title>
+<meta name="description" content="A dashboard gadget that counts one field&#x27;s changes over 7, 30 or 90 days, per target value and per day or week.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/field-change-tracker/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A063-field-change-tracker.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Field Change Tracker</h1>
+<p class="mut">See how often a field changed and where it moved.</p>
+<p>A dashboard gadget that counts one field&#x27;s changes over 7, 30 or 90 days, per target value and per day or week.</p>
+<h2>What it does</h2>
+<p>Jira&#x27;s history tab tells you what happened to one issue. It never answers the question a team asks in a retro - how often did priority change this month, and where did it move to - because that answer is spread across hundreds of issues&#x27; changelogs.</p><p>Field Change Tracker is a dashboard gadget. It tracks one field, either a standard one (Status, Assignee, Priority, Reporter, Due date) or a custom option or text field, across a project or a JQL query, over the last 7, 30 or 90 days. It reads each issue&#x27;s changelog, counts the changes to that field, and draws a bar per target value with the day or week each change landed in.</p><p>The scan works through the issues in chunks of 40, reading six at a time, and shows progress - so the first load on a large project is a visible count, not a spinner. The result is cached for five minutes per gadget and viewer and a Refresh button forces a rebuild. Five consecutive permission errors stop the scan rather than hammering Jira.</p><p>The gadget reads at most 400 issues per scan and says when the scope was cut off at that cap, so it is a sample of a large project rather than a full count. It is read-only: no issue is touched. Its configuration and cached results are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>One tracked field per gadget: five standard fields or any custom option or text field</li><li>Scope by project or by JQL, with the period appended automatically</li><li>Periods of 7, 30 or 90 days, bucketed by day or by week</li><li>A bar per target value, with the smallest values grouped as Other</li><li>Chunked scan of 40 issues with live progress and a five-minute cache</li><li>Up to 400 issues per scan, with a notice when the scope was truncated</li><li>Read-only; gadget settings and cached results removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Field Change Tracker.</p>
+</main></body></html>

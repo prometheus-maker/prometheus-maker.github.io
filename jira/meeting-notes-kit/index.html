@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meeting Notes Kit: documentation and setup</title>
+<meta name="description" content="Create a structured meeting note in one click, then turn its action-item checkboxes into Jira issues from a macro on the page.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/meeting-notes-kit/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A070-meeting-notes-kit.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Meeting Notes Kit</h1>
+<p class="mut">Meeting notes in Confluence, action items in Jira.</p>
+<p>Create a structured meeting note in one click, then turn its action-item checkboxes into Jira issues from a macro on the page.</p>
+<h2>What it does</h2>
+<p>A meeting ends with notes in one place and follow-ups in another. The note records who agreed to what, and the actual work goes into Jira only if someone remembers to retype every action item - usually not all of them.</p><p>Meeting Notes Kit sets up a notes space once and then works inside it. From a Confluence page you create a new note with a topic and a date: the page is titled &quot;Meeting &lt;date&gt; - &lt;topic&gt;&quot;, carries a standard body with Attendees, Agenda, Notes, Decisions and Action items, and gets a label so the kit can find it again. An optional parent page keeps a year of notes in one tree.</p><p>On the note page, the Meeting Actions macro reads the page&#x27;s Confluence task list. Each item shows its state: Open, Done, or Linked with the Jira key it produced. Creating issues takes every incomplete item and opens one issue per item - summary from the item text, a description linking back to the note page, and a label - skipping completed items and the example row the template ships with. Each issue key is stored against the page, so pressing the button again does not create duplicates.</p><p>A single run creates at most 20 issues, and a failure is counted without stopping the rest. Setup is read from app storage: the notes space, the optional parent page, the Jira project key and the issue type by name. The kit never edits your task list, so the checkboxes stay yours to tick.</p>
+<h2>Install</h2>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the macro browser while editing a Confluence page.</p>
+<ul><li>One-click meeting note with a standard five-section body</li><li>Notes titled by date and topic, labelled so they can be listed</li><li>A page listing the latest notes in the space, newest first</li><li>Meeting Actions macro reading the page&#x27;s Confluence task list</li><li>One Jira issue per incomplete action item, with a back-link to the note</li><li>Issue keys stored per page, so repeat runs do not duplicate</li><li>At most 20 issues per run, with counts for created, skipped and failed</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Meeting Notes Kit.</p>
+</main></body></html>

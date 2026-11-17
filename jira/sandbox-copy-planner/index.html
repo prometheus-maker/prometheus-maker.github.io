@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sandbox Copy Planner: documentation and setup</title>
+<meta name="description" content="Scan one Jira project and get its issue count, attachment volume, fields and people, with a rough copy time, before you start the copy.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/sandbox-copy-planner/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A076-sandbox-copy-planner.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Sandbox Copy Planner</h1>
+<p class="mut">Measure a project before you copy it into a sandbox.</p>
+<p>Scan one Jira project and get its issue count, attachment volume, fields and people, with a rough copy time, before you start the copy.</p>
+<h2>What it does</h2>
+<p>Copying a project into a sandbox is a one-way decision: once it starts, you find out how long it takes. A project with two years of screenshots, forty custom fields and a hundred thousand issues behaves nothing like the small one you tested with, and Jira&#x27;s own copy dialog tells you neither before you commit.</p><p>Sandbox Copy Planner lives on a project page. One scan walks the project&#x27;s issues, reading all fields so it can see which are actually populated, and totals what a copy has to carry: issues by type, attachment count and total size, versions, components, custom fields in use with their names, and the number of people referenced as assignee or reporter.</p><p>From those totals it produces a plan table and an estimated copy time, using a stated model (Model v1: a fixed start-up cost, one minute per 400 issues, three minutes per gigabyte of attachments). It also flags the two cases that usually hurt - more than 100,000 issues or more than 50 GB of attachments, and attachments averaging over 5 MB - and warns when a copy should be scheduled outside working hours.</p><p>It also says what a project copy does not bring, in plain words: dashboards, filters, automation rules, board configuration and apps are not carried.</p><p>The scan reads 50 issues per page, three pages per batch, and stores its progress, so a large project is measured across several presses rather than one long request. One scan runs at a time. The plan exports as CSV. Scans are read-only, and the plan and scan state are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>One scan per project, across every issue it can read</li><li>Issue count by type, attachment count and total size</li><li>Versions, components and custom fields in use, by name</li><li>People referenced as assignee or reporter</li><li>An estimated copy time with its model stated</li><li>Flags for very large projects and heavy attachments</li><li>CSV export of the plan; plan and scan state removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Sandbox Copy Planner.</p>
+</main></body></html>

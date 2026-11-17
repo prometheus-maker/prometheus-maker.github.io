@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit Log Explorer: documentation and setup</title>
+<meta name="description" content="Search a date range of the Jira audit log with a text filter, narrow it by category, source and person, then export the changes as CSV.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/audit-log-explorer/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A075-audit-log-explorer.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Audit Log Explorer</h1>
+<p class="mut">Filter and export the Jira audit log by actor, action and date.</p>
+<p>Search a date range of the Jira audit log with a text filter, narrow it by category, source and person, then export the changes as CSV.</p>
+<h2>What it does</h2>
+<p>Jira&#x27;s audit log is written for machines: a long list of events that can be scrolled and text-searched, but not reshaped. When someone asks who changed a project&#x27;s settings last month, or which permission changes touched a scheme, the answer means paging through events by hand and reading each one.</p><p>Audit Log Explorer is an admin page that reads the audit log for a date range and one text filter, then lets you narrow it further by category, event source and actor. Jira does the text matching; the app does the rest locally as it reads, so one search can be filtered several ways without querying Jira again.</p><p>Results show when each event happened, who did it, what the event was, the object it touched, and the before-and-after values when Jira recorded them. Rows page 25 at a time, and the whole result exports as CSV with one line per changed field - the shape a spreadsheet or a ticket wants, not the nested record Jira returns.</p><p>A search reads pages of 100 events, five pages per batch, and stops at 2000 events with a notice when the range is larger - narrow the dates rather than pushing past it. A running search can be cancelled. Reading the audit log needs the Administer Jira permission, and the page says so when it is missing.</p><p>The page only reads. Saved search criteria and the records it fetched are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Audit Log Explorer.</p>
+<ul><li>A date range plus Jira&#x27;s own text filter</li><li>Local filters for category, event source and actor name</li><li>Rows showing the object, and the before and after values of a change</li><li>Paged results, 25 per page, with a running count and total</li><li>CSV export with one line per changed field</li><li>Up to 2000 events per search, read five pages of 100 at a time</li><li>Cancel a running search; nothing is modified</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Audit Log Explorer.</p>
+</main></body></html>

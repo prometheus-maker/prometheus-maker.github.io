@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Health Dashboard: documentation and setup</title>
+<meta name="description" content="Four traffic-light tiles for one Jira project, each compared with a target you set, plus four weeks of resolved issues.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/project-health/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A066-project-health.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Project Health Dashboard</h1>
+<p class="mut">Throughput, work in progress, aging and SLA risk in one gadget.</p>
+<p>Four traffic-light tiles for one Jira project, each compared with a target you set, plus four weeks of resolved issues.</p>
+<h2>What it does</h2>
+<p>A project can look busy and still be drifting: a throughput that no longer keeps up with intake, a work-in-progress column that keeps growing, issues open so long nobody owns them any more. Each of those numbers exists in Jira separately, and nobody has time to pull four reports before a stand-up.</p><p>Project Health Dashboard is a gadget for a Jira dashboard. You pick a project and four targets: a weekly throughput target, a work-in-progress limit, an age in days beyond which an issue counts as old, and an SLA threshold in hours. The gadget returns four tiles - resolved in the last 7 days, issues in progress, open issues older than the age you set, and service requests at risk of breaching an SLA - each with a verdict colour against its target.</p><p>Below the tiles it lists the last four weeks of resolved issues and the open issue count, so a single week&#x27;s dip can be read in context. Combined cases are deliberate: throughput is not bad or good on its own, only against what the team planned.</p><p>For service projects the SLA tile samples the 15 oldest open requests and checks one SLA metric, &quot;Time to first response&quot; by default, counting a request at risk when it has already breached or has less than the threshold remaining. Other project types show the tile as off rather than guessing.</p><p>Values are cached for five minutes per gadget and viewer, with a Refresh button. The gadget is read-only and its settings and snapshots are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>Four tiles: throughput, work in progress, aging and SLA risk</li><li>One configurable target per tile, set on the gadget</li><li>Four weeks of resolved issues for context</li><li>SLA tile for service projects, sampling up to 15 open requests on one metric</li><li>Green, amber and red verdicts against your targets</li><li>Five-minute cache with a Refresh button</li><li>Read-only; settings and snapshots removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Project Health Dashboard.</p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Automation Rule Linter: documentation and setup</title>
+<meta name="description" content="Paste your Jira automation rule exports and get a ranked list of loops, duplicates and rules that write the same field.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/automation-rule-linter/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A047-automation-rule-linter.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Automation Rule Linter</h1>
+<p class="mut">Find automation rules that loop, duplicate or fight each other.</p>
+<p>Paste your Jira automation rule exports and get a ranked list of loops, duplicates and rules that write the same field.</p>
+<h2>What it does</h2>
+<p>A rule that edits the issue which triggered it can fire forever, and two rules writing the same field on the same event overwrite each other without an error. Neither shows up as an error in Jira, and reading a hundred rules by hand does not find them reliably.</p><p>Automation Rule Linter takes the JSON export of your rules, pasted into one box, and checks five things: a rule whose action matches its own trigger, a rule with no conditions at all, two rules with the same shape, a disabled rule covered by an enabled one, and two rules that write the same field on the same event. Each finding names the rules involved and is ranked HIGH, MEDIUM or LOW, with the rule names and ids in the table.</p><p>The app caps a paste at 200 rules and 2 MB of text and says when the input is larger. It keeps the last run so you can return to the findings, and drops that on uninstall.</p><p>Jira Automation has no API that apps can read, which is why rules are pasted rather than fetched. Apart from a permission check, the app reads nothing from Jira and writes nothing to it. The checks are static: they read the rule structure and do not run or simulate a rule.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → Automation Rule Linter.</p>
+<ul><li>Five checks: self-triggering loop, no conditions, duplicate, disabled covered by enabled, same field on the same event</li><li>Findings ranked HIGH, MEDIUM and LOW with the rule names</li><li>One paste for a whole rule export</li><li>At most 200 rules and 2 MB of text per run, stated in the app</li><li>Last result kept and restored on return</li><li>Admin permission check before the page is usable</li><li>Nothing written to Jira; stored result removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Automation Rule Linter.</p>
+</main></body></html>

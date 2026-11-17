@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Queue Digest for Jira: documentation and setup</title>
+<meta name="description" content="A daily comment on a tracking issue with unassigned, untriaged and stale counts, each linked to a Jira search.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/issue-queue-digest/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A097-issue-queue-digest.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Queue Digest for Jira</h1>
+<p class="mut">One daily comment showing the work nobody has picked up.</p>
+<p>A daily comment on a tracking issue with unassigned, untriaged and stale counts, each linked to a Jira search.</p>
+<h2>What it does</h2>
+<p>The issues that hurt a project are the ones nobody is assigned to, the ones that arrived with no priority, and the ones that have not moved in a fortnight. Each is a filter away, so nobody runs the filters.</p><p>Queue Digest posts them together. Once a day, at an hour and in a time zone you choose, it comments on a tracking issue in your project with three lines: unassigned issues that are not done, untriaged issues created within a window you set (seven days by default) that are still To Do with no priority, and stale issues not updated in a window you set (14 days by default). Each count links to the matching Jira search, and under each count come the oldest issues - up to 10 by default, configurable from 0 to 50 - with their age and priority.</p><p>The project lead is mentioned in the comment when you leave that on, so Jira&#x27;s own notification reaches them. The project page previews the digest with the same numbers, shows when the next one goes out, and has Send now, with a Force send when today&#x27;s digest already went and you need it again. Only one digest goes out per project per day.</p><p>Settings are per project and require the Administer Projects permission; the tracking issue must belong to the same project, which is checked on save. Digests are sent by the app&#x27;s hourly trigger, so a quiet hour means nothing is sent. Project settings and the last-sent record are removed on uninstall.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>Daily digest at an hour you pick, in any IANA time zone</li><li>Three buckets: unassigned, untriaged, stale</li><li>Each count linked to the Jira search behind it</li><li>Oldest issues listed per bucket, 0 to 50 rows, with age and priority</li><li>Optional mention of the project lead in the comment</li><li>Preview, Send now, and Force send on the project page</li><li>One digest per project per day; settings removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Queue Digest for Jira.</p>
+</main></body></html>
