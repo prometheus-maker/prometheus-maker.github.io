@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSV Field Bulk Set for Jira: documentation and setup</title>
+<meta name="description" content="A Jira admin page that takes key,field,value rows, shows per-row errors in a dry run, then applies the valid rows in resumable batches.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/csv-field-bulk-set/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>CSV Field Bulk Set for Jira</h1>
+<p class="mut">Paste a CSV of issue keys and field values, validate it, apply it.</p>
+<p>A Jira admin page that takes key,field,value rows, shows per-row errors in a dry run, then applies the valid rows in resumable batches.</p>
+<h2>What it does</h2>
+<p>When the source of truth for a field lives outside Jira - a spreadsheet from finance, a support export, a migration list - updating hundreds of issues by hand is where mistakes happen.</p><p>CSV Field Bulk Set takes pasted CSV with one row per line: issue key, field name (or customfield_ id), and value. Every row is validated against the target field&#x27;s type - text, number, date, or a single option - and the dry run lists exactly what will be written and which rows cannot be: unknown fields, wrong types, missing issues.</p><p>Applying then writes only the valid rows, in batches of 20, with progress stored so a stopped run resumes instead of starting over. Up to 1000 rows fit in one file, values may be wrapped in double quotes, and field names are matched case-insensitively. The job list and its rows are removed from storage when uninstalled.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under Jira settings → Apps → CSV Field Bulk Set for Jira.</p>
+<ul><li>Paste CSV directly: key, field, value, with an optional header</li><li>Field matched by name or customfield_ id, case-insensitive</li><li>Dry run shows every row&#x27;s result and the per-row error when there is one</li><li>Supported types: text, number, date and single option</li><li>Resumable batches of 20 issues, up to 1000 rows per file</li><li>Quoted values supported; job history removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for CSV Field Bulk Set for Jira.</p>
+</main></body></html>

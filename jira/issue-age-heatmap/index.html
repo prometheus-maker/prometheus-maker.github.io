@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Issue Age Heatmap for Jira: documentation and setup</title>
+<meta name="description" content="A dashboard gadget that buckets open issues by age, status category and assignee, from a project or any JQL.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/issue-age-heatmap/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<h1>Issue Age Heatmap for Jira</h1>
+<p class="mut">How old your open work actually is, as a dashboard heatmap.</p>
+<p>A dashboard gadget that buckets open issues by age, status category and assignee, from a project or any JQL.</p>
+<h2>What it does</h2>
+<p>A backlog looks calm until you count the shelf life of its issues. Five buckets - under a week, a week to a month, one to three months, three to six months, and older - tell a different story than a list of issue keys.</p><p>Issue Age Heatmap is a dashboard gadget. Point it at a project or paste any JQL, and it counts the open issues into those age buckets, split by status category and assignee, using creation or last-update age as the gadget is configured. Each gadget keeps its own configuration, so a dashboard can show one project next to another and compare them.</p><p>Rendering reads up to 1000 issues, so it stays quick on a normal dashboard. It is read-only: no field is changed, nothing is stored about the issues themselves, and the gadget&#x27;s own configuration is removed when the app is uninstalled.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+
+<ul><li>A dashboard gadget with five age buckets</li><li>Split by status category and by assignee</li><li>Age measured from creation or last update, per gadget</li><li>Scope a project or use any JQL</li><li>Per-gadget configuration, so several projects sit side by side</li><li>Reads up to 1000 open issues per render</li><li>Read-only; only the gadget&#x27;s own configuration is stored</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Issue Age Heatmap for Jira.</p>
+</main></body></html>
