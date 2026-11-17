@@ -13,8 +13,8 @@
 <h2>What it does</h2>
 <p>Inline comments are how review happens in Confluence, and they are also how review gets forgotten. Once a page scrolls out of the feed, an unanswered comment sits there for months.</p><p>Unresolved Comments adds a global page to Confluence that scans the site and lists every open inline comment, grouped by page and by author, each with a link to the exact comment and a Resolve button that closes it through the Confluence API. A space filter narrows the scan, and it is remembered in the browser for the next visit.</p><p>A scan runs in batches of 20 pages so a large site does not time out; if one space fails, the error is recorded and the scan carries on. Up to 500 spaces are covered per scan. The app only reads content and comments and closes comments you resolve - it does not create replies, footer comments or notifications, and it requests no permissions beyond that.</p>
 <h2>Install</h2>
-<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
-<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<p>Where to install it: Confluence Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Confluence settings → Apps → Find new apps</b>, search for the app name and click <b>Install</b>. After that the macro is available in the macro browser when you edit a page.</p>
 <h2>What you can do with it</h2>
 <p>You find it under the Apps menu in the top bar → Unresolved Comments for Confluence.</p>
 <ul><li>A global Confluence page listing every open inline comment</li><li>Grouped by page and by author, with a deep link to each comment</li><li>Resolve a comment with one click through the Confluence API</li><li>Space filter, remembered between visits</li><li>Batched scan (20 pages per batch, up to 500 spaces) that continues past a failing space</li><li>Only the content, space and comment permissions it needs</li></ul>
