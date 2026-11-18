@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security Policy: Prometheus Jira and Confluence apps</title>
+<meta name="description" content="How the Prometheus apps for Jira and Confluence handle data, reporting a vulnerability, and what we do and do not claim about certifications.">
+<link rel="icon" href="mark.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head><body><main>
+<header><a href="./"><img src="mark.svg" width="22" height="22" alt="" style="vertical-align:0px"> Prometheus</a></header>
+<h1>Security Policy</h1>
+<p>Effective date: 2026-11-18</p>
+<p>This policy covers the apps published by Prometheus on the Atlassian Marketplace. Contact for any security matter: <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a>.</p>
+
+<h2>How the apps run</h2>
+<p>Every app is built on Atlassian Forge and runs entirely inside Atlassian's cloud. The apps do not run our servers. App data is kept in Forge storage, inside the installation's Atlassian site, and each installation can only read its own data.</p>
+<ul>
+<li>No data is sent to us or to any third party. The app manifests contain no external (egress) permissions and no remote endpoints are configured.</li>
+<li>No End-User Data is written to logs.</li>
+<li>The apps never ask for Atlassian Personal Access Tokens, passwords or any other shared secret. Access is through the permissions you grant when you install, listed on each app's Marketplace page.</li>
+<li>Data residency follows Atlassian's platform. The apps keep data only in Atlassian services and add no storage of their own outside them.</li>
+</ul>
+
+<h2>Certifications</h2>
+<p>We do not hold compliance certifications of our own (for example ISO 27001 or SOC 2), and we have not completed a CAIQ Lite questionnaire for these apps. Claims about the Atlassian platform's certifications belong to Atlassian, not to us. We say this plainly rather than claiming a certification we do not have.</p>
+
+<h2>Reporting a vulnerability</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with what you found, the app name, and the steps to reproduce it. Please do not open a public issue first. We aim to reply within five working days, fix confirmed issues as quickly as the risk requires, and tell you when a fix is live. We do not run a paid bug bounty. With your agreement we name you in the release notes of the fix.</p>
+
+<h2>Dependencies</h2>
+<p>The apps ship the smallest dependency set Forge allows. We run npm's audit on every release and keep it at zero known vulnerabilities; an upgrade that would leave a known issue unfixed keeps the release back until it is resolved or until the finding is shown to be a false positive.</p>
+
+<h2>Versions</h2>
+<p>Only the newest version of each app is supported. Marketplace installs are updated automatically, so an outdated version usually means the site has not synced yet.</p>
+</main></body></html>
