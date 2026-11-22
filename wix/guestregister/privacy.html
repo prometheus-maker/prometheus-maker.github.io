@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy: Guest Register: Police Check for Wix</title>
+<meta name="description" content="Privacy Policy for the Guest Register: Police Check app on Wix.">
+<link rel="icon" href="../../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../../style.css">
+</head><body><main>
+<header><a href="../../"><img src="../../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Privacy Policy: Guest Register: Police Check</h1>
+<p>Effective date: 2026-11-22</p>
+<p>Developer: Prometheus (<a href="https://prometheus-maker.github.io" target="_blank" rel="noopener">https://prometheus-maker.github.io</a>)</p>
+<p>Contact: prometheus.maker@proton.me</p>
+<p>This policy describes what the Guest Register: Police Check app (&quot;the app&quot;) does with guest data. Guest ID data belongs to your guests, who never signed up for the app.</p>
+<h2>What the app does</h2>
+<p>The app adds a dashboard page where you record stays and generate a private check-in link for each one. The guest opens the link on your site&#x27;s app backend, fills in the details the register needs, and the row appears in your dashboard where you export it as CSV or PDF so that you can submit it to the authority yourself.</p>
+<h2>The guest ID data</h2>
+<ul>
+<li>What is collected: full name, date of birth, nationality, document type and document number, and home address. No images, no scans and no file uploads.</li>
+<li>Where it is stored: **only in your site&#x27;s own data collections for this app** (`@prometheusmaker/guest-register-stays`, `.../guests`, `.../properties`, `.../settings`), which belong to your Wix site.</li>
+<li>What our servers see: the backend is a stateless proxy. It reads and writes your own collections with the app&#x27;s site-scoped access token and keeps no database, no cache of rows and **no copies**. Nothing is stored on any server of ours.</li>
+<li>Logging: the app never logs guest field values, request bodies, check-in tokens or query strings. Errors are reported by status code only. The only thing kept in memory is the access token for your site, as the platform requires.</li>
+<li>Who can read it: every field is privileged, so visitors have no direct data access. The guest form is served by the app backend, so the guest&#x27;s browser talks to one endpoint and receives a confirmation page, nothing else.</li>
+<li>The check-in link: each stay gets its own link carrying a 128-bit random token. It is stored in your stay row and cannot be derived from the stay, the property or the guest. Treat it as private while it is unused.</li>
+</ul>
+<h2>Automatic deletion</h2>
+<p>Every registration row carries a delete-after date (`purgeAt`): the check-in date plus the retention period. The default is **90 days**, and it applies to the Free plan too. Premium may set a shorter or longer window, from 1 to 3650 days. Expired rows are deleted automatically whenever the dashboard loads and after each new check-in. The dashboard shows each row&#x27;s delete date and also lets you delete a row now.</p>
+<h2>Export, never submit</h2>
+<p>The app downloads the register as CSV, and a single stay as a PDF, to your computer. It does not connect to, or send anything to, any police, government or third-party system, and it has no integration to do so. You submit the file yourself and are responsible for it.</p>
+<h2>Legal advice</h2>
+<p>Settings offers a starting text for your country that you can edit. It is not legal advice. You must check what your local authority requires.</p>
+<h2>Analytics and third parties</h2>
+<p>The app makes no analytics calls, sends no marketing e-mail and shares no data with third parties.</p>
+<h2>Your rights and your guests&#x27; rights</h2>
+<p>You can delete any row from the dashboard at any time; uninstalling the app removes its data collections from your site. As the site owner you are the controller of the register data; answer your guests&#x27; requests from the dashboard and tell them about this app in your own privacy notice as well.</p>
+<h2>Changes</h2>
+<p>The developer may change this policy; the current version is always on this page.</p>
+<p class="mut">Guest Register: Police Check: <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+</main></body></html>
