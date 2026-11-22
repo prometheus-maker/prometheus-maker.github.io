@@ -14,14 +14,14 @@
 <h2>The guest ID data</h2>
 <ul>
 <li>What is collected: full name, date of birth, nationality, document type and document number, and home address. No images, no scans and no file uploads.</li>
-<li>Where it is stored: **only in your site&#x27;s own data collections for this app** (`@prometheusmaker/guest-register-stays`, `.../guests`, `.../properties`, `.../settings`), which belong to your Wix site.</li>
-<li>What our servers see: the backend is a stateless proxy. It reads and writes your own collections with the app&#x27;s site-scoped access token and keeps no database, no cache of rows and **no copies**. Nothing is stored on any server of ours.</li>
+<li>Where it is stored: <strong>only in your site&#x27;s own data collections for this app</strong> (<code>@prometheusmaker/guest-register-stays</code>, <code>.../guests</code>, <code>.../properties</code>, <code>.../settings</code>), which belong to your Wix site.</li>
+<li>What our servers see: the backend is a stateless proxy. It reads and writes your own collections with the app&#x27;s site-scoped access token and keeps no database, no cache of rows and <strong>no copies</strong>. Nothing is stored on any server of ours.</li>
 <li>Logging: the app never logs guest field values, request bodies, check-in tokens or query strings. Errors are reported by status code only. The only thing kept in memory is the access token for your site, as the platform requires.</li>
 <li>Who can read it: every field is privileged, so visitors have no direct data access. The guest form is served by the app backend, so the guest&#x27;s browser talks to one endpoint and receives a confirmation page, nothing else.</li>
 <li>The check-in link: each stay gets its own link carrying a 128-bit random token. It is stored in your stay row and cannot be derived from the stay, the property or the guest. Treat it as private while it is unused.</li>
 </ul>
 <h2>Automatic deletion</h2>
-<p>Every registration row carries a delete-after date (`purgeAt`): the check-in date plus the retention period. The default is **90 days**, and it applies to the Free plan too. Premium may set a shorter or longer window, from 1 to 3650 days. Expired rows are deleted automatically whenever the dashboard loads and after each new check-in. The dashboard shows each row&#x27;s delete date and also lets you delete a row now.</p>
+<p>Every registration row carries a delete-after date (<code>purgeAt</code>): the check-in date plus the retention period. The default is <strong>90 days</strong>, and it applies to the Free plan too. Premium may set a shorter or longer window, from 1 to 3650 days. Expired rows are deleted automatically whenever the dashboard loads and after each new check-in. The dashboard shows each row&#x27;s delete date and also lets you delete a row now.</p>
 <h2>Export, never submit</h2>
 <p>The app downloads the register as CSV, and a single stay as a PDF, to your computer. It does not connect to, or send anything to, any police, government or third-party system, and it has no integration to do so. You submit the file yourself and are responsible for it.</p>
 <h2>Legal advice</h2>
