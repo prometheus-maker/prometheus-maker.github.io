@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Label Suggester for Jira: documentation and setup</title>
+<meta name="description" content="Add labels from an issue panel with live suggestions from your whole site, and a warning when a new label only differs from an existing one by case or punctuation.">
+<link rel="canonical" href="https://prometheus-maker.github.io/jira/label-suggester/">
+<link rel="icon" href="/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head><body><main>
+<nav class="nav"><a class="brand" href="https://prometheus-maker.github.io/"><img src="/mark.svg" width="28" height="28" alt=""> Prometheus</a>
+<a href="https://prometheus-maker.github.io/jira/">Jira &amp; Confluence apps</a><a href="https://prometheus-maker.github.io/jira/privacy.html">Privacy</a><a href="mailto:prometheus.maker@proton.me">Email</a></nav>
+<p><img src="https://prometheus-maker.github.io/jira/icons/A035-label-suggester.png" width="64" height="64" alt="" style="border-radius:14px"></p><h1>Label Suggester for Jira</h1>
+<p class="mut">Suggest site labels as you type, so issues reuse them, not near-duplicates.</p>
+<p>Add labels from an issue panel with live suggestions from your whole site, and a warning when a new label only differs from an existing one by case or punctuation.</p>
+<h2>What it does</h2>
+<p>Jira label lists drift into near-duplicates: customer, Customer and customer-1 all exist, and reports that filter on one miss the rest. The issue panel&#x27;s label field offers no suggestions, so each person types from memory.</p><p>Label Suggester reads the site&#x27;s existing label names, caches them for ten minutes, and as you type offers up to eight matches by prefix, substring and small spelling distance. If the label you typed differs from an existing one only by case or punctuation, it says so before you add it, with the existing name one click away.</p><p>Labels are saved by sending the issue&#x27;s full label array, so nothing else on the issue changes. The panel is read-only for users without the Edit issues permission, and the cached label list is removed when the app is uninstalled.</p>
+<h2>Install</h2>
+<p>Where to install it: Jira Cloud, from the Atlassian Marketplace.</p>
+<p>Open <b>Apps → Manage your apps</b> in Jira, choose <b>Find new apps</b>, search for the app name and click <b>Install</b>.</p>
+<h2>What you can do with it</h2>
+<p>You find it under the panel on the right side of any Jira issue.</p>
+<ul><li>Live suggestions from the site&#x27;s existing labels while you type</li><li>Near-duplicate warning for case and punctuation variants</li><li>Add and remove labels from the issue panel</li><li>Read-only panel for users without Edit issues permission</li><li>Label list cached for ten minutes, capped at 5000 names</li><li>Cache removed on uninstall</li></ul>
+<h2>Your data</h2>
+<p>The app runs on Atlassian Forge inside your own site. Settings and any cached results are stored in
+Forge storage, which belongs to your site; nothing is copied to another service, and nothing is read
+beyond what the app needs to do its job. Removing the app removes what it stored. Details:
+<a href="https://prometheus-maker.github.io/jira/privacy.html">privacy policy</a>.</p>
+<h2>Support</h2>
+<p>Email <a href="mailto:prometheus.maker@proton.me">prometheus.maker@proton.me</a> with the site address, what you expected and what
+happened. I answer within one working day, Monday to Friday, 09:00 to 17:00 CET.</p>
+<p class="mut">This page is the documentation for Label Suggester for Jira.</p>
+</main></body></html>
