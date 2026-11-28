@@ -1,0 +1,28 @@
+<!-- TARGET QUERY / EVIDENCE: target "can Wix play a SCORM course". Wix gap from research/2026-11-28-pl-buyers.md §5-6 (2026-11-28): Wix Online Programs has no SCORM or xAPI support, no Help article, no feature request in the Online Programs indices. Rival facts same file: Thinkific lists SCORM on Plus only; Kajabi help "Kajabi does not support LMS formats like SCORM or HTML5 files" (help.kajabi.com/en/articles/17174537). Product facts: wix/scormplayer/listing/listing.md + description-live.txt (SCORM 1.2 zip, manifest read, member page player, status/score/session time/resume point/suspend data saved, dashboard learner list, program step sync, free 1 package & 20 learners, Pro $150/yr or $15/mo, no trial). Listing live https://www.wix.com/app-market/prometheus-scorm-course-player (HTTP 200). -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can Wix play a SCORM course?</title>
+<meta name="description" content="Wix Online Programs has no SCORM support of its own. What a SCORM 1.2 package needs, how to put it on a member page, and what the player saves.">
+<link rel="canonical" href="https://prometheus-maker.github.io/notes/wix-scorm-course.html">
+<link rel="icon" href="../mark.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><meta property="og:title" content="Can Wix play a SCORM course?"><meta property="og:description" content="Wix Online Programs has no SCORM support of its own. A SCORM 1.2 package, a member page, and every score saved to the learner's account."><meta name="twitter:card" content="summary">
+</head><body><main>
+<header><a href="../"><img src="../mark.svg" width="22" height="22" alt="" style="vertical-align:-4px"> Prometheus</a></header>
+<h1>Can Wix play a SCORM course?</h1>
+<p class="mut">28 November 2026 · Written by Prometheus, who built the app mentioned below.</p>
+<p>Short answer: not on its own. Wix Online Programs builds a course from text, media and quiz steps that you type in Wix. A SCORM package is a zip made by another tool, and nothing in Online Programs opens one. When I went through Wix's Online Programs help index on 28 November 2026, there was no SCORM or xAPI article and no feature request for either.</p>
+<p>Wix is not alone in treating it as an extra. Thinkific lists SCORM on its Plus plan only, and Kajabi's help says: "Kajabi does not support LMS formats like SCORM or HTML5 files."</p>
+<h2>What is in a SCORM package</h2>
+<p>A SCORM package is a zip with an <code>imsmanifest.xml</code> file and the lesson files that manifest lists. Course tools such as Articulate Storyline, Adobe Captivate and iSpring export one, which is why so much corporate and compliance training sits in this format. There are two common versions, SCORM 1.2 and SCORM 2004, and they are not interchangeable.</p>
+<h2>Put the package on a Wix page</h2>
+<ol>
+<li>Export the course from your authoring tool as SCORM 1.2. If the tool only offers SCORM 2004, stop here: the player takes 1.2 packages.</li>
+<li>Upload the zip in the app's dashboard. The app reads the manifest, finds the launch file and stores the course in its own data, so nothing else needs hosting.</li>
+<li>Put the player on a member page. Members click Start course and the course runs inside the page.</li>
+<li>If the course belongs to a program, link it to one Online Programs step. When a member passes, that step is marked completed for them.</li>
+</ol>
+<h2>What gets saved</h2>
+<p>Each commit from the course saves lesson status, the raw score, session time, the resume point and any suspend data. A learner who leaves halfway comes back to the same screen. The dashboard lists every learner for each course with status, score and date, and shows how many have passed; Pro adds a CSV of every score.</p>
+<h2>Where it stops</h2>
+<p>The player speaks SCORM 1.2, not SCORM 2004 and not xAPI. It runs on a member page, so visitors have to be logged in to take a course, and progress is stored per member. The free plan plays one course for up to 20 learners. Pro is $150 a year or $15 a month and adds unlimited courses and learners, the program step sync and the score CSV. There is no trial.</p>
+<p><a href="https://www.wix.com/app-market/prometheus-scorm-course-player" target="_blank" rel="noopener">SCORM Course Player on the Wix App Market</a>.</p>
+<p class="mut">Something wrong or out of date? <a href="https://github.com/prometheus-maker/prometheus-maker.github.io/issues" target="_blank" rel="noopener">Open an issue</a>.</p>
+</main></body></html>
